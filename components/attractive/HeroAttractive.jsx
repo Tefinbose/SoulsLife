@@ -223,18 +223,16 @@ export default function HeroAttractive() {
             <div
               key={slide.id}
               aria-hidden={!isCurrent}
-              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                isCurrent ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
-              }`}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${isCurrent ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+                }`}
             >
               <Image
                 src={slide.image}
                 alt={slide.alt}
                 fill
                 priority={index === 0}
-                className={`object-cover object-center will-change-transform ${
-                  isCurrent ? "hero-kenburns" : ""
-                }`}
+                className={`object-cover object-center will-change-transform ${isCurrent ? "hero-kenburns" : ""
+                  }`}
                 sizes="100vw"
               />
             </div>
@@ -260,7 +258,7 @@ export default function HeroAttractive() {
         <div className="relative z-30 h-full max-w-7xl mx-auto px-5 sm:px-10 lg:px-16 flex flex-col justify-center">
           <div
             key={active.id}
-            className="hero-stack max-w-2xl lg:max-w-3xl pt-4 sm:pt-0"
+            className="hero-stack max-w-2xl lg:max-w-3xl pt-16 sm:pt-12 lg:pt-8"
             aria-live="polite"
           >
             {/* Badge */}
@@ -359,9 +357,8 @@ export default function HeroAttractive() {
                 onClick={() => setCurrentSlide(index)}
                 aria-label={`Go to slide ${index + 1}`}
                 aria-current={isCurrent}
-                className={`relative overflow-hidden h-1.5 transition-all duration-500 rounded-full cursor-pointer ${
-                  isCurrent ? "w-10 sm:w-12 bg-white/30" : "w-4 sm:w-5 bg-white/35 hover:bg-white/70"
-                }`}
+                className={`relative overflow-hidden h-1.5 transition-all duration-500 rounded-full cursor-pointer ${isCurrent ? "w-10 sm:w-12 bg-white/30" : "w-4 sm:w-5 bg-white/35 hover:bg-white/70"
+                  }`}
               >
                 {isCurrent && (
                   <span

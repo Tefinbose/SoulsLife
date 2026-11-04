@@ -194,9 +194,9 @@ export default function RelaxationNature() {
             {/* 3. Mindful 4-7-8 Breathing Guide Card */}
             <div className="pt-1">
               <div
-                className="mindful-breathing-card relative p-4 sm:p-5 rounded-[28px] bg-white/[0.08] backdrop-blur-xl border border-white/20 max-w-sm mx-auto shadow-2xl text-center overflow-hidden transition-all duration-700"
+                className="mindful-breathing-card relative p-4 sm:p-6 rounded-[28px] bg-gradient-to-b from-white/[0.12] to-white/[0.05] backdrop-blur-2xl border border-white/20 max-w-sm mx-auto shadow-2xl text-center overflow-hidden transition-all duration-700"
                 style={{
-                  boxShadow: `0 16px 40px -8px rgba(10, 20, 36, 0.8), 0 0 28px ${currentPhase.glowColor}`,
+                  boxShadow: `0 20px 48px -8px rgba(10, 20, 36, 0.85), 0 0 32px ${currentPhase.glowColor}`,
                 }}
               >
                 {/* Ambient Shifting Backlight */}
@@ -211,7 +211,9 @@ export default function RelaxationNature() {
                 <div className="relative z-10 flex items-center justify-between gap-2 mb-2">
                   <div className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-bold tracking-wider uppercase text-[#F3CEEC]">
                     <Wind className="w-3.5 h-3.5 text-[#F3CEEC] animate-spin-slow" />
-                    <span>Mindful Pause • 4-7-8 Rhythm</span>
+                    <span>Mindful Pause</span>
+                    <span className="text-white/40 font-light mx-0.5">•</span>
+                    <span className="text-white/90">4-7-8 Rhythm</span>
                   </div>
 
                   <span className="text-[10.5px] font-semibold px-2 py-0.5 rounded-full bg-white/10 text-white/80 border border-white/15">
@@ -280,11 +282,11 @@ export default function RelaxationNature() {
                     role="button"
                     tabIndex={0}
                     aria-label={`${currentPhase.name}: ${secondsLeft} seconds remaining. Click to pause or resume`}
-                    className="absolute w-24 h-24 rounded-full flex flex-col items-center justify-center cursor-pointer select-none transition-transform duration-1000 ease-in-out shadow-xl active:scale-95"
+                    className="absolute w-24 h-24 rounded-full flex flex-col items-center justify-center cursor-pointer select-none transition-transform duration-1000 ease-in-out shadow-xl hover:scale-[1.03] active:scale-95"
                     style={{
                       transform: `scale(${isPlaying ? currentPhase.scale : 1})`,
                       background: `linear-gradient(135deg, ${currentPhase.ringGradient[1]} 0%, #0D55AE 100%)`,
-                      boxShadow: `0 0 22px ${currentPhase.glowColor}, inset 0 2px 8px rgba(255,255,255,0.35)`,
+                      boxShadow: `0 0 24px ${currentPhase.glowColor}, inset 0 2px 8px rgba(255,255,255,0.4)`,
                     }}
                   >
                     <span className="text-xs font-extrabold tracking-wider uppercase text-white drop-shadow-sm">
@@ -293,7 +295,7 @@ export default function RelaxationNature() {
                     <span className="font-mono text-lg font-bold text-white/95 leading-tight">
                       {secondsLeft}s
                     </span>
-                    <span className="text-[9px] uppercase tracking-widest text-white/70">
+                    <span className="mt-0.5 inline-flex items-center px-1.5 py-0.2 rounded-full bg-black/20 text-[8.5px] uppercase tracking-wider text-white/80">
                       {isPlaying ? "Active" : "Paused"}
                     </span>
                   </div>
@@ -306,34 +308,34 @@ export default function RelaxationNature() {
                   </p>
                 </div>
 
-                {/* 4-7-8 Phase Step Pills Bar */}
-                <div className="mt-2.5 flex items-center justify-center gap-1.5">
+                {/* 4-7-8 Phase Step Pills Bar (Dots removed & design enhanced) */}
+                <div className="mt-3 flex items-center justify-center gap-1.5 sm:gap-2">
                   {PHASES.map((p, idx) => {
                     const isActive = idx === phaseIndex;
                     return (
-                      <div
+                      <button
                         key={p.name}
-                        className={`flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10.5px] font-semibold border transition-all duration-300 ${
+                        type="button"
+                        onClick={() => {
+                          setPhaseIndex(idx);
+                          setSecondsLeft(p.duration);
+                        }}
+                        aria-label={`Jump to ${p.name} phase (${p.duration}s)`}
+                        className={`px-3 py-1 rounded-full text-[11px] font-semibold border transition-all duration-300 cursor-pointer select-none ${
                           isActive
-                            ? `${p.badgeColor} shadow-sm scale-105`
-                            : "bg-white/5 border-white/10 text-white/50"
+                            ? `${p.badgeColor} shadow-md scale-105 ring-1 ring-white/25`
+                            : "bg-white/5 hover:bg-white/10 border-white/10 text-white/60 hover:text-white/80"
                         }`}
                       >
-                        <span
-                          className={`w-1 h-1 rounded-full ${
-                            isActive ? "bg-white" : "bg-white/30"
-                          }`}
-                        />
-                        <span>
-                          {p.duration}s {p.name}
-                        </span>
-                      </div>
+                        <span className="font-bold">{p.duration}s</span>{" "}
+                        <span className="font-normal opacity-95">{p.name}</span>
+                      </button>
                     );
                   })}
                 </div>
 
                 {/* Interactive Controls Row */}
-                <div className="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-[11px] text-white/75 px-1">
+                <div className="mt-3.5 pt-2.5 border-t border-white/10 flex items-center justify-between text-[11px] text-white/75 px-1">
                   <span>Scientific 4-7-8 vagus calming</span>
 
                   <div className="flex items-center gap-1">
@@ -343,7 +345,7 @@ export default function RelaxationNature() {
                       aria-label={isPlaying ? "Pause breathing" : "Resume breathing"}
                       className="p-1 rounded-full hover:bg-white/15 text-white/80 hover:text-white transition-colors cursor-pointer"
                     >
-                      {isPlaying ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
+                      {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
                     </button>
 
                     <button
@@ -352,7 +354,7 @@ export default function RelaxationNature() {
                       aria-label="Restart cycle"
                       className="p-1 rounded-full hover:bg-white/15 text-white/80 hover:text-white transition-colors cursor-pointer"
                     >
-                      <RotateCcw className="w-3 h-3" />
+                      <RotateCcw className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </div>
