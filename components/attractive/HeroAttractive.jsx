@@ -56,11 +56,25 @@ const heroStyles = `
   font-weight: 400;
 }
 
-/* Critical layout kept in plain CSS so it never depends on Tailwind rebuilds */
-.hero-stage { position: relative; width: 100%; height: 100svh; min-height: 580px; max-height: 750px; }
-@media (min-width: 640px)  { .hero-stage { height: 580px; min-height: 580px; max-height: none; } }
-@media (min-width: 1024px) { .hero-stage { height: 620px; } }
-@media (min-width: 1280px) { .hero-stage { height: 650px; } }
+/* Full viewport layout on all screen sizes */
+.hero-stage {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: 100vh;
+}
+@media (min-width: 640px) {
+  .hero-stage {
+    height: 100vh;
+    min-height: 100vh;
+  }
+}
+@media (min-width: 1024px) {
+  .hero-stage {
+    height: 100vh;
+    min-height: 100vh;
+  }
+}
 
 .hero-title {
   font-family: 'Plein', 'Satoshi', system-ui, sans-serif;
@@ -202,7 +216,7 @@ export default function HeroAttractive() {
 
   return (
     <section
-      className="hero-root relative w-full overflow-hidden bg-[#162238]"
+      className="hero-root relative w-full min-h-screen overflow-hidden bg-[#162238]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onFocus={() => setIsPaused(true)}
