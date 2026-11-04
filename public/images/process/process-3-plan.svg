@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="none">
+  <defs>
+    <linearGradient id="bg-3" x1="0" y1="0" x2="400" y2="250" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FAF5FF"/>
+      <stop offset="50%" stop-color="#FDF2F9"/>
+      <stop offset="100%" stop-color="#F5F3FF"/>
+    </linearGradient>
+    <linearGradient id="path-grad" x1="120" y1="190" x2="280" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FDF2F9"/>
+      <stop offset="50%" stop-color="#F3E8FF"/>
+      <stop offset="100%" stop-color="#E9D5FF"/>
+    </linearGradient>
+    <linearGradient id="flag-grad" x1="260" y1="50" x2="300" y2="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#C026D3"/>
+      <stop offset="100%" stop-color="#A3248F"/>
+    </linearGradient>
+    <filter id="shadow-3" x="240" y="40" width="80" height="130" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#A3248F" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <rect width="400" height="250" fill="url(#bg-3)"/>
+
+  <!-- Soft horizon circles -->
+  <circle cx="280" cy="70" r="50" fill="#E879F9" fill-opacity="0.15"/>
+  <circle cx="100" cy="90" r="35" fill="#C084FC" fill-opacity="0.1"/>
+
+  <!-- Mountain / hill silhouette in background -->
+  <path d="M60 190 Q160 110 260 170 T400 160 L400 250 L0 250 L0 210 Z" fill="#F3E8FF" fill-opacity="0.5"/>
+  <path d="M140 210 Q230 130 330 180 L400 180 L400 250 L100 250 Z" fill="#E9D5FF" fill-opacity="0.4"/>
+
+  <!-- Winding Path -->
+  <path d="M100 220 C140 215, 180 185, 170 155 C160 125, 230 115, 240 90 C245 78, 260 70, 275 68" stroke="#E9D5FF" stroke-width="26" stroke-linecap="round" fill="none"/>
+  <path d="M100 220 C140 215, 180 185, 170 155 C160 125, 230 115, 240 90 C245 78, 260 70, 275 68" stroke="#FFFFFF" stroke-width="22" stroke-linecap="round" fill="none"/>
+  <!-- Dotted path midline -->
+  <path d="M100 220 C140 215, 180 185, 170 155 C160 125, 230 115, 240 90 C245 78, 260 70, 275 68" stroke="#A3248F" stroke-width="2.5" stroke-dasharray="5 5" fill="none"/>
+
+  <!-- Milestone 1 -->
+  <g>
+    <circle cx="130" cy="195" r="9" fill="#A3248F"/>
+    <circle cx="130" cy="195" r="4" fill="#FFFFFF"/>
+    <rect x="115" y="166" width="30" height="16" rx="8" fill="#FFFFFF" stroke="#E9D5FF"/>
+    <text x="130" y="178" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#A3248F" text-anchor="middle">1</text>
+  </g>
+
+  <!-- Milestone 2 -->
+  <g>
+    <circle cx="185" cy="135" r="9" fill="#A3248F"/>
+    <circle cx="185" cy="135" r="4" fill="#FFFFFF"/>
+    <rect x="170" y="106" width="30" height="16" rx="8" fill="#FFFFFF" stroke="#E9D5FF"/>
+    <text x="185" y="118" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" fill="#A3248F" text-anchor="middle">2</text>
+  </g>
+
+  <!-- Milestone 3 / Summit Flag -->
+  <g filter="url(#shadow-3)">
+    <!-- Flagpole -->
+    <line x1="275" y1="50" x2="275" y2="120" stroke="#162238" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="275" cy="50" r="3.5" fill="#F59E0B"/>
+    <!-- Flag -->
+    <path d="M276 52L312 66L276 80Z" fill="url(#flag-grad)"/>
+    <circle cx="275" cy="120" r="7" fill="#A3248F"/>
+    <circle cx="275" cy="120" r="3" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Sparkles of success -->
+  <circle cx="320" cy="55" r="3" fill="#F59E0B"/>
+  <circle cx="295" cy="40" r="2" fill="#E879F9"/>
+  <circle cx="250" cy="55" r="2.5" fill="#A3248F"/>
+</svg>
+

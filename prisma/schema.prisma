@@ -1,0 +1,153 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-3.0.x"]
+}
+
+enum Role {
+  ADMIN
+  SUPERADMIN
+}
+
+enum ConsultationType {
+  ONLINE
+  IN_PERSON
+}
+
+enum AppointmentStatus {
+  PENDING
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+}
+
+enum EnquiryStatus {
+  NEW
+  READ
+  REPLIED
+  CLOSED
+}
+
+model Admin {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         Role     @default(ADMIN)
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([email])
+}
+
+model Appointment {
+  id               String            @id @default(cuid())
+  reference        String            @unique
+  fullName         String
+  email            String
+  phone            String
+  serviceId        String?
+  serviceName      String
+  doctorName       String?
+  preferredDate    String
+  preferredTime    String
+  consultationType ConsultationType  @default(IN_PERSON)
+  message          String?           @db.Text
+  status           AppointmentStatus @default(PENDING)
+  adminNotes       String?           @db.Text
+  privacyConsent   Boolean           @default(true)
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+
+  @@index([reference])
+  @@index([status])
+  @@index([preferredDate])
+  @@index([email])
+  @@index([phone])
+}
+
+model ContactEnquiry {
+  id             String        @id @default(cuid())
+  fullName       String
+  email          String
+  phone          String
+  subject        String
+  message        String        @db.Text
+  status         EnquiryStatus @default(NEW)
+  privacyConsent Boolean       @default(true)
+  adminNotes     String?       @db.Text
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  @@index([status])
+  @@index([email])
+  @@index([createdAt])
+}
+
+model Service {
+  id               String   @id @default(cuid())
+  title            String
+  slug             String   @unique
+  description      String   @db.Text
+  shortDescription String?  @db.Text
+  icon             String?
+  imageUrl         String?
+  tags             String?
+  isActive         Boolean  @default(true)
+  displayOrder     Int      @default(0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@index([slug])
+  @@index([isActive, displayOrder])
+}
+
+model TeamMember {
+  id            String   @id @default(cuid())
+  name          String
+  designation   String
+  qualification String
+  experience    String?
+  description   String?  @db.Text
+  imageUrl      String?
+  focusAreas    String?
+  isActive      Boolean  @default(true)
+  displayOrder  Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([isActive, displayOrder])
+}
+
+model Testimonial {
+  id          String   @id @default(cuid())
+  clientName  String?
+  content     String   @db.Text
+  designation String?
+  isApproved  Boolean  @default(false)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([isApproved, isActive])
+}
+
+model CommunityProgram {
+  id           String   @id @default(cuid())
+  title        String
+  slug         String   @unique
+  description  String   @db.Text
+  imageUrl     String?
+  isActive     Boolean  @default(true)
+  displayOrder Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([slug])
+  @@index([isActive, displayOrder])
+}

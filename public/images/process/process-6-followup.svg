@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="none">
+  <defs>
+    <linearGradient id="bg-6" x1="0" y1="0" x2="400" y2="250" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F5F3FF"/>
+      <stop offset="50%" stop-color="#FAF5FF"/>
+      <stop offset="100%" stop-color="#FDF2F9"/>
+    </linearGradient>
+    <linearGradient id="shield-grad" x1="160" y1="50" x2="240" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#FAF5FF"/>
+      <stop offset="100%" stop-color="#F3E8FF"/>
+    </linearGradient>
+    <linearGradient id="heart-grad" x1="185" y1="95" x2="215" y2="135" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E879F9"/>
+      <stop offset="100%" stop-color="#A3248F"/>
+    </linearGradient>
+    <linearGradient id="loop-grad" x1="120" y1="70" x2="280" y2="170" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#A3248F"/>
+      <stop offset="50%" stop-color="#C026D3"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <filter id="shadow-6" x="130" y="45" width="140" height="150" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#A3248F" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <rect width="400" height="250" fill="url(#bg-6)"/>
+
+  <!-- Subtle ambient circles -->
+  <circle cx="200" cy="120" r="85" fill="#FFFFFF" fill-opacity="0.6"/>
+  <circle cx="90" cy="70" r="40" fill="#E879F9" fill-opacity="0.1"/>
+  <circle cx="310" cy="170" r="45" fill="#C084FC" fill-opacity="0.12"/>
+
+  <!-- Grounding shadow -->
+  <ellipse cx="200" cy="205" rx="85" ry="10" fill="#E9D5FF" fill-opacity="0.45"/>
+
+  <!-- Continuous Encompassing Resilience Loop (Infinity ribbon behind shield) -->
+  <path d="M125 125 C125 90, 160 85, 200 120 C240 155, 275 150, 275 120 C275 90, 240 85, 200 120 C160 155, 125 150, 125 120 Z" stroke="url(#loop-grad)" stroke-width="4.5" stroke-linecap="round" fill="none" stroke-opacity="0.75"/>
+
+  <!-- Central Sanctuary Shield -->
+  <g filter="url(#shadow-6)">
+    <!-- Outer Shield Border -->
+    <path d="M200 55 C228 55, 242 66, 242 98 C242 142, 206 172, 200 178 C194 172, 158 142, 158 98 C158 66, 172 55, 200 55 Z" fill="url(#shield-grad)" stroke="#E9D5FF" stroke-width="2"/>
+
+    <!-- Inner Shield Inset -->
+    <path d="M200 64 C222 64, 233 73, 233 100 C233 135, 205 160, 200 166 C195 160, 167 135, 167 100 C167 73, 178 64, 200 64 Z" fill="#FFFFFF" fill-opacity="0.9"/>
+
+    <!-- Glowing Heart in Shield Center -->
+    <path d="M200 96 C194 88, 182 90, 182 101 C182 112, 200 125, 200 125 C200 125, 218 112, 218 101 C218 90, 206 88, 200 96 Z" fill="url(#heart-grad)"/>
+    
+    <!-- Heart pulse aura -->
+    <circle cx="200" cy="107" r="18" stroke="#E879F9" stroke-width="1.2" stroke-opacity="0.5" stroke-dasharray="3 3"/>
+  </g>
+
+  <!-- Continuous protective ring in foreground -->
+  <ellipse cx="200" cy="184" rx="26" ry="6" fill="#A3248F" fill-opacity="0.15"/>
+
+  <!-- Little reassurance stars -->
+  <circle cx="250" cy="70" r="3" fill="#F59E0B"/>
+  <circle cx="150" cy="70" r="2.5" fill="#A3248F"/>
+  <circle cx="270" cy="145" r="2" fill="#E879F9"/>
+</svg>
+

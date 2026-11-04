@@ -1,0 +1,807 @@
+/* ==========================================================================
+   SOULS LIFE - ADVANCED ANIMATIONS (BRAND LOGO HARMONIZED: MAGENTA & ROYAL BLUE)
+   ========================================================================== */
+
+/* 1. Dynamic Ambient Background Mesh */
+.ambient-bg-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.5;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+.ambient-orb-1 {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(163, 36, 143, 0.22) 0%, rgba(13, 85, 174, 0.12) 60%, transparent 100%);
+  top: -120px;
+  right: -60px;
+  animation: orbFloat1 18s ease-in-out infinite alternate;
+}
+
+.ambient-orb-2 {
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(13, 85, 174, 0.22) 0%, rgba(240, 246, 255, 0.6) 60%, transparent 100%);
+  top: 250px;
+  left: -120px;
+  animation: orbFloat2 22s ease-in-out infinite alternate;
+}
+
+.ambient-orb-3 {
+  width: 440px;
+  height: 440px;
+  background: radial-gradient(circle, rgba(163, 36, 143, 0.18) 0%, rgba(253, 242, 249, 0.5) 60%, transparent 100%);
+  bottom: 80px;
+  right: 15%;
+  animation: orbFloat3 16s ease-in-out infinite alternate;
+}
+
+@keyframes orbFloat1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translate(-60px, 80px) scale(1.12);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-120px, 40px) scale(0.95);
+    opacity: 0.4;
+  }
+}
+
+@keyframes orbFloat2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(80px, -60px) scale(1.15);
+  }
+  100% {
+    transform: translate(40px, 90px) scale(0.9);
+  }
+}
+
+@keyframes orbFloat3 {
+  0% {
+    transform: translate(0, 0) scale(0.95);
+  }
+  50% {
+    transform: translate(-50px, -70px) scale(1.15);
+  }
+  100% {
+    transform: translate(50px, -30px) scale(1.02);
+  }
+}
+
+/* 2. Color-Changing Text Gradient Animation (Signature Logo Magenta -> Royal Blue) */
+.animated-gradient-text {
+  background: linear-gradient(
+    135deg,
+    #A3248F 0%,
+    #0D55AE 35%,
+    #7E186E 60%,
+    #1B6AD4 82%,
+    #A3248F 100%
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: dynamicGradientFlow 8s ease infinite;
+  display: inline-block;
+}
+
+@keyframes dynamicGradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 3. Glowing Card & Logo Gradient Border Shimmer */
+.glowing-border-card {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px -8px rgba(13, 85, 174, 0.08);
+}
+
+.glowing-border-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #A3248F, #0D55AE, #F3CEEC, #2A77DB, #A3248F);
+  background-size: 200% 100%;
+  animation: borderSheen 6s linear infinite;
+  opacity: 0.9;
+}
+
+@keyframes borderSheen {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
+}
+
+.glowing-border-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -10px rgba(163, 36, 143, 0.2);
+}
+
+/* 4. Live Radar Status Beacon (Logo Magenta/Cyan Pulse) */
+.live-radar-dot {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  background-color: #A3248F;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.live-radar-dot::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: rgba(163, 36, 143, 0.45);
+  animation: radarWave 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+@keyframes radarWave {
+  0% {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.3);
+    opacity: 0;
+  }
+}
+
+/* 5. Smooth Floating Micro-Animations */
+.floating-element-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.floating-element-reverse {
+  animation: floatSlowReverse 7s ease-in-out infinite;
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes floatSlowReverse {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+/* 6. Mode Toggle Bar */
+.mode-toggle-bar {
+  display: inline-flex;
+  background-color: rgba(253, 242, 249, 0.85);
+  border: 1px solid rgba(163, 36, 143, 0.25);
+  padding: 4px;
+  border-radius: 9999px;
+  position: relative;
+  box-shadow: inset 0 2px 4px rgba(13, 85, 174, 0.04);
+}
+
+.mode-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  font-size: 13.5px;
+  font-weight: 700;
+  border-radius: 9999px;
+  color: #4A5B73;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.mode-toggle-btn.active {
+  background: linear-gradient(135deg, #A3248F 0%, #0D55AE 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(163, 36, 143, 0.3);
+}
+
+/* 7. Category Filter Chips */
+.service-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1.5px solid rgba(163, 36, 143, 0.25);
+  background-color: #FFFFFF;
+  color: #4A5B73;
+  transition: all 0.22s ease;
+}
+
+.service-filter-chip:hover {
+  background-color: #FDF2F9;
+  color: #A3248F;
+  border-color: #A3248F;
+}
+
+.service-filter-chip.active {
+  background: linear-gradient(135deg, #A3248F 0%, #0D55AE 100%);
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: 0 4px 16px rgba(163, 36, 143, 0.3);
+}
+
+/* 8. Breathing Guide Widget Animation */
+.breathing-circle-outer {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  background: radial-gradient(circle, rgba(163, 36, 143, 0.25) 0%, rgba(13, 85, 174, 0.15) 70%);
+  border: 2px dashed rgba(232, 180, 220, 0.6);
+  animation: breathingRhythm 16s ease-in-out infinite;
+}
+
+.breathing-circle-inner {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #A3248F 0%, #0D55AE 100%);
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(163, 36, 143, 0.4);
+  text-align: center;
+  animation: breathingInnerPulse 16s ease-in-out infinite;
+}
+
+@keyframes breathingRhythm {
+  0%, 100% {
+    transform: scale(0.9);
+    border-color: rgba(232, 180, 220, 0.5);
+  }
+  25% {
+    transform: scale(1.18);
+    border-color: rgba(163, 36, 143, 0.85);
+  }
+  68.75% {
+    transform: scale(1.18);
+    border-color: rgba(13, 85, 174, 0.85);
+  }
+}
+
+@keyframes breathingInnerPulse {
+  0%, 100% {
+    transform: scale(0.92);
+    box-shadow: 0 4px 14px rgba(163, 36, 143, 0.25);
+  }
+  25%, 68.75% {
+    transform: scale(1.1);
+    box-shadow: 0 12px 32px rgba(13, 85, 174, 0.45);
+  }
+}
+
+/* 9. Animated Fluttering Butterflies */
+.butterfly-drift-1 {
+  animation: butterflyFloat1 7s ease-in-out infinite;
+}
+.butterfly-drift-2 {
+  animation: butterflyFloat2 8.5s ease-in-out infinite 0.5s;
+}
+.butterfly-drift-3 {
+  animation: butterflyFloat3 6s ease-in-out infinite 1s;
+}
+
+.butterfly-wing-left {
+  transform-origin: 32px 32px;
+  animation: wingFlapLeft 1.4s ease-in-out infinite;
+}
+.butterfly-wing-right {
+  transform-origin: 32px 32px;
+  animation: wingFlapRight 1.4s ease-in-out infinite;
+}
+
+.group:hover .butterfly-wing-left {
+  animation-duration: 0.7s;
+}
+.group:hover .butterfly-wing-right {
+  animation-duration: 0.7s;
+}
+
+@keyframes wingFlapLeft {
+  0%, 100% {
+    transform: scaleX(1) skewY(0deg);
+  }
+  50% {
+    transform: scaleX(0.22) skewY(6deg);
+  }
+}
+
+@keyframes wingFlapRight {
+  0%, 100% {
+    transform: scaleX(1) skewY(0deg);
+  }
+  50% {
+    transform: scaleX(0.22) skewY(-6deg);
+  }
+}
+
+@keyframes butterflyFloat1 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(6px, -10px) rotate(4deg);
+  }
+  50% {
+    transform: translate(12px, -3px) rotate(-3deg);
+  }
+  75% {
+    transform: translate(4px, -12px) rotate(2deg);
+  }
+}
+
+@keyframes butterflyFloat2 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  30% {
+    transform: translate(-8px, -12px) rotate(-5deg);
+  }
+  60% {
+    transform: translate(-12px, -4px) rotate(3deg);
+  }
+  85% {
+    transform: translate(-4px, -10px) rotate(-2deg);
+  }
+}
+
+@keyframes butterflyFloat3 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  35% {
+    transform: translate(8px, -6px) rotate(5deg);
+  }
+  70% {
+    transform: translate(-4px, -10px) rotate(-4deg);
+  }
+}
+
+/* ==========================================================================
+   10. CALMING WELLNESS CARDS ANIMATIONS (WHY CHOOSE US)
+   Designed specifically to soothe anxiety and calm the nervous system
+   ========================================================================== */
+
+/* Card 2: Blooming Zen Lotus */
+.lotus-bloom {
+  transform-origin: 32px 40px;
+  animation: lotusBreathe 5.5s ease-in-out infinite;
+}
+.lotus-petal-left {
+  transform-origin: 32px 40px;
+  animation: petalOpenLeft 5.5s ease-in-out infinite;
+}
+.lotus-petal-right {
+  transform-origin: 32px 40px;
+  animation: petalOpenRight 5.5s ease-in-out infinite;
+}
+.lotus-ripple {
+  transform-origin: 32px 44px;
+  animation: waterRipple 4.5s ease-out infinite;
+}
+.lotus-leaf-drift {
+  animation: driftingLeaf 6.5s ease-in-out infinite;
+}
+
+@keyframes lotusBreathe {
+  0%, 100% {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes petalOpenLeft {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-7deg) translate(-2px, -1px);
+  }
+}
+
+@keyframes petalOpenRight {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(7deg) translate(2px, -1px);
+  }
+}
+
+@keyframes waterRipple {
+  0% {
+    r: 6;
+    opacity: 0.65;
+    stroke-width: 1.4;
+  }
+  70% {
+    r: 26;
+    opacity: 0;
+    stroke-width: 0.5;
+  }
+  100% {
+    r: 26;
+    opacity: 0;
+  }
+}
+
+@keyframes driftingLeaf {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  40% {
+    transform: translate(-4px, 4px) rotate(-9deg);
+  }
+  75% {
+    transform: translate(3px, 8px) rotate(6deg);
+  }
+}
+
+/* Card 3: Zen Cairn Stones & Fireflies */
+.zen-aura {
+  transform-origin: 32px 34px;
+  animation: zenAuraGlow 5s ease-in-out infinite;
+}
+.firefly-orb-1 {
+  animation: fireflyGlide1 5.5s ease-in-out infinite;
+}
+.firefly-orb-2 {
+  animation: fireflyGlide2 7s ease-in-out infinite 0.7s;
+}
+.firefly-orb-3 {
+  animation: fireflyGlide3 6.2s ease-in-out infinite 1.4s;
+}
+
+@keyframes zenAuraGlow {
+  0%, 100% {
+    transform: scale(0.93);
+    opacity: 0.25;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.55;
+  }
+}
+
+@keyframes fireflyGlide1 {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0.45;
+  }
+  30% {
+    transform: translate(7px, -9px);
+    opacity: 1;
+  }
+  70% {
+    transform: translate(-5px, -15px);
+    opacity: 0.5;
+  }
+}
+
+@keyframes fireflyGlide2 {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0.35;
+  }
+  40% {
+    transform: translate(-9px, 7px);
+    opacity: 0.95;
+  }
+  80% {
+    transform: translate(6px, 12px);
+    opacity: 0.4;
+  }
+}
+
+@keyframes fireflyGlide3 {
+  0%, 100% {
+    transform: translate(0, 0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(10px, 5px);
+    opacity: 1;
+  }
+}
+
+/* Card 4: Harmonic Calming Waves & Sunbeams */
+.harmonic-wave-1 {
+  transform-origin: 48px 32px;
+  animation: wavePulse1 4s ease-in-out infinite;
+}
+.harmonic-wave-2 {
+  transform-origin: 48px 32px;
+  animation: wavePulse2 4s ease-in-out infinite 0.6s;
+}
+.harmonic-wave-3 {
+  transform-origin: 48px 32px;
+  animation: wavePulse3 4s ease-in-out infinite 1.2s;
+}
+.sunbeam-mote-1 {
+  animation: moteRise1 4.8s ease-in-out infinite;
+}
+.sunbeam-mote-2 {
+  animation: moteRise2 6.2s ease-in-out infinite 0.9s;
+}
+.sunbeam-mote-3 {
+  animation: moteRise3 4.2s ease-in-out infinite 1.8s;
+}
+
+@keyframes wavePulse1 {
+  0%, 100% {
+    transform: scale(0.95);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.85;
+  }
+}
+
+@keyframes wavePulse2 {
+  0%, 100% {
+    transform: scale(0.92);
+    opacity: 0.32;
+  }
+  50% {
+    transform: scale(1.09);
+    opacity: 0.75;
+  }
+}
+
+@keyframes wavePulse3 {
+  0%, 100% {
+    transform: scale(0.9);
+    opacity: 0.25;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.65;
+  }
+}
+
+@keyframes moteRise1 {
+  0% {
+    transform: translate(0, 8px);
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(4px, -18px);
+    opacity: 0;
+  }
+}
+
+@keyframes moteRise2 {
+  0% {
+    transform: translate(0, 6px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate(-5px, -20px);
+    opacity: 0;
+  }
+}
+
+@keyframes moteRise3 {
+  0% {
+    transform: translate(0, 5px);
+    opacity: 0;
+  }
+  45% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate(5px, -14px);
+    opacity: 0;
+  }
+}
+
+/* Card 5: Mindful 4-4 Breathing Beacon & Infinity Flow */
+.breath-beacon-core {
+  transform-origin: 32px 32px;
+  animation: beaconBreathe 4.5s ease-in-out infinite;
+}
+.breath-beacon-ring-1 {
+  transform-origin: 32px 32px;
+  animation: beaconRing1 4.5s ease-in-out infinite;
+}
+.breath-beacon-ring-2 {
+  transform-origin: 32px 32px;
+  animation: beaconRing2 4.5s ease-in-out infinite 0.5s;
+}
+.infinity-path-flow {
+  stroke-dasharray: 6 3;
+  animation: infinityDash 7s linear infinite;
+}
+
+@keyframes beaconBreathe {
+  0%, 100% {
+    transform: scale(0.88);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+}
+
+@keyframes beaconRing1 {
+  0%, 100% {
+    transform: scale(0.86);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.16);
+    opacity: 0.8;
+  }
+}
+
+@keyframes beaconRing2 {
+  0%, 100% {
+    transform: scale(0.82);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.22);
+    opacity: 0.6;
+  }
+}
+
+@keyframes infinityDash {
+  to {
+    stroke-dashoffset: -36;
+  }
+}
+
+/* Card Hover Interactions: Gentle Calm Responsive Feedback */
+.group:hover .lotus-bloom {
+  filter: drop-shadow(0 4px 12px rgba(16, 185, 129, 0.35));
+}
+.group:hover .zen-aura {
+  opacity: 0.75 !important;
+  transform: scale(1.14);
+  transition: all 0.5s ease;
+}
+.group:hover .harmonic-wave-1,
+.group:hover .harmonic-wave-2 {
+  filter: drop-shadow(0 2px 8px rgba(217, 119, 6, 0.35));
+}
+.group:hover .breath-beacon-ring-1 {
+  stroke-opacity: 0.95;
+  transition: stroke-opacity 0.4s ease;
+}
+
+/* ==========================================================================
+   11. MODERN PEACE DOVE ANIMATIONS
+   Symbolizing peace, emotional reconciliation, hope, and sanctuary
+   ========================================================================== */
+
+.dove-wing-left-flap {
+  transform-origin: 38px 35px;
+  animation: doveWingFlapLeft 1.8s ease-in-out infinite;
+}
+
+.dove-wing-right-flap {
+  transform-origin: 42px 34px;
+  animation: doveWingFlapRight 1.8s ease-in-out infinite;
+}
+
+@keyframes doveWingFlapLeft {
+  0%, 100% {
+    transform: rotate(0deg) scaleY(1);
+  }
+  25% {
+    transform: rotate(-24deg) scaleY(0.72) translateY(-2px);
+  }
+  50% {
+    transform: rotate(0deg) scaleY(1);
+  }
+  75% {
+    transform: rotate(16deg) scaleY(0.88) translateY(1.5px);
+  }
+}
+
+@keyframes doveWingFlapRight {
+  0%, 100% {
+    transform: rotate(0deg) scaleY(1);
+  }
+  25% {
+    transform: rotate(-20deg) scaleY(0.76) translateY(-1.5px);
+  }
+  50% {
+    transform: rotate(0deg) scaleY(1);
+  }
+  75% {
+    transform: rotate(13deg) scaleY(0.9) translateY(1.2px);
+  }
+}
+
+.dove-gentle-hover {
+  animation: doveHoverFloat 6.5s ease-in-out infinite;
+}
+
+@keyframes doveHoverFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  35% {
+    transform: translateY(-9px) rotate(-3deg);
+  }
+  70% {
+    transform: translateY(5px) rotate(2deg);
+  }
+}
+
+
+
+
+

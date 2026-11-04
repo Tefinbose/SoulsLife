@@ -1,0 +1,373 @@
+/* ==========================================================================
+   SOULS LIFE WELLBEING CENTER - BRAND LOGO SIGNATURE DESIGN SYSTEM
+   Palette sampled directly from Souls Life Logo:
+   - Primary Logo Magenta / Berry Violet: #A3248F
+   - Secondary Logo Royal Blue: #0D55AE
+   - Deep Twilight Indigo: #1E2548
+   - Soft Brand Lavender / Lilac: #FDF2F9
+   - Soft Ice Blue: #F0F6FF
+   - Warm Pure Canvas: #FAF8FD / #FFFFFF
+   - Text Midnight: #162238
+   - Text Muted: #4A5B73
+   ========================================================================== */
+
+@import url('https://api.fontshare.com/v2/css?f[]=plein@400&f[]=britney@400&f[]=satoshi@400,500,700&display=swap');
+
+:root {
+  --brand-magenta: #A3248F;
+  --brand-magenta-hover: #8A1C79;
+  --brand-magenta-dark: #6D1460;
+  --brand-magenta-light: #C443B0;
+  --brand-magenta-soft: #FDF2F9;
+  --brand-magenta-border: #F3CEEC;
+
+  --brand-blue: #0D55AE;
+  --brand-blue-hover: #0A438A;
+  --brand-blue-dark: #08336A;
+  --brand-blue-light: #2A77DB;
+  --brand-blue-soft: #F0F6FF;
+  --brand-blue-border: #CFE2FE;
+
+  --brand-gradient: linear-gradient(135deg, #A3248F 0%, #0D55AE 100%);
+  --brand-gradient-hover: linear-gradient(135deg, #8A1C79 0%, #0A438A 100%);
+  --brand-gradient-soft: linear-gradient(135deg, #FDF2F9 0%, #F0F6FF 100%);
+
+  --warm-canvas: #FAF8FD;
+  --white: #FFFFFF;
+  --text-navy: #162238;
+  --text-navy-muted: #4A5B73;
+  --text-navy-light: #7E90A6;
+
+  --border-light: rgba(163, 36, 143, 0.15);
+  --border-card: rgba(13, 85, 174, 0.10);
+
+  --shadow-sm: 0 2px 10px rgba(13, 85, 174, 0.05);
+  --shadow-md: 0 8px 30px -4px rgba(163, 36, 143, 0.08);
+  --shadow-lg: 0 16px 40px -8px rgba(13, 85, 174, 0.14);
+  --shadow-hover: 0 20px 48px -10px rgba(163, 36, 143, 0.22);
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 9999px;
+
+  --font-main: 'Satoshi', system-ui, -apple-system, sans-serif;
+  --font-display: 'Plein', 'Satoshi', system-ui, sans-serif;
+  --font-serif: var(--font-serif), 'Cormorant Garamond', Georgia, Cambria, serif;
+}
+
+.font-display,
+.about-display,
+.team-display,
+.page-display,
+.section-main-title,
+h1, h2, h3 {
+  font-family: var(--font-display) !important;
+  letter-spacing: -0.015em;
+}
+
+.page-root,
+.about-root,
+.team-root,
+.wellness-page-wrap,
+body {
+  font-family: var(--font-main);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Base Reset */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--warm-canvas);
+  color: var(--text-navy);
+  margin: 0;
+  padding: 0;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wellness-page-wrap {
+  background-color: transparent;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: clip;
+}
+
+.wellness-container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (min-width: 1024px) {
+  .wellness-container {
+    padding: 0 32px;
+  }
+}
+
+/* ==========================================================================
+   TYPOGRAPHY & SECTION CHIPS
+   ========================================================================== */
+
+.section-label-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--brand-magenta);
+  background: linear-gradient(135deg, var(--brand-magenta-soft) 0%, var(--brand-blue-soft) 100%);
+  border: 1px solid var(--brand-magenta-border);
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(163, 36, 143, 0.08);
+}
+
+.section-label-chip.on-dark {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.section-main-title {
+  font-size: 38px;
+  font-weight: 850;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: var(--text-navy);
+  margin: 0 0 16px;
+}
+
+.section-sub-title {
+  font-size: 16.5px;
+  color: var(--text-navy-muted);
+  line-height: 1.65;
+  margin: 0;
+  max-width: 640px;
+}
+
+.section-header-centered {
+  text-align: center;
+  margin-bottom: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+
+.btn-nature-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  background: linear-gradient(135deg, #A3248F 0%, #0D55AE 100%);
+  color: #FFFFFF !important;
+  font-weight: 700;
+  font-size: 14.5px;
+  padding: 13px 28px;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 22px rgba(163, 36, 143, 0.32);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-nature-primary:hover {
+  background: linear-gradient(135deg, #8A1C79 0%, #0A438A 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(13, 85, 174, 0.38);
+}
+
+.btn-nature-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  background-color: #FFFFFF;
+  color: var(--brand-magenta) !important;
+  font-weight: 700;
+  font-size: 14.5px;
+  padding: 12px 26px;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  border: 1.5px solid var(--brand-magenta-border);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+}
+
+.btn-nature-secondary:hover {
+  background-color: var(--brand-magenta-soft);
+  border-color: var(--brand-magenta);
+  color: var(--brand-magenta-dark) !important;
+  transform: translateY(-2px);
+}
+
+.btn-nature-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  background-color: #25D366;
+  color: #FFFFFF !important;
+  font-weight: 700;
+  font-size: 14.5px;
+  padding: 13px 26px;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+  transition: all 0.25s ease;
+}
+
+.btn-nature-whatsapp:hover {
+  background-color: #20BA5A;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(37, 211, 102, 0.4);
+}
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+
+.wellness-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(163, 36, 143, 0.12);
+  transition: all 0.3s ease;
+  padding: 16px 0;
+}
+
+.wellness-navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 24px rgba(13, 85, 174, 0.08);
+  padding: 12px 0;
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-menu-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-item-link {
+  font-size: 14px;
+  font-weight: 650;
+  color: var(--text-navy);
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  transition: all 0.2s ease;
+}
+
+.nav-item-link:hover {
+  color: var(--brand-magenta);
+  background-color: var(--brand-magenta-soft);
+}
+
+.nav-item-link.active {
+  color: var(--brand-magenta);
+  background: linear-gradient(135deg, var(--brand-magenta-soft) 0%, var(--brand-blue-soft) 100%);
+  font-weight: 750;
+}
+
+/* ==========================================================================
+   FOOTER (Logo Twilight Palette)
+   ========================================================================== */
+
+.wellness-footer {
+  background: linear-gradient(180deg, #1A1F36 0%, #101426 100%);
+  color: #E2ECE9;
+  padding: 80px 0 32px;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(163, 36, 143, 0.2);
+}
+
+.footer-main-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
+  gap: 48px;
+  margin-bottom: 64px;
+}
+
+@media (max-width: 1024px) {
+  .footer-main-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-main-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.footer-col-title {
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #E8B4DC;
+  margin: 0 0 20px;
+}
+
+.footer-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links-list a {
+  color: #C5D4E8;
+  text-decoration: none;
+  font-size: 13.5px;
+  transition: color 0.2s ease;
+}
+
+.footer-links-list a:hover {
+  color: #FFFFFF;
+}
+
+.footer-bottom-bar {
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 12.5px;
+  color: #8D9FAF;
+}

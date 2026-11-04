@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" fill="none">
+  <defs>
+    <linearGradient id="bg-4" x1="0" y1="0" x2="400" y2="250" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FDF2F9"/>
+      <stop offset="50%" stop-color="#FAF5FF"/>
+      <stop offset="100%" stop-color="#F5F3FF"/>
+    </linearGradient>
+    <linearGradient id="chair-left" x1="100" y1="90" x2="160" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#C026D3"/>
+      <stop offset="100%" stop-color="#A3248F"/>
+    </linearGradient>
+    <linearGradient id="chair-right" x1="240" y1="90" x2="300" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#6D28D9"/>
+    </linearGradient>
+    <filter id="shadow-4" x="80" y="80" width="240" height="130" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#162238" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect width="400" height="250" fill="url(#bg-4)"/>
+
+  <!-- Window / Warm Sunbeam Backdrop in Room -->
+  <rect x="150" y="30" width="100" height="90" rx="50" fill="#FFFFFF" fill-opacity="0.8"/>
+  <rect x="155" y="35" width="90" height="80" rx="45" fill="#FAF5FF"/>
+  <line x1="200" y1="35" x2="200" y2="115" stroke="#E9D5FF" stroke-width="2"/>
+  <line x1="155" y1="75" x2="245" y2="75" stroke="#E9D5FF" stroke-width="2"/>
+
+  <!-- Warm ambient rug on floor -->
+  <ellipse cx="200" cy="195" rx="125" ry="24" fill="#F3E8FF" stroke="#E9D5FF" stroke-width="1.5"/>
+
+  <!-- Left Armchair (facing right) -->
+  <g filter="url(#shadow-4)">
+    <!-- Legs -->
+    <line x1="112" y1="175" x2="105" y2="198" stroke="#78350F" stroke-width="3" stroke-linecap="round"/>
+    <line x1="148" y1="175" x2="152" y2="198" stroke="#78350F" stroke-width="3" stroke-linecap="round"/>
+    
+    <!-- Seat cushion -->
+    <rect x="105" y="145" width="52" height="30" rx="10" fill="url(#chair-left)"/>
+    <!-- Backrest -->
+    <path d="M106 150 C104 110, 115 95, 130 95 C140 95, 144 110, 142 150 Z" fill="url(#chair-left)"/>
+    <!-- Armrest -->
+    <rect x="110" y="132" width="12" height="26" rx="6" fill="#D946EF"/>
+    <!-- Pillow -->
+    <ellipse cx="132" cy="144" rx="8" ry="10" fill="#FDE047" transform="rotate(10 132 144)"/>
+  </g>
+
+  <!-- Center Tea Table -->
+  <g>
+    <!-- Table leg -->
+    <line x1="200" y1="160" x2="200" y2="192" stroke="#78350F" stroke-width="3" stroke-linecap="round"/>
+    <ellipse cx="200" cy="192" rx="14" ry="4" fill="#78350F" fill-opacity="0.4"/>
+    <!-- Table top -->
+    <ellipse cx="200" cy="160" rx="22" ry="7" fill="#FFFFFF" stroke="#E9D5FF" stroke-width="2"/>
+    <!-- Tea Cup -->
+    <rect x="195" y="148" width="10" height="9" rx="3" fill="#A3248F"/>
+    <path d="M205 150C207 150 208 152 208 154C208 156 207 157 205 157" stroke="#A3248F" stroke-width="1.2" fill="none"/>
+    <!-- Steam -->
+    <path d="M198 144 Q200 140 198 137" stroke="#C084FC" stroke-width="1" stroke-linecap="round" fill="none"/>
+    <path d="M202 144 Q204 140 202 137" stroke="#C084FC" stroke-width="1" stroke-linecap="round" fill="none"/>
+  </g>
+
+  <!-- Right Armchair (facing left) -->
+  <g filter="url(#shadow-4)">
+    <!-- Legs -->
+    <line x1="252" y1="175" x2="248" y2="198" stroke="#78350F" stroke-width="3" stroke-linecap="round"/>
+    <line x1="288" y1="175" x2="295" y2="198" stroke="#78350F" stroke-width="3" stroke-linecap="round"/>
+    
+    <!-- Seat cushion -->
+    <rect x="243" y="145" width="52" height="30" rx="10" fill="url(#chair-right)"/>
+    <!-- Backrest -->
+    <path d="M294 150 C296 110, 285 95, 270 95 C260 95, 256 110, 258 150 Z" fill="url(#chair-right)"/>
+    <!-- Armrest -->
+    <rect x="278" y="132" width="12" height="26" rx="6" fill="#A78BFA"/>
+    <!-- Pillow -->
+    <ellipse cx="268" cy="144" rx="8" ry="10" fill="#F472B6" transform="rotate(-10 268 144)"/>
+  </g>
+
+  <!-- Potted indoor peace plant on the side -->
+  <g>
+    <!-- Pot -->
+    <path d="M72 170L76 195H60L64 170Z" fill="#F3E8FF" stroke="#C084FC" stroke-width="1.2"/>
+    <!-- Leaves -->
+    <path d="M68 170 Q60 155 52 160" stroke="#059669" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M68 170 Q70 148 78 146" stroke="#059669" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M68 170 Q78 158 84 164" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  </g>
+</svg>
+
