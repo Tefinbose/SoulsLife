@@ -45,8 +45,6 @@ const slides = [
  * Fontshare CDN, so no new folders or font files are needed in the project.
  */
 const heroStyles = `
-@import url('https://api.fontshare.com/v2/css?f[]=plein@400&f[]=britney@400&f[]=satoshi@400,500,700&display=swap');
-
 .hero-root {
   font-family: 'Satoshi', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
@@ -98,11 +96,11 @@ const heroStyles = `
 }
 
 @keyframes hero-rise {
-  from { opacity: 0; transform: translateY(18px); filter: blur(4px); }
+  from { opacity: 0; transform: translateY(14px); filter: blur(3px); }
   to   { opacity: 1; transform: translateY(0);    filter: blur(0); }
 }
 @keyframes hero-fade {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(6px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes hero-progress {
@@ -118,12 +116,12 @@ const heroStyles = `
   50%      { transform: translateY(-6px); }
 }
 
-.hero-anim-chip  { animation: hero-fade 0.7s 0.05s cubic-bezier(.22,1,.36,1) both; }
-.hero-anim-l1    { animation: hero-rise 0.9s 0.15s cubic-bezier(.22,1,.36,1) both; }
-.hero-anim-l2    { animation: hero-rise 0.9s 0.30s cubic-bezier(.22,1,.36,1) both; }
-.hero-anim-desc  { animation: hero-fade 0.9s 0.50s cubic-bezier(.22,1,.36,1) both; }
-.hero-anim-trust { animation: hero-fade 0.9s 0.65s cubic-bezier(.22,1,.36,1) both; }
-.hero-anim-cta   { animation: hero-fade 0.9s 0.80s cubic-bezier(.22,1,.36,1) both; }
+.hero-anim-chip  { animation: hero-fade 0.45s 0.02s cubic-bezier(.22,1,.36,1) both; }
+.hero-anim-l1    { animation: hero-rise 0.55s 0.06s cubic-bezier(.22,1,.36,1) both; }
+.hero-anim-l2    { animation: hero-rise 0.55s 0.12s cubic-bezier(.22,1,.36,1) both; }
+.hero-anim-desc  { animation: hero-fade 0.55s 0.18s cubic-bezier(.22,1,.36,1) both; }
+.hero-anim-trust { animation: hero-fade 0.55s 0.24s cubic-bezier(.22,1,.36,1) both; }
+.hero-anim-cta   { animation: hero-fade 0.55s 0.28s cubic-bezier(.22,1,.36,1) both; }
 
 .hero-kenburns { animation: hero-kenburns ${SLIDE_DURATION + 1500}ms ease-out both; }
 

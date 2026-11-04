@@ -1,4 +1,5 @@
 import { Cormorant_Garamond, Plus_Jakarta_Sans, Poppins } from "next/font/google";
+import StickyWhatsAppButton from "@/components/buttons/StickyWhatsAppButton";
 import "./globals.css";
 import "./wellness-theme.css";
 import "./souls-animated.css";
@@ -44,6 +45,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className="min-h-screen flex flex-col bg-[#FAF8F1] text-[#243746] antialiased selection:bg-[#E8F0E7] selection:text-[#164E3B]">
         {children}
+        <StickyWhatsAppButton />
       </body>
     </html>
   );

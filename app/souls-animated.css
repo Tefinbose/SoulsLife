@@ -801,6 +801,131 @@
   }
 }
 
+/* ==========================================================================
+   12. COMPANION SONGBIRDS ANIMATION (CONTACT PAGE)
+   Soft Pink & Mint Blue companion birds from Souls Life listening sanctuary
+   ========================================================================== */
+
+.bird-wing-front-flutter {
+  transform-origin: 46px 44px;
+  animation: birdWingFlutterFront 0.34s ease-in-out infinite alternate;
+}
+
+.bird-wing-back-flutter {
+  transform-origin: 52px 34px;
+  animation: birdWingFlutterBack 0.34s ease-in-out infinite alternate 0.06s;
+}
+
+@keyframes birdWingFlutterFront {
+  0% {
+    transform: rotate(0deg) scaleY(1);
+  }
+  100% {
+    transform: rotate(-16deg) scaleY(0.78) translateY(-2px);
+  }
+}
+
+@keyframes birdWingFlutterBack {
+  0% {
+    transform: rotate(0deg) scaleY(1);
+  }
+  100% {
+    transform: rotate(-12deg) scaleY(0.82) translateY(-1.5px);
+  }
+}
+
+.companion-bob-pink {
+  animation: birdBobPink 3.8s ease-in-out infinite;
+}
+
+.companion-bob-blue {
+  animation: birdBobBlue 4.2s ease-in-out infinite 0.4s;
+}
+
+@keyframes birdBobPink {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-4deg);
+  }
+}
+
+@keyframes birdBobBlue {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(4deg);
+  }
+}
+
+/* ==========================================================================
+   13. CONTACT PAGE EFFECTIVE WELLNESS ENHANCEMENTS
+   Luminous sticky glow, button light sweep, and live pulse
+   ========================================================================== */
+
+.contact-sticky-glow {
+  box-shadow: 0 16px 44px -8px rgba(163, 36, 143, 0.12),
+              0 6px 20px -4px rgba(13, 85, 174, 0.08);
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.contact-sticky-glow:hover {
+  box-shadow: 0 20px 56px -6px rgba(163, 36, 143, 0.18),
+              0 8px 24px -2px rgba(13, 85, 174, 0.12);
+}
+
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: -70%;
+  width: 45%;
+  height: 220%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.32) 50%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  animation: btnShimmerSweep 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes btnShimmerSweep {
+  0%, 60% {
+    left: -70%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+.heart-pop-pulse {
+  animation: heartPulsePop 2.4s ease-in-out infinite;
+}
+
+@keyframes heartPulsePop {
+  0%, 100% {
+    transform: scale(0.95);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+    filter: drop-shadow(0 4px 8px rgba(251, 113, 133, 0.4));
+  }
+}
+
+
+
 
 
 

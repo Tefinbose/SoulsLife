@@ -85,15 +85,19 @@ export default function FlyingButterflies() {
   const mouseRef = useRef({ x: -1000, y: -1000, active: false });
   const animFrameRef = useRef(null);
   const [mounted, setMounted] = useState(false);
+  const [activeConfigs, setActiveConfigs] = useState(BUTTERFLY_CONFIGS);
 
   useEffect(() => {
     setMounted(true);
     const width = window.innerWidth;
     const height = window.innerHeight;
+    const isSmall = width < 640;
+    const configsToUse = isSmall ? BUTTERFLY_CONFIGS.slice(0, 2) : BUTTERFLY_CONFIGS;
+    setActiveConfigs(configsToUse);
 
     // Distribute butterflies gracefully across the screen
-    butterfliesRef.current = BUTTERFLY_CONFIGS.map((cfg, idx) => {
-      const startX = (width / (BUTTERFLY_CONFIGS.length + 1)) * (idx + 1) + (Math.random() * 60 - 30);
+    butterfliesRef.current = configsToUse.map((cfg, idx) => {
+      const startX = (width / (configsToUse.length + 1)) * (idx + 1) + (Math.random() * 60 - 30);
       const startY = height * 0.2 + idx * height * 0.18 + (Math.random() * 40 - 20);
       const angle = Math.random() * Math.PI * 2;
 
@@ -286,7 +290,7 @@ export default function FlyingButterflies() {
         aria-hidden="true"
         className="fixed inset-0 pointer-events-none z-30 overflow-hidden select-none"
       >
-        {BUTTERFLY_CONFIGS.map((cfg, idx) => (
+        {activeConfigs.map((cfg, idx) => (
           <div
             key={cfg.id}
             ref={(node) => {

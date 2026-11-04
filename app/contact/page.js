@@ -22,6 +22,7 @@ import Navbar from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
 import InteractiveBackground from "@/components/interactive/InteractiveBackground";
 import BookSessionButton from "@/components/buttons/BookSessionButton";
+import ContactBirds, { CompanionBirdsPair } from "@/components/interactive/ContactBirds";
 import { siteConfig } from "@/data/homeData";
 import { FadeUp, FadeIn } from "@/components/ui/MotionSection";
 
@@ -140,27 +141,34 @@ export default function ContactPage() {
   return (
     <div className="wellness-page-wrap page-root relative">
       <InteractiveBackground />
+      {/* Companion Birds (Pink & Blue) Flying Across Contact Page */}
+      <ContactBirds />
       <Navbar />
 
       <main className="relative z-10">
         {/* ========================================================
-            CONTACT HERO SECTION
+            CONTACT HERO SECTION (CLEAN & VIEWPORT OPTIMIZED)
             ======================================================== */}
-        <section className="py-12 lg:py-18 relative">
+        <section className="pt-5 sm:pt-7 pb-2 relative">
           <div className="wellness-container">
-            <div className="text-center max-w-3xl mx-auto space-y-4">
+            <div className="text-center max-w-2xl mx-auto space-y-2">
+              {/* Feature Companion Birds Pair Hovering Cheerfully Above Header */}
+              <div className="flex justify-center -mb-1">
+                <CompanionBirdsPair size={48} />
+              </div>
+
               <FadeIn delay={0}>
                 <span className="section-label-chip inline-flex">
                   GET IN TOUCH &amp; ENQUIRIES
                 </span>
               </FadeIn>
-              <FadeUp delay={0.1}>
-                <h1 className="page-display text-3xl sm:text-4xl lg:text-5xl font-normal text-[#162238] tracking-tight leading-tight">
+              <FadeUp delay={0.08}>
+                <h1 className="page-display text-2xl sm:text-3xl lg:text-4xl font-normal text-[#162238] tracking-tight leading-tight">
                   We Are Here to <span className="animated-gradient-text">Listen &amp; Guide</span> You
                 </h1>
               </FadeUp>
-              <FadeUp delay={0.2}>
-                <p className="text-sm sm:text-base text-[#4A5B73] leading-relaxed max-w-2xl mx-auto">
+              <FadeUp delay={0.14}>
+                <p className="text-xs sm:text-sm text-[#4A5B73] leading-relaxed max-w-xl mx-auto">
                   Have questions regarding our counseling services, workshops, or clinic programs?
                   Reach out to our clinical desk in Wandoor or submit your confidential enquiry below.
                 </p>
@@ -172,41 +180,41 @@ export default function ContactPage() {
         {/* ========================================================
             TWO-COLUMN MAIN SECTION: CLINIC DETAILS + ENQUIRY FORM
             ======================================================== */}
-        <section id="contact" className="pb-16 lg:pb-24">
+        <section id="contact" className="pt-2 pb-10 sm:pb-14">
           <div className="wellness-container">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 lg:gap-8 items-start">
               {/* ----------------------------------------------------
                   LEFT COLUMN: CLINIC CONTACT & LOCATION
                   ---------------------------------------------------- */}
-              <FadeUp delay={0.1} distance={24} className="lg:col-span-5 space-y-5">
+              <FadeUp delay={0.1} distance={20} className="lg:col-span-5 space-y-3.5">
                 <div>
-                  <span className="section-label-chip inline-flex mb-2">
+                  <span className="section-label-chip inline-flex mb-1.5">
                     IN-CLINIC CENTER
                   </span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-[#162238] tracking-tight">
+                  <h2 className="text-xl sm:text-2xl font-extrabold text-[#162238] tracking-tight">
                     Visit Our Wandoor Center
                   </h2>
-                  <p className="text-sm text-[#4A5B73] mt-2 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#4A5B73] mt-1 leading-relaxed">
                     Designed with utmost privacy, tranquil acoustic isolation, and welcoming warmth.
                     Walk in for personal, marital, or child consultations.
                   </p>
                 </div>
 
                 {/* Book Session CTA Card */}
-                <div className="p-5 rounded-2xl bg-gradient-to-r from-[#A3248F]/10 via-[#0D55AE]/10 to-transparent border border-[#A3248F]/25 shadow-sm space-y-2.5">
+                <div className="p-4 sm:p-4.5 rounded-2xl bg-gradient-to-r from-[#A3248F]/10 via-[#0D55AE]/10 to-transparent border border-[#A3248F]/25 shadow-xs space-y-2">
                   <div className="flex items-center gap-2">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-[#A3248F] bg-white px-2 py-0.5 rounded-md border border-[#A3248F]/20">
                       CONSULTATION BOOKING
                     </span>
                   </div>
-                  <h3 className="text-base font-extrabold text-[#162238]">
+                  <h3 className="text-sm sm:text-base font-extrabold text-[#162238]">
                     Looking to Book an Appointment?
                   </h3>
                   <p className="text-xs text-[#4A5B73] leading-relaxed">
                     Choose your doctor, session date, and time slot directly in our interactive booking portal.
                   </p>
-                  <div className="pt-1">
-                    <BookSessionButton className="btn-nature-primary text-xs py-2.5 px-4.5 shadow-md flex items-center gap-2 cursor-pointer">
+                  <div className="pt-0.5">
+                    <BookSessionButton className="btn-nature-primary text-xs py-2 px-4 shadow-sm flex items-center gap-2 cursor-pointer">
                       <Calendar className="w-4 h-4" />
                       <span>Book Consultation Session</span>
                     </BookSessionButton>
@@ -214,14 +222,14 @@ export default function ContactPage() {
                 </div>
 
                 {/* Contact Detail Cards */}
-                <div className="space-y-3.5">
+                <div className="space-y-3">
                   {/* Address Card */}
-                  <div className="p-4 sm:p-5 rounded-2xl bg-white/95 border border-[#A3248F]/15 shadow-sm hover:shadow-md transition-all flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#A3248F]/10 text-[#A3248F] flex items-center justify-center shrink-0 mt-0.5">
-                      <MapPin className="w-5 h-5" />
+                  <div className="group p-3.5 sm:p-4 rounded-2xl bg-white/95 border border-[#A3248F]/15 shadow-xs hover:shadow-md hover:border-[#A3248F]/35 hover:-translate-y-0.5 transition-all duration-300 flex items-start gap-3.5">
+                    <div className="w-9 h-9 rounded-xl bg-[#A3248F]/10 text-[#A3248F] flex items-center justify-center shrink-0 mt-0.5 transition-transform duration-300 group-hover:scale-110">
+                      <MapPin className="w-4.5 h-4.5" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-xs font-bold text-[#162238] uppercase tracking-wider mb-1">
+                      <p className="text-xs font-bold text-[#162238] uppercase tracking-wider mb-0.5">
                         Physical Clinic Address
                       </p>
                       <p className="text-xs sm:text-sm text-[#243746] leading-relaxed">
@@ -231,7 +239,7 @@ export default function ContactPage() {
                         href={siteConfig.address.mapsUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#A3248F] hover:text-[#0D55AE] mt-2 transition-colors"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#A3248F] hover:text-[#0D55AE] mt-1.5 transition-colors"
                       >
                         <span>Open in Google Maps</span>
                         <ExternalLink className="w-3.5 h-3.5" />
@@ -240,12 +248,12 @@ export default function ContactPage() {
                   </div>
 
                   {/* Phone & Helplines */}
-                  <div className="p-4 sm:p-5 rounded-2xl bg-white/95 border border-[#A3248F]/15 shadow-sm hover:shadow-md transition-all flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#0D55AE]/10 text-[#0D55AE] flex items-center justify-center shrink-0 mt-0.5">
-                      <Phone className="w-5 h-5" />
+                  <div className="group p-3.5 sm:p-4 rounded-2xl bg-white/95 border border-[#A3248F]/15 shadow-xs hover:shadow-md hover:border-[#A3248F]/35 hover:-translate-y-0.5 transition-all duration-300 flex items-start gap-3.5">
+                    <div className="w-9 h-9 rounded-xl bg-[#0D55AE]/10 text-[#0D55AE] flex items-center justify-center shrink-0 mt-0.5 transition-transform duration-300 group-hover:scale-110">
+                      <Phone className="w-4.5 h-4.5" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-xs font-bold text-[#162238] uppercase tracking-wider mb-1">
+                      <p className="text-xs font-bold text-[#162238] uppercase tracking-wider mb-0.5">
                         Helplines &amp; Calls
                       </p>
                       <p className="text-xs sm:text-sm font-semibold text-[#243746]">
@@ -264,12 +272,12 @@ export default function ContactPage() {
                   </div>
 
                   {/* Consultation Timings */}
-                  <div className="p-4 sm:p-5 rounded-2xl bg-white/95 border border-[#A3248F]/15 shadow-sm hover:shadow-md transition-all flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-[#059669]/10 text-[#059669] flex items-center justify-center shrink-0 mt-0.5">
-                      <Clock className="w-5 h-5" />
+                  <div className="group p-3.5 sm:p-4 rounded-2xl bg-white/95 border border-[#A3248F]/15 shadow-xs hover:shadow-md hover:border-[#A3248F]/35 hover:-translate-y-0.5 transition-all duration-300 flex items-start gap-3.5">
+                    <div className="w-9 h-9 rounded-xl bg-[#059669]/10 text-[#059669] flex items-center justify-center shrink-0 mt-0.5 transition-transform duration-300 group-hover:scale-110">
+                      <Clock className="w-4.5 h-4.5" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-xs font-bold text-[#162238] uppercase tracking-wider mb-1">
+                      <p className="text-xs font-bold text-[#162238] uppercase tracking-wider mb-0.5">
                         Consultation Timings
                       </p>
                       <p className="text-xs sm:text-sm text-[#243746] font-medium">
@@ -283,7 +291,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Direct WhatsApp Action Card */}
-                <div className="p-5 rounded-2xl bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/25 flex flex-col gap-3">
+                <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/25 shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col gap-2.5">
                   <div className="flex items-center gap-2 text-emerald-800 text-xs font-bold uppercase tracking-wider">
                     <MessageCircle className="w-4 h-4" />
                     <span>Direct WhatsApp Desk</span>
@@ -295,7 +303,7 @@ export default function ContactPage() {
                     href={directWhatsAppUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-nature-whatsapp text-xs sm:text-sm py-2.5 px-4 text-center justify-center shadow-xs"
+                    className="btn-nature-whatsapp text-xs sm:text-sm py-2 px-3.5 text-center justify-center shadow-xs"
                   >
                     <MessageCircle className="w-4 h-4" />
                     <span>Chat on WhatsApp: +91 {siteConfig.phone}</span>
@@ -306,9 +314,9 @@ export default function ContactPage() {
               {/* ----------------------------------------------------
                   RIGHT COLUMN: CONTACT & ENQUIRY FORM (STICKY IN SCREEN)
                   ---------------------------------------------------- */}
-              <div className="lg:col-span-7 lg:sticky lg:top-24 z-20 self-start">
-                <FadeUp delay={0.15} distance={20} className="w-full">
-                  <div className="bg-white rounded-3xl border border-[#A3248F]/20 shadow-xl p-5 sm:p-7 relative overflow-hidden lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto [&::-webkit-scrollbar]:hidden">
+              <div className="lg:col-span-7 lg:sticky lg:top-20 z-20 self-start">
+                <FadeUp delay={0.12} distance={20} className="w-full">
+                  <div className="bg-white rounded-3xl border border-[#A3248F]/20 shadow-xl contact-sticky-glow p-4.5 sm:p-6 relative overflow-hidden lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto [&::-webkit-scrollbar]:hidden">
                     {/* Subtle Ambient Orb */}
                     <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#A3248F]/10 to-[#0D55AE]/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -516,7 +524,7 @@ export default function ContactPage() {
                         <button
                           type="submit"
                           disabled={loading}
-                          className="w-full py-3 sm:py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#A3248F] to-[#801770] hover:from-[#8B1E7A] hover:to-[#6E1260] text-white font-extrabold text-xs sm:text-sm shadow-md shadow-[#A3248F]/25 hover:shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-60 cursor-pointer"
+                          className="btn-shimmer w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#A3248F] via-[#911D7F] to-[#0D55AE] hover:from-[#8B1E7A] hover:to-[#0A4794] text-white font-extrabold text-xs sm:text-sm shadow-lg shadow-[#A3248F]/25 hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60 cursor-pointer"
                         >
                           {loading ? (
                             <>

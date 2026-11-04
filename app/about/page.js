@@ -11,7 +11,6 @@ import Navbar from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
 import InteractiveBackground from "@/components/interactive/InteractiveBackground";
 import BookSessionButton from "@/components/buttons/BookSessionButton";
-import PeaceDoves, { ModernPeaceDove } from "@/components/interactive/PeaceDoves";
 import { siteConfig } from "@/data/homeData";
 import { FadeUp, FadeIn, StaggerList } from "@/components/ui/MotionSection";
 
@@ -89,13 +88,11 @@ export default function AboutPage() {
     <div className="wellness-page-wrap about-root relative">
       <style dangerouslySetInnerHTML={{ __html: fontCss }} />
       <InteractiveBackground />
-      {/* Modern Ambient Peace Doves Gliding Across About Page */}
-      <PeaceDoves />
       <Navbar />
 
       <main className="relative z-10">
         {/* Hero */}
-        <section className="relative overflow-hidden py-12 lg:py-20">
+        <section className="relative overflow-hidden py-8 sm:py-10 lg:py-14">
           <div className="wellness-container">
             <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-14">
               <FadeUp className="space-y-6 lg:col-span-7">
@@ -139,11 +136,6 @@ export default function AboutPage() {
 
               <FadeIn delay={0.2} className="relative lg:col-span-5">
                 <div className="relative mx-auto max-w-md lg:max-w-none">
-                  {/* Modern Peace Dove Hovering Accent carrying Olive Sprig */}
-                  <div className="absolute -top-7 -left-5 sm:-top-9 sm:-left-7 z-20 pointer-events-none dove-gentle-hover">
-                    <ModernPeaceDove size={64} glowColor="rgba(163, 36, 143, 0.28)" flapSpeed="2.2s" />
-                  </div>
-
                   <div className="absolute -inset-3 -z-10 rounded-[36px] bg-gradient-to-tr from-[#A3248F]/25 via-[#0D55AE]/20 to-transparent blur-2xl" />
                   <div className="relative aspect-[4/5] overflow-hidden rounded-t-[999px] rounded-b-3xl border-2 border-white/80 shadow-2xl">
                     <Image src="/images/about-center.jpg" alt="Souls Life modern and tranquil counseling sanctuary in Wandoor" fill priority sizes="(max-width: 1024px) 90vw, 480px" className="object-cover transition-transform duration-[1200ms] hover:scale-105" />
@@ -187,7 +179,7 @@ export default function AboutPage() {
         </section>
 
         {/* Story */}
-        <section className="relative py-14 lg:py-24">
+        <section className="relative py-10 lg:py-16">
           <div className="wellness-container">
             <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
               <FadeIn delay={0.1} className="order-2 lg:order-1 lg:col-span-5">
@@ -224,12 +216,7 @@ export default function AboutPage() {
         </section>
 
         {/* Vision & Mission */}
-        <section className="relative py-12 lg:py-16 overflow-hidden">
-          {/* Subtle Ambient Soaring Dove Accent */}
-          <div className="pointer-events-none absolute right-10 top-12 hidden lg:block opacity-75 dove-gentle-hover" style={{ animationDelay: "1.8s" }}>
-            <ModernPeaceDove size={50} glowColor="rgba(13, 85, 174, 0.22)" flapSpeed="2.4s" />
-          </div>
-
+        <section className="relative py-8 lg:py-12 overflow-hidden">
           <div className="wellness-container">
             <FadeUp>
               <SectionHead chip="OUR GUIDING COMPASS" title="Vision & Mission" text="Our long-term aspiration and everyday clinical commitment to our community." />
@@ -277,7 +264,7 @@ export default function AboutPage() {
         </section>
 
         {/* Pillars */}
-        <section className="relative bg-gradient-to-b from-transparent via-[#FDF2F9]/40 to-transparent py-14 lg:py-24">
+        <section className="relative bg-gradient-to-b from-transparent via-[#FDF2F9]/40 to-transparent py-10 lg:py-16">
           <div className="wellness-container">
             <FadeUp>
               <SectionHead chip="INTEGRATED METHODOLOGY" title="Our 4 Pillars of Holistic Care" text="We combine scientific psychological methods with medical social work to ensure deep, lasting transformation." />
@@ -303,7 +290,7 @@ export default function AboutPage() {
         </section>
 
         {/* Core values */}
-        <section className="relative py-12 lg:py-16">
+        <section className="relative py-8 lg:py-12">
           <div className="wellness-container">
             <FadeUp>
               <SectionHead chip="CLINICAL ETHICS" title="Our Core Values & Commitments" text="The ethical principles that guide every consultation and therapy session at Souls Life." />

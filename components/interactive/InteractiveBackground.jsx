@@ -8,12 +8,29 @@ export default function InteractiveBackground() {
   const [hueShift, setHueShift] = useState(0);
 
   useEffect(() => {
+    // Check if device has fine pointer (mouse)
+    const isTouchOnly =
+      typeof window !== "undefined" &&
+      window.matchMedia("(pointer: coarse)").matches &&
+      !window.matchMedia("(pointer: fine)").matches;
+
     // Initial center position
     if (typeof window !== "undefined") {
-      posRef.current.x = window.innerWidth / 2;
-      posRef.current.y = window.innerHeight / 2;
-      posRef.current.targetX = window.innerWidth / 2;
-      posRef.current.targetY = window.innerHeight / 2;
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      posRef.current.x = centerX;
+      posRef.current.y = centerY;
+      posRef.current.targetX = centerX;
+      posRef.current.targetY = centerY;
+
+      if (spotlightRef.current) {
+        spotlightRef.current.style.transform = `translate3d(${centerX}px, ${centerY}px, 0)`;
+      }
+    }
+
+    if (isTouchOnly) {
+      // On mobile / touch screens, keep gentle ambient position without running heavy RAF loop
+      return;
     }
 
     let animationFrameId;
@@ -28,12 +45,17 @@ export default function InteractiveBackground() {
     };
 
     const animate = () => {
-      // Smooth lerp (linear interpolation) for fluid following
-      posRef.current.x += (posRef.current.targetX - posRef.current.x) * 0.08;
-      posRef.current.y += (posRef.current.targetY - posRef.current.y) * 0.08;
+      // Smooth lerp for fluid following
+      const dx = posRef.current.targetX - posRef.current.x;
+      const dy = posRef.current.targetY - posRef.current.y;
 
-      if (spotlightRef.current) {
-        spotlightRef.current.style.transform = `translate3d(${posRef.current.x}px, ${posRef.current.y}px, 0)`;
+      if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
+        posRef.current.x += dx * 0.08;
+        posRef.current.y += dy * 0.08;
+
+        if (spotlightRef.current) {
+          spotlightRef.current.style.transform = `translate3d(${posRef.current.x}px, ${posRef.current.y}px, 0)`;
+        }
       }
 
       animationFrameId = requestAnimationFrame(animate);

@@ -123,7 +123,7 @@ export default function ServicesPage() {
       <main className="relative z-10">
 
         {/* ── Hero ── */}
-        <section className="pb-8 pt-12 lg:pb-10 lg:pt-20">
+        <section className="pb-6 pt-7 lg:pb-8 lg:pt-12">
           <div className="wellness-container">
             <div className="mx-auto max-w-2xl text-center">
 
