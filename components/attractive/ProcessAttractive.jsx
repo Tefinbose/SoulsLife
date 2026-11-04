@@ -56,13 +56,13 @@ export default function ProcessAttractive() {
     <section
       id="process"
       aria-labelledby="process-heading"
-      className="relative flex min-h-[100svh] flex-col justify-center py-8 sm:py-12 lg:py-14 overflow-hidden bg-gradient-to-b from-white via-[#FAF8FD] to-white"
+      className="relative py-8 sm:py-12 lg:py-14 overflow-hidden bg-gradient-to-b from-white via-[#FAF8FD] to-white"
     >
       {/* Ambient background accents */}
       <div className="pointer-events-none absolute -left-20 top-1/4 h-64 w-64 rounded-full bg-[#A3248F]/5 blur-3xl" />
       <div className="pointer-events-none absolute right-0 bottom-1/4 h-64 w-64 rounded-full bg-[#7C3AED]/5 blur-3xl" />
 
-      <div className="wellness-container relative z-10 w-full flex flex-col justify-center">
+      <div className="wellness-container relative z-10 w-full">
         {/* Header */}
         <FadeUp delay={0.08} distance={18} className="mx-auto mb-6 sm:mb-8 max-w-2xl text-center">
           <span className="section-label-chip inline-flex items-center mb-1.5">

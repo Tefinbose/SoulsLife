@@ -53,7 +53,7 @@ const activities = [
 
 export default function CommunityNature() {
   return (
-    <section id="community" className="relative py-12 sm:py-16 lg:py-20">
+    <section id="community" className="relative py-8 sm:py-12 lg:py-16">
       <div className="wellness-container">
         {/* Heading */}
         <FadeUp delay={0.1} distance={24}>

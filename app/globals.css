@@ -875,9 +875,6 @@
   .min-h-\[2rem\] {
     min-height: 2rem;
   }
-  .min-h-\[100svh\] {
-    min-height: 100svh;
-  }
   .min-h-\[155px\] {
     min-height: 155px;
   }
@@ -3697,20 +3694,11 @@
     .sm\:py-3\.5 {
       padding-block: calc(var(--spacing) * 3.5);
     }
-    .sm\:py-8 {
-      padding-block: calc(var(--spacing) * 8);
-    }
     .sm\:py-10 {
       padding-block: calc(var(--spacing) * 10);
     }
     .sm\:py-12 {
       padding-block: calc(var(--spacing) * 12);
-    }
-    .sm\:py-14 {
-      padding-block: calc(var(--spacing) * 14);
-    }
-    .sm\:py-16 {
-      padding-block: calc(var(--spacing) * 16);
     }
     .sm\:pt-0 {
       padding-top: 0px;
@@ -3928,9 +3916,6 @@
     }
     .lg\:px-16 {
       padding-inline: calc(var(--spacing) * 16);
-    }
-    .lg\:py-10 {
-      padding-block: calc(var(--spacing) * 10);
     }
     .lg\:py-12 {
       padding-block: calc(var(--spacing) * 12);

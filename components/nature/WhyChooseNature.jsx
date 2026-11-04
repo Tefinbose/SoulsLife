@@ -577,13 +577,13 @@ export default function WhyChooseNature() {
     <section
       id="why-choose-us"
       aria-labelledby="why-choose-heading"
-      className="relative flex min-h-[100svh] flex-col justify-center py-10 sm:py-14 lg:py-16 overflow-hidden bg-white"
+      className="relative py-8 sm:py-12 lg:py-16 overflow-hidden bg-white"
     >
       {/* Background ambient wellness glows */}
       <div className="pointer-events-none absolute -left-28 top-1/3 h-80 w-80 rounded-full bg-[#A3248F]/5 blur-3xl" />
       <div className="pointer-events-none absolute right-0 bottom-1/3 h-80 w-80 rounded-full bg-[#059669]/5 blur-3xl" />
 
-      <div className="wellness-container relative z-10 w-full flex flex-col justify-center">
+      <div className="wellness-container relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Column: Heading, Subtitle & Book Action */}
           <FadeUp delay={0.08} distance={20} className="lg:col-span-5 flex flex-col justify-center">

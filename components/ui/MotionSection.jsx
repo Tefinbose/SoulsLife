@@ -1,62 +1,32 @@
 "use client";
 
-import { motion, useInView } from "motion/react";
-import { useRef, useState, useEffect } from "react";
+import { motion } from "motion/react";
 
 /**
- * Robust scroll-triggered fade+slide-up animation.
- * Optimized for mobile touchscreens, tablet, and desktop viewports.
+ * Scroll-triggered fade + slide-up animation using native whileInView.
+ * Fires smoothly as the user scrolls into each section on both mobile and desktop.
  *
  * Props:
  *  - delay      (number)  – stagger delay in seconds (default 0)
- *  - duration   (number)  – animation duration in seconds (default 0.55)
- *  - distance   (number)  – how many px the element travels upward (default 24)
+ *  - duration   (number)  – animation duration in seconds (default 0.5)
+ *  - distance   (number)  – how many px the element travels upward (default 22)
  *  - once       (boolean) – only animate once (default true)
  *  - className  (string)  – forwarded to the wrapping div
  */
 export function FadeUp({
   children,
   delay = 0,
-  duration = 0.55,
-  distance = 24,
+  duration = 0.5,
+  distance = 22,
   once = true,
   className = "",
 }) {
-  const ref = useRef(null);
-  // amount: 0.05 triggers as soon as 5% of the element enters view
-  // margin: "0px 0px -15px 0px" gives smooth bottom trigger without clipping top on mobile
-  const inView = useInView(ref, { once, amount: 0.05, margin: "0px 0px -15px 0px" });
-  const [hasAppeared, setHasAppeared] = useState(false);
-
-  useEffect(() => {
-    if (inView) {
-      setHasAppeared(true);
-      return;
-    }
-    // Safety check on mount: If element is already in or above viewport, show immediately
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      if (rect.top < (window.innerHeight || 800)) {
-        setHasAppeared(true);
-        return;
-      }
-    }
-    // Mobile resilience timeout: never leave content invisible if observer is delayed or skipped
-    const timer = setTimeout(() => {
-      setHasAppeared(true);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, [inView]);
-
-  const active = inView || hasAppeared;
-
   return (
     <motion.div
-      ref={ref}
       className={className}
       initial={{ opacity: 0, y: distance }}
-      animate={active ? { opacity: 1, y: 0 } : { opacity: 0, y: distance }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once, amount: 0.1, margin: "0px 0px -30px 0px" }}
       transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
@@ -66,7 +36,7 @@ export function FadeUp({
 
 /**
  * Stagger container – wraps a list and animates each direct child
- * with an incremental delay. Mobile-safe and performant.
+ * with an incremental delay as the list scrolls into view.
  */
 export function StaggerList({
   children,
@@ -76,34 +46,10 @@ export function StaggerList({
   once = true,
   className = "",
 }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once, amount: 0.05, margin: "0px 0px -15px 0px" });
-  const [hasAppeared, setHasAppeared] = useState(false);
-
-  useEffect(() => {
-    if (inView) {
-      setHasAppeared(true);
-      return;
-    }
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      if (rect.top < (window.innerHeight || 800)) {
-        setHasAppeared(true);
-        return;
-      }
-    }
-    const timer = setTimeout(() => {
-      setHasAppeared(true);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, [inView]);
-
-  const active = inView || hasAppeared;
-
   const container = {
-    hidden: {},
+    hidden: { opacity: 0 },
     show: {
+      opacity: 1,
       transition: {
         staggerChildren: stagger,
         delayChildren: baseDelay,
@@ -116,17 +62,17 @@ export function StaggerList({
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
     },
   };
 
   return (
     <motion.div
-      ref={ref}
       className={className}
       variants={container}
       initial="hidden"
-      animate={active ? "show" : "hidden"}
+      whileInView="show"
+      viewport={{ once, amount: 0.08, margin: "0px 0px -25px 0px" }}
     >
       {Array.isArray(children)
         ? children.map((child, i) => (
@@ -145,41 +91,16 @@ export function StaggerList({
 export function FadeIn({
   children,
   delay = 0,
-  duration = 0.6,
+  duration = 0.55,
   once = true,
   className = "",
 }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once, amount: 0.05, margin: "0px 0px -15px 0px" });
-  const [hasAppeared, setHasAppeared] = useState(false);
-
-  useEffect(() => {
-    if (inView) {
-      setHasAppeared(true);
-      return;
-    }
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      if (rect.top < (window.innerHeight || 800)) {
-        setHasAppeared(true);
-        return;
-      }
-    }
-    const timer = setTimeout(() => {
-      setHasAppeared(true);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, [inView]);
-
-  const active = inView || hasAppeared;
-
   return (
     <motion.div
-      ref={ref}
       className={className}
       initial={{ opacity: 0 }}
-      animate={active ? { opacity: 1 } : { opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once, amount: 0.1, margin: "0px 0px -30px 0px" }}
       transition={{ duration, delay, ease: "easeOut" }}
     >
       {children}

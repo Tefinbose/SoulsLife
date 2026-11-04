@@ -183,13 +183,13 @@ export default function ServicesAttractive() {
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="relative flex min-h-[100svh] flex-col justify-center py-6 sm:py-8 lg:py-10 overflow-hidden bg-gradient-to-b from-[#FAF8FD] via-white to-[#FAF8FD]"
+      className="relative py-8 sm:py-12 lg:py-14 overflow-hidden bg-gradient-to-b from-[#FAF8FD] via-white to-[#FAF8FD]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={() => setIsPaused(true)}
       onTouchEnd={() => setIsPaused(false)}
     >
-      <div className="wellness-container w-full flex flex-col justify-center">
+      <div className="wellness-container w-full">
         {/* Header Row */}
         <FadeUp delay={0.08} distance={18}>
           <div className="mb-4 sm:mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">

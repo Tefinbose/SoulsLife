@@ -58,29 +58,8 @@ export default function FadeContent({
   const isInView = useInView(containerRef, {
     once,
     amount: threshold,
-    margin: "0px 0px -15px 0px",
+    margin: "0px 0px -25px 0px",
   });
-  const [hasAppeared, setHasAppeared] = useState(false);
-
-  useEffect(() => {
-    if (isInView) {
-      setHasAppeared(true);
-      return;
-    }
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect();
-      if (rect.top < (window.innerHeight || 800)) {
-        setHasAppeared(true);
-        return;
-      }
-    }
-    const timer = setTimeout(() => {
-      setHasAppeared(true);
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, [isInView]);
-
-  const active = isInView || hasAppeared;
 
   const parsedEase = typeof ease === "string" ? (EASE_MAP[ease] || "easeOut") : ease;
 
@@ -140,7 +119,7 @@ export default function FadeContent({
           <motion.div
             key={child?.key ?? index}
             initial={initialVariant}
-            animate={active ? targetVariant : initialVariant}
+            animate={isInView ? targetVariant : initialVariant}
             transition={{
               duration,
               delay: delay + index * stagger,
@@ -154,7 +133,7 @@ export default function FadeContent({
       ) : (
         <motion.div
           initial={initialVariant}
-          animate={active ? targetVariant : initialVariant}
+          animate={isInView ? targetVariant : initialVariant}
           transition={{
             duration,
             delay,

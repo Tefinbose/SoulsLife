@@ -104,7 +104,13 @@ body {
 .wellness-container {
   max-width: 1220px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 16px;
+}
+
+@media (min-width: 640px) {
+  .wellness-container {
+    padding: 0 24px;
+  }
 }
 
 @media (min-width: 1024px) {

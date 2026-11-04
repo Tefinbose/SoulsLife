@@ -135,7 +135,7 @@ export default function RelaxationNature() {
       <section
         id="relaxation"
         aria-label="Relaxation & Mindful Pause"
-        className="relative isolate overflow-hidden flex min-h-[100svh] flex-col justify-center py-6 sm:py-8 lg:py-10 text-white"
+        className="relative isolate overflow-hidden py-8 sm:py-12 lg:py-14 text-white"
       >
         {/* 1. Scenic Nature Background + Calming Twilight Dark Overlay */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
