@@ -924,6 +924,39 @@
   }
 }
 
+/* ==========================================================================
+   14. COMMUNITY IMPACT CARDS & EMOJI FLOAT ANIMATIONS
+   ========================================================================== */
+
+@keyframes communityFloatGentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-float-gentle {
+  animation: communityFloatGentle 3.6s ease-in-out infinite;
+}
+
+@keyframes communityCardGlow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.06);
+  }
+}
+
+.community-card-glow {
+  animation: communityCardGlow 4s ease-in-out infinite alternate;
+}
+
+
 
 
 

@@ -118,13 +118,17 @@ export default function CommunityPage() {
                 return (
                   <div
                     key={idx}
-                    className="p-6 sm:p-7 rounded-3xl bg-white border border-[#A3248F]/15 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+                    className="p-6 sm:p-7 rounded-3xl bg-white border border-[#A3248F]/15 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
                   >
+                    {/* Top Glow Line */}
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#A3248F] via-[#0D55AE] to-[#A3248F] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
                     <div>
                       <div className="flex items-center justify-between gap-3 mb-4">
-                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#A3248F]/10 to-[#0D55AE]/10 text-[#A3248F] flex items-center justify-center flex-shrink-0 group-hover:bg-[#A3248F] group-hover:text-white transition-all">
+                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#A3248F]/10 to-[#0D55AE]/10 text-[#A3248F] flex items-center justify-center flex-shrink-0 group-hover:bg-gradient-to-br group-hover:from-[#A3248F] group-hover:to-[#0D55AE] group-hover:text-white group-hover:scale-105 group-hover:rotate-6 transition-all duration-300 shadow-2xs">
                           <Icon className="w-6 h-6 stroke-[2]" />
                         </div>
+
                         <span className="text-[11px] font-semibold text-[#0D55AE] bg-[#F0F6FF] px-2.5 py-1 rounded-full border border-[#0D55AE]/15">
                           {item.badge}
                         </span>
