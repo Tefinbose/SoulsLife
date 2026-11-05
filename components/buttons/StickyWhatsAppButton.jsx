@@ -1,10 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { siteConfig } from "@/data/homeData";
 
 export default function StickyWhatsAppButton() {
+  const pathname = usePathname();
   const [isHovered, setIsHovered] = useState(false);
+
+  // Hide floating action button completely on administrative pages
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
 
   const whatsappPhone = siteConfig?.phone || "8156906718";
   const defaultMessage = encodeURIComponent(

@@ -52,8 +52,8 @@
   --radius-xl: 32px;
   --radius-pill: 9999px;
 
-  --font-main: 'Satoshi', system-ui, -apple-system, sans-serif;
-  --font-display: 'Plein', 'Satoshi', system-ui, sans-serif;
+  --font-main: var(--font-plus-jakarta), 'Plus Jakarta Sans', 'Satoshi', system-ui, -apple-system, sans-serif;
+  --font-display: 'Plein', var(--font-plus-jakarta), 'Plus Jakarta Sans', 'Satoshi', system-ui, sans-serif;
   --font-serif: var(--font-serif), 'Cormorant Garamond', Georgia, Cambria, serif;
 }
 
@@ -61,9 +61,12 @@
 .about-display,
 .team-display,
 .page-display,
-.section-main-title,
+.section-main-title {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
+}
+
 h1, h2, h3 {
-  font-family: var(--font-display) !important;
   letter-spacing: -0.015em;
 }
 

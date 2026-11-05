@@ -23,12 +23,15 @@ import {
   ChevronDown,
   MessageSquare,
   MessageCircle,
-  Sparkles,
   FileText,
   Trash2,
   Edit,
   X,
   Check,
+  Menu,
+  ArrowRight,
+  LayoutDashboard,
+  Layers,
 } from "lucide-react";
 
 export default function AdminDashboardPage() {
@@ -36,6 +39,7 @@ export default function AdminDashboardPage() {
   const [admin, setAdmin] = useState(null);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // Tabs: "appointments" | "enquiries"
   const [activeTab, setActiveTab] = useState("appointments");
@@ -276,24 +280,212 @@ export default function AdminDashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F7F9FA] text-neutral-900">
-      {/* Top Navigation Bar */}
-      <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-neutral-200/80 px-4 sm:px-8 py-3.5 shadow-sm">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-4">
+    <div className="min-h-screen bg-[#F7F9FA] text-neutral-900 flex flex-col lg:flex-row">
+      {/* Mobile Drawer Overlay */}
+      {sidebarOpen && (
+        <div
+          onClick={() => setSidebarOpen(false)}
+          className="fixed inset-0 z-40 bg-black/40 backdrop-blur-xs lg:hidden transition-opacity"
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Admin Sidebar */}
+      <aside
+        className={`fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-neutral-200/80 flex flex-col justify-between transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:z-auto shrink-0 shadow-xs lg:shadow-none ${
+          sidebarOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        {/* Sidebar Header: Logo & Clinic Branding */}
+        <div>
+          <div className="h-16 px-5 border-b border-neutral-100 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-2">
               <Image
                 src="/images/logo-transparent.png"
                 alt="Souls Life"
-                width={120}
-                height={40}
+                width={124}
+                height={38}
                 className="h-8 w-auto object-contain"
+                priority
               />
             </Link>
-            <span className="hidden md:inline-block h-5 w-[1px] bg-neutral-300" />
-            <div className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#A3248F]/10 text-[#A3248F] text-xs font-semibold">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              Administrative Portal
+            <button
+              onClick={() => setSidebarOpen(false)}
+              className="lg:hidden p-1.5 rounded-lg text-neutral-400 hover:text-neutral-700 hover:bg-neutral-100 transition"
+              aria-label="Close sidebar"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Navigation Menu */}
+          <div className="px-3 py-4 space-y-6">
+            <div>
+              <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-2">
+                Operations
+              </p>
+              <nav className="space-y-1">
+                <button
+                  onClick={() => {
+                    setActiveTab("appointments");
+                    setSidebarOpen(false);
+                  }}
+                  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition cursor-pointer ${
+                    activeTab === "appointments"
+                      ? "bg-[#A3248F]/10 text-[#A3248F]"
+                      : "text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50"
+                  }`}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <Calendar className="w-4 h-4 shrink-0" />
+                    <span>Appointments</span>
+                  </div>
+                  <span
+                    className={`px-2 py-0.5 rounded-full text-[11px] font-bold ${
+                      activeTab === "appointments"
+                        ? "bg-[#A3248F] text-white"
+                        : "bg-neutral-100 text-neutral-600"
+                    }`}
+                  >
+                    {appointments.length}
+                  </span>
+                </button>
+
+                <button
+                  onClick={() => {
+                    setActiveTab("enquiries");
+                    setSidebarOpen(false);
+                  }}
+                  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition cursor-pointer ${
+                    activeTab === "enquiries"
+                      ? "bg-[#A3248F]/10 text-[#A3248F]"
+                      : "text-neutral-600 hover:text-neutral-900 hover:bg-neutral-50"
+                  }`}
+                >
+                  <div className="flex items-center gap-2.5">
+                    <MessageSquare className="w-4 h-4 shrink-0" />
+                    <span>Contact Enquiries</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    {(stats?.enquiries?.new ?? 0) > 0 && (
+                      <span className="px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-rose-500 text-white">
+                        +{stats.enquiries.new}
+                      </span>
+                    )}
+                    <span
+                      className={`px-2 py-0.5 rounded-full text-[11px] font-bold ${
+                        activeTab === "enquiries"
+                          ? "bg-[#A3248F] text-white"
+                          : "bg-neutral-100 text-neutral-600"
+                      }`}
+                    >
+                      {enquiries.length}
+                    </span>
+                  </div>
+                </button>
+              </nav>
+            </div>
+
+            {/* Quick Shortcuts */}
+            <div>
+              <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-2">
+                Quick Shortcuts
+              </p>
+              <div className="space-y-1">
+                <Link
+                  href="/"
+                  target="_blank"
+                  className="flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold text-neutral-600 hover:text-[#0D55AE] hover:bg-neutral-50 transition"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <ExternalLink className="w-4 h-4 shrink-0 text-neutral-400" />
+                    <span>Live Website</span>
+                  </div>
+                  <ArrowRight className="w-3.5 h-3.5 text-neutral-400" />
+                </Link>
+
+                <Link
+                  href="/services"
+                  target="_blank"
+                  className="flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold text-neutral-600 hover:text-[#A3248F] hover:bg-neutral-50 transition"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <FileText className="w-4 h-4 shrink-0 text-neutral-400" />
+                    <span>Clinical Services</span>
+                  </div>
+                  <ArrowRight className="w-3.5 h-3.5 text-neutral-400" />
+                </Link>
+
+                <a
+                  href="tel:+918156906718"
+                  className="flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold text-neutral-600 hover:text-emerald-700 hover:bg-neutral-50 transition"
+                >
+                  <div className="flex items-center gap-2.5">
+                    <Phone className="w-4 h-4 shrink-0 text-emerald-600" />
+                    <span>Clinic Helpline</span>
+                  </div>
+                  <span className="text-[10px] text-neutral-400">Call</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Sidebar Footer: Authenticated Admin & Logout */}
+        <div className="p-3 border-t border-neutral-100 bg-neutral-50/50">
+          <div className="p-2.5 rounded-xl bg-white border border-neutral-200/70 mb-2.5 shadow-xs">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#A3248F] to-[#0D55AE] text-white flex items-center justify-center font-bold text-xs shrink-0 shadow-xs">
+                {admin?.name ? admin.name.charAt(0).toUpperCase() : "A"}
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="text-xs font-bold text-neutral-900 truncate leading-none">
+                  {admin?.name || "Administrator"}
+                </p>
+                <p className="text-[10px] text-neutral-500 truncate mt-1">
+                  {admin?.email || "admin@soulslife.in"}
+                </p>
+              </div>
+            </div>
+            <div className="mt-2 pt-2 border-t border-neutral-100 flex items-center justify-between">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#A3248F] bg-[#A3248F]/10 px-2 py-0.5 rounded-md">
+                {admin?.role || "SUPERADMIN"}
+              </span>
+              <span className="inline-flex items-center gap-1 text-[10px] text-emerald-600 font-medium">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                Active
+              </span>
+            </div>
+          </div>
+
+          <button
+            onClick={handleLogout}
+            className="w-full flex items-center justify-center gap-2 px-3 py-2 bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-semibold rounded-xl transition cursor-pointer"
+          >
+            <LogOut className="w-3.5 h-3.5" />
+            <span>Sign Out</span>
+          </button>
+        </div>
+      </aside>
+
+      {/* Main Right Content Area */}
+      <div className="flex-1 min-w-0 flex flex-col min-h-screen">
+        {/* Top Navbar Header */}
+        <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-neutral-200/80 px-4 sm:px-8 py-3.5 shadow-xs flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setSidebarOpen(true)}
+              className="lg:hidden p-2 rounded-xl text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 transition cursor-pointer"
+              aria-label="Open sidebar menu"
+            >
+              <Menu className="w-5 h-5" />
+            </button>
+
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4 text-[#A3248F]" />
+              <span className="text-xs sm:text-sm font-bold text-neutral-900">
+                Souls Life Administrative Operations
+              </span>
             </div>
           </div>
 
@@ -301,44 +493,37 @@ export default function AdminDashboardPage() {
             <button
               onClick={fetchAllData}
               disabled={refreshing}
-              className="p-2 text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 rounded-xl transition"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 rounded-xl transition cursor-pointer"
               title="Refresh Data"
             >
-              <RefreshCw className={`w-4 h-4 ${refreshing ? "animate-spin text-[#A3248F]" : ""}`} />
+              <RefreshCw className={`w-3.5 h-3.5 ${refreshing ? "animate-spin text-[#A3248F]" : ""}`} />
+              <span className="hidden sm:inline">Refresh</span>
             </button>
 
             <Link
               href="/"
               target="_blank"
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-neutral-700 hover:text-[#0D55AE] hover:bg-neutral-100 rounded-xl transition"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-[#0D55AE] bg-blue-50/70 hover:bg-blue-100/70 rounded-xl transition"
             >
-              <span>Live Website</span>
-              <ExternalLink className="w-3.5 h-3.5" />
+              <span>Live Site</span>
+              <ExternalLink className="w-3 h-3" />
             </Link>
 
             <div className="h-5 w-[1px] bg-neutral-200 hidden sm:block" />
 
-            {/* Admin identity & Logout */}
-            <div className="flex items-center gap-2">
-              <div className="text-right hidden sm:block">
-                <p className="text-xs font-semibold text-neutral-900 leading-none">{admin?.name}</p>
-                <p className="text-[10px] text-neutral-500 leading-tight mt-0.5">{admin?.email}</p>
-              </div>
-              <button
-                onClick={handleLogout}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-semibold rounded-xl transition cursor-pointer"
-                title="Sign Out"
-              >
-                <LogOut className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">Sign Out</span>
-              </button>
-            </div>
+            <button
+              onClick={handleLogout}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-semibold rounded-xl transition cursor-pointer"
+              title="Sign Out"
+            >
+              <LogOut className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Sign Out</span>
+            </button>
           </div>
-        </div>
-      </header>
+        </header>
 
-      {/* Main Content Container */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-8 py-8">
+        {/* Main Content Container */}
+        <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-8 py-8">
         {/* Welcome Section */}
         <div className="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
@@ -675,7 +860,8 @@ export default function AdminDashboardPage() {
             </div>
           </div>
         )}
-      </main>
+        </main>
+      </div>
 
       {/* Floating Status Notification Toast */}
       {toastMessage && (

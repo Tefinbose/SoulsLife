@@ -191,7 +191,7 @@ export default function ContactPage() {
                   <span className="section-label-chip inline-flex mb-1.5">
                     IN-CLINIC CENTER
                   </span>
-                  <h2 className="text-xl sm:text-2xl font-extrabold text-[#162238] tracking-tight">
+                  <h2 className="text-xl sm:text-2xl font-bold text-[#162238] tracking-tight">
                     Visit Our Wandoor Center
                   </h2>
                   <p className="text-xs sm:text-sm text-[#4A5B73] mt-1 leading-relaxed">
@@ -207,7 +207,7 @@ export default function ContactPage() {
                       CONSULTATION BOOKING
                     </span>
                   </div>
-                  <h3 className="text-sm sm:text-base font-extrabold text-[#162238]">
+                  <h3 className="text-sm sm:text-base font-bold text-[#162238]">
                     Looking to Book an Appointment?
                   </h3>
                   <p className="text-xs text-[#4A5B73] leading-relaxed">
@@ -229,7 +229,7 @@ export default function ContactPage() {
                       <MapPin className="w-4.5 h-4.5" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-xs font-bold text-[#162238] uppercase tracking-wider mb-0.5">
+                      <p className="text-xs font-semibold text-[#162238] tracking-wide mb-0.5">
                         Physical Clinic Address
                       </p>
                       <p className="text-xs sm:text-sm text-[#243746] leading-relaxed">
@@ -239,7 +239,7 @@ export default function ContactPage() {
                         href={siteConfig.address.mapsUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#A3248F] hover:text-[#0D55AE] mt-1.5 transition-colors"
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#A3248F] hover:text-[#0D55AE] mt-1.5 transition-colors"
                       >
                         <span>Open in Google Maps</span>
                         <ExternalLink className="w-3.5 h-3.5" />
@@ -253,7 +253,7 @@ export default function ContactPage() {
                       <Phone className="w-4.5 h-4.5" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-xs font-bold text-[#162238] uppercase tracking-wider mb-0.5">
+                      <p className="text-xs font-semibold text-[#162238] tracking-wide mb-0.5">
                         Helplines &amp; Calls
                       </p>
                       <p className="text-xs sm:text-sm font-semibold text-[#243746]">
@@ -277,7 +277,7 @@ export default function ContactPage() {
                       <Clock className="w-4.5 h-4.5" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-xs font-bold text-[#162238] uppercase tracking-wider mb-0.5">
+                      <p className="text-xs font-semibold text-[#162238] tracking-wide mb-0.5">
                         Consultation Timings
                       </p>
                       <p className="text-xs sm:text-sm text-[#243746] font-medium">
@@ -292,7 +292,7 @@ export default function ContactPage() {
 
                 {/* Direct WhatsApp Action Card */}
                 <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/25 shadow-xs hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col gap-2.5">
-                  <div className="flex items-center gap-2 text-emerald-800 text-xs font-bold uppercase tracking-wider">
+                  <div className="flex items-center gap-2 text-emerald-800 text-xs font-semibold tracking-wide uppercase">
                     <MessageCircle className="w-4 h-4" />
                     <span>Direct WhatsApp Desk</span>
                   </div>
@@ -322,15 +322,15 @@ export default function ContactPage() {
 
                     {/* Form Header */}
                     <div className="mb-4 sm:mb-5 relative z-10">
-                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#A3248F]/10 text-[#A3248F] text-xs font-bold uppercase tracking-wider mb-2">
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#A3248F]/10 text-[#A3248F] text-[11px] font-semibold tracking-wider uppercase mb-2">
                         <MessageSquare className="w-3.5 h-3.5" />
-                        <span>SEND AN ENQUIRY</span>
+                        <span>Send an Enquiry</span>
                       </div>
 
-                      <h2 className="page-display text-2xl sm:text-3xl font-normal text-[#162238] tracking-tight">
+                      <h2 className="text-2xl sm:text-3xl font-bold text-[#162238] tracking-tight">
                         Send Us a Message
                       </h2>
-                      <p className="text-xs sm:text-sm text-[#4A5B73] mt-1 leading-relaxed">
+                      <p className="text-xs sm:text-sm text-[#4A5B73] mt-1.5 leading-relaxed font-normal">
                         Have questions about our counseling programs, corporate workshops, or services?
                         Fill out the form below and our care desk will respond promptly.
                       </p>
@@ -360,15 +360,15 @@ export default function ContactPage() {
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
                               </span>
-                              <p className="font-extrabold text-sm sm:text-base text-emerald-900">
+                              <p className="font-bold text-sm sm:text-base text-emerald-900">
                                 Enquiry Message Received!
                               </p>
                             </div>
-                            <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                            <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full border border-emerald-200">
                               Resetting in {countdown}s
                             </span>
                           </div>
-                          <p className="text-xs text-emerald-800/90 leading-relaxed pl-4.5">
+                          <p className="text-xs text-emerald-800/90 leading-relaxed pl-4.5 font-normal">
                             Thank you, <strong>{formData.fullName}</strong>. Your enquiry regarding <strong>{formData.subject}</strong> has been received by our clinical desk at Wandoor. Our coordinator will contact you via phone or email shortly.
                           </p>
                         </div>
@@ -393,12 +393,12 @@ export default function ContactPage() {
                                 privacyConsent: true,
                               });
                             }}
-                            className="flex-1 btn-nature-secondary text-xs sm:text-sm py-3 text-center justify-center font-bold cursor-pointer"
+                            className="flex-1 btn-nature-secondary text-xs sm:text-sm py-3 text-center justify-center font-semibold cursor-pointer"
                           >
                             Reset to Form Now
                           </button>
 
-                          <BookSessionButton className="flex-1 btn-nature-primary text-xs sm:text-sm py-3 text-center justify-center font-bold cursor-pointer shadow-md">
+                          <BookSessionButton className="flex-1 btn-nature-primary text-xs sm:text-sm py-3 text-center justify-center font-semibold cursor-pointer shadow-md">
                             <Calendar className="w-4 h-4" />
                             <span>Book an Appointment</span>
                           </BookSessionButton>
@@ -412,8 +412,8 @@ export default function ContactPage() {
                         {/* Full Name & Phone */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                           <div>
-                            <label className="block text-xs font-bold uppercase tracking-wider text-[#162238] mb-1.5">
-                              Full Name *
+                            <label className="block text-xs sm:text-[13px] font-semibold text-[#162238] mb-1.5 tracking-tight">
+                              Full Name <span className="text-[#A3248F]">*</span>
                             </label>
                             <div className="relative">
                               <User className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400 pointer-events-none" />
@@ -423,17 +423,17 @@ export default function ContactPage() {
                                 value={formData.fullName}
                                 onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                                 placeholder="Your full name"
-                                className="w-full pl-10 pr-3.5 py-2.5 bg-neutral-50 border border-neutral-200 rounded-xl text-xs sm:text-sm text-neutral-900 focus:outline-none focus:ring-2 focus:ring-[#A3248F]"
+                                className="w-full pl-10 pr-3.5 py-2.5 bg-neutral-50/80 border border-neutral-200 rounded-xl text-xs sm:text-sm text-[#162238] font-normal placeholder:text-neutral-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#A3248F]/30 focus:border-[#A3248F] transition-all"
                               />
                             </div>
                           </div>
 
                           <div>
-                            <label className="block text-xs font-bold uppercase tracking-wider text-[#162238] mb-1.5">
-                              Mobile / WhatsApp (10 Digits) *
+                            <label className="block text-xs sm:text-[13px] font-semibold text-[#162238] mb-1.5 tracking-tight">
+                              Mobile / WhatsApp (10 Digits) <span className="text-[#A3248F]">*</span>
                             </label>
                             <div className="relative">
-                              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-xs font-bold text-neutral-500 pointer-events-none">
+                              <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-xs font-semibold text-neutral-500 pointer-events-none">
                                 +91
                               </span>
                               <input
@@ -446,18 +446,18 @@ export default function ContactPage() {
                                   setFormData({ ...formData, phone: digits });
                                 }}
                                 placeholder="9876543210"
-                                className="w-full pl-12 pr-3.5 py-2.5 bg-neutral-50 border border-neutral-200 rounded-xl text-xs sm:text-sm text-neutral-900 focus:outline-none focus:ring-2 focus:ring-[#A3248F]"
+                                className="w-full pl-12 pr-3.5 py-2.5 bg-neutral-50/80 border border-neutral-200 rounded-xl text-xs sm:text-sm text-[#162238] font-normal placeholder:text-neutral-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#A3248F]/30 focus:border-[#A3248F] transition-all tracking-wide"
                               />
                             </div>
-                            <p className="text-[10px] text-neutral-400 mt-1">Starts with 6, 7, 8, or 9</p>
+                            <p className="text-[11px] text-neutral-400 mt-1 font-normal">Starts with 6, 7, 8, or 9</p>
                           </div>
                         </div>
 
                         {/* Email Address & Subject */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                           <div>
-                            <label className="block text-xs font-bold uppercase tracking-wider text-[#162238] mb-1.5">
-                              Email Address *
+                            <label className="block text-xs sm:text-[13px] font-semibold text-[#162238] mb-1.5 tracking-tight">
+                              Email Address <span className="text-[#A3248F]">*</span>
                             </label>
                             <div className="relative">
                               <Mail className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral-400 pointer-events-none" />
@@ -467,19 +467,19 @@ export default function ContactPage() {
                                 value={formData.email}
                                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                 placeholder="name@example.com"
-                                className="w-full pl-10 pr-3.5 py-2.5 bg-neutral-50 border border-neutral-200 rounded-xl text-xs sm:text-sm text-neutral-900 focus:outline-none focus:ring-2 focus:ring-[#A3248F]"
+                                className="w-full pl-10 pr-3.5 py-2.5 bg-neutral-50/80 border border-neutral-200 rounded-xl text-xs sm:text-sm text-[#162238] font-normal placeholder:text-neutral-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#A3248F]/30 focus:border-[#A3248F] transition-all"
                               />
                             </div>
                           </div>
 
                           <div>
-                            <label className="block text-xs font-bold uppercase tracking-wider text-[#162238] mb-1.5">
-                              Nature of Enquiry *
+                            <label className="block text-xs sm:text-[13px] font-semibold text-[#162238] mb-1.5 tracking-tight">
+                              Nature of Enquiry <span className="text-[#A3248F]">*</span>
                             </label>
                             <select
                               value={formData.subject}
                               onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                              className="w-full px-3 py-2.5 bg-neutral-50 border border-neutral-200 rounded-xl text-xs sm:text-sm font-medium text-neutral-900 focus:outline-none focus:ring-2 focus:ring-[#A3248F]"
+                              className="w-full px-3 py-2.5 bg-neutral-50/80 border border-neutral-200 rounded-xl text-xs sm:text-sm font-normal text-[#162238] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#A3248F]/30 focus:border-[#A3248F] transition-all"
                             >
                               {ENQUIRY_SUBJECTS.map((subj) => (
                                 <option key={subj} value={subj}>
@@ -492,8 +492,8 @@ export default function ContactPage() {
 
                         {/* Detailed Message */}
                         <div>
-                          <label className="block text-xs font-bold uppercase tracking-wider text-[#162238] mb-1.5">
-                            Your Message / Questions *
+                          <label className="block text-xs sm:text-[13px] font-semibold text-[#162238] mb-1.5 tracking-tight">
+                            Your Message / Questions <span className="text-[#A3248F]">*</span>
                           </label>
                           <textarea
                             rows={3}
@@ -501,12 +501,12 @@ export default function ContactPage() {
                             value={formData.message}
                             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                             placeholder="Tell us what you would like to know or how we can assist you..."
-                            className="w-full p-3 bg-neutral-50 border border-neutral-200 rounded-xl text-xs sm:text-sm text-neutral-900 focus:outline-none focus:ring-2 focus:ring-[#A3248F] resize-none"
+                            className="w-full p-3 bg-neutral-50/80 border border-neutral-200 rounded-xl text-xs sm:text-sm text-[#162238] font-normal placeholder:text-neutral-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#A3248F]/30 focus:border-[#A3248F] transition-all resize-none leading-relaxed"
                           />
                         </div>
 
                         {/* Privacy Consent */}
-                        <div className="flex items-start gap-2 pt-0.5">
+                        <div className="flex items-start gap-2.5 pt-0.5">
                           <input
                             type="checkbox"
                             id="contactPrivacy"
@@ -515,7 +515,7 @@ export default function ContactPage() {
                             onChange={(e) => setFormData({ ...formData, privacyConsent: e.target.checked })}
                             className="mt-0.5 h-4 w-4 rounded border-neutral-300 text-[#A3248F] focus:ring-[#A3248F] cursor-pointer"
                           />
-                          <label htmlFor="contactPrivacy" className="text-[11px] text-[#4A5B73] leading-tight cursor-pointer">
+                          <label htmlFor="contactPrivacy" className="text-xs text-[#4A5B73] leading-relaxed cursor-pointer select-none font-normal">
                             I consent to Souls Life contacting me regarding this enquiry in accordance with ethical privacy principles.
                           </label>
                         </div>
@@ -524,23 +524,23 @@ export default function ContactPage() {
                         <button
                           type="submit"
                           disabled={loading}
-                          className="btn-shimmer w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#A3248F] via-[#911D7F] to-[#0D55AE] hover:from-[#8B1E7A] hover:to-[#0A4794] text-white font-extrabold text-xs sm:text-sm shadow-lg shadow-[#A3248F]/25 hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-60 cursor-pointer"
+                          className="btn-shimmer w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#A3248F] via-[#911D7F] to-[#0D55AE] hover:from-[#8B1E7A] hover:to-[#0A4794] text-white font-semibold text-sm sm:text-[15px] tracking-[0.015em] shadow-lg shadow-[#A3248F]/25 hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 flex items-center justify-center gap-2.5 disabled:opacity-60 cursor-pointer"
                         >
                           {loading ? (
                             <>
                               <Loader2 className="w-4 h-4 animate-spin" />
-                              <span>Sending Message...</span>
+                              <span className="font-semibold">Sending Message...</span>
                             </>
                           ) : (
                             <>
                               <Send className="w-4 h-4" />
-                              <span>Submit Enquiry Message</span>
+                              <span className="font-semibold tracking-wide">Submit Enquiry Message</span>
                             </>
                           )}
                         </button>
 
-                        <p className="text-center text-[11px] text-[#4A5B73] pt-0.5">
-                          <ShieldCheck className="w-3.5 h-3.5 text-[#A3248F] inline -mt-0.5 mr-1" />
+                        <p className="text-center text-xs text-[#5B6B82] pt-0.5 flex items-center justify-center gap-1.5 font-normal">
+                          <ShieldCheck className="w-3.5 h-3.5 text-[#A3248F] inline shrink-0" />
                           <span>100% Confidential • Direct clinical desk intake • Zero spam</span>
                         </p>
                       </form>
