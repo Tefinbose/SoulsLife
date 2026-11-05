@@ -5,7 +5,7 @@ import Image from "next/image";
 import { ArrowRight, ChevronLeft, ChevronRight, ChevronDown, Phone, ShieldCheck } from "lucide-react";
 import { siteConfig } from "@/data/homeData";
 
-const SLIDE_DURATION = 7000;
+const SLIDE_DURATION = 3000;
 
 const slides = [
   {
@@ -130,14 +130,14 @@ const heroStyles = `
   50%      { transform: translateY(-6px); }
 }
 
-.hero-anim-chip  { animation: hero-fade 0.45s 0.02s cubic-bezier(.22,1,.36,1) both; }
-.hero-anim-l1    { animation: hero-rise 0.55s 0.06s cubic-bezier(.22,1,.36,1) both; }
-.hero-anim-l2    { animation: hero-rise 0.55s 0.12s cubic-bezier(.22,1,.36,1) both; }
-.hero-anim-desc  { animation: hero-fade 0.55s 0.18s cubic-bezier(.22,1,.36,1) both; }
-.hero-anim-trust { animation: hero-fade 0.55s 0.24s cubic-bezier(.22,1,.36,1) both; }
-.hero-anim-cta   { animation: hero-fade 0.55s 0.28s cubic-bezier(.22,1,.36,1) both; }
+.hero-anim-chip  { animation: hero-fade 0.35s 0.01s cubic-bezier(.22,1,.36,1) both; }
+.hero-anim-l1    { animation: hero-rise 0.4s 0.04s cubic-bezier(.22,1,.36,1) both; }
+.hero-anim-l2    { animation: hero-rise 0.4s 0.08s cubic-bezier(.22,1,.36,1) both; }
+.hero-anim-desc  { animation: hero-fade 0.4s 0.12s cubic-bezier(.22,1,.36,1) both; }
+.hero-anim-trust { animation: hero-fade 0.4s 0.16s cubic-bezier(.22,1,.36,1) both; }
+.hero-anim-cta   { animation: hero-fade 0.4s 0.20s cubic-bezier(.22,1,.36,1) both; }
 
-.hero-kenburns { animation: hero-kenburns ${SLIDE_DURATION + 1500}ms ease-out both; }
+.hero-kenburns { animation: hero-kenburns ${SLIDE_DURATION + 1000}ms ease-out both; }
 
 .hero-progress-fill {
   transform-origin: left center;
@@ -176,7 +176,7 @@ export default function HeroAttractive() {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   }, []);
 
-  // Auto-play slideshow every 7 seconds when not hovered / focused
+  // Auto-play slideshow every 3 seconds when not hovered / focused
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(() => {
@@ -237,7 +237,7 @@ export default function HeroAttractive() {
             <div
               key={slide.id}
               aria-hidden={!isCurrent}
-              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${isCurrent ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+              className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${isCurrent ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
                 }`}
             >
               <Image
