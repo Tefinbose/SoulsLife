@@ -284,6 +284,7 @@ function ZenCairnFirefliesGraphic({ color = "#7C3AED", className = "" }) {
         {/* Zen Stone Cairn (3 Balanced River Pebbles) */}
         {/* Bottom Foundation Stone */}
         <ellipse
+          className="cairn-stone-1"
           cx="32"
           cy="47"
           rx="18"
@@ -304,6 +305,7 @@ function ZenCairnFirefliesGraphic({ color = "#7C3AED", className = "" }) {
 
         {/* Middle Balance Stone */}
         <ellipse
+          className="cairn-stone-2"
           cx="32"
           cy="37"
           rx="13.5"
@@ -324,6 +326,7 @@ function ZenCairnFirefliesGraphic({ color = "#7C3AED", className = "" }) {
 
         {/* Top Serenity Stone */}
         <ellipse
+          className="cairn-stone-3"
           cx="32"
           cy="28"
           rx="8.5"
@@ -579,6 +582,149 @@ export default function WhyChooseNature() {
       aria-labelledby="why-choose-heading"
       className="relative py-8 sm:py-12 lg:py-16 overflow-hidden bg-white"
     >
+      {/* Content-matched card animations (scoped to this section) */}
+      <style>{`
+        /* ───── Card 1 · Qualified Professionals → butterfly: growth & expertise ───── */
+        #why-choose-us .butterfly-wing-left,
+        #why-choose-us .butterfly-wing-right {
+          transform-box: view-box;
+          transform-origin: 32px 30px;
+        }
+        #why-choose-us .butterfly-wing-left  { animation: wc-flap-l 1.6s ease-in-out infinite; }
+        #why-choose-us .butterfly-wing-right { animation: wc-flap-r 1.6s ease-in-out infinite; }
+        #why-choose-us .butterfly-drift-1 { animation: wc-drift-1 7s ease-in-out infinite; }
+        #why-choose-us .butterfly-drift-2 { animation: wc-drift-2 8s ease-in-out -2s infinite; }
+        #why-choose-us .meadow-sway {
+          transform-origin: 100% 100%;
+          animation: wc-sway 6s ease-in-out infinite;
+        }
+        @keyframes wc-flap-l { 0%,100% { transform: scaleX(1); } 50% { transform: scaleX(0.55); } }
+        @keyframes wc-flap-r { 0%,100% { transform: scaleX(1); } 50% { transform: scaleX(0.55); } }
+        @keyframes wc-drift-1 {
+          0%,100% { translate: 0 0; }
+          33% { translate: 6px -5px; }
+          66% { translate: -3px -9px; }
+        }
+        @keyframes wc-drift-2 {
+          0%,100% { translate: 0 0; }
+          40% { translate: -4px -4px; }
+          70% { translate: 3px -7px; }
+        }
+        @keyframes wc-sway { 0%,100% { transform: rotate(-1.5deg); } 50% { transform: rotate(2deg); } }
+
+        /* ───── Card 2 · 100% Confidential & Ethical → lotus: calm, safe, unhurried ───── */
+        #why-choose-us .lotus-bloom {
+          transform-box: view-box;
+          transform-origin: 32px 42px;
+          animation: wc-bloom 7s ease-in-out infinite;
+        }
+        #why-choose-us .lotus-petal-left,
+        #why-choose-us .lotus-petal-right {
+          transform-box: view-box;
+          transform-origin: 32px 42px;
+        }
+        #why-choose-us .lotus-petal-left  { animation: wc-petal-l 7s ease-in-out infinite; }
+        #why-choose-us .lotus-petal-right { animation: wc-petal-r 7s ease-in-out infinite; }
+        #why-choose-us .lotus-ripple {
+          transform-box: view-box;
+          transform-origin: 32px 44px;
+          animation: wc-ripple 4s ease-out infinite;
+        }
+        #why-choose-us .lotus-leaf-drift { animation: wc-leaf 9s ease-in-out infinite; }
+        @keyframes wc-bloom   { 0%,100% { transform: scale(0.95); } 50% { transform: scale(1.04); } }
+        @keyframes wc-petal-l { 0%,100% { transform: rotate(4deg); }  50% { transform: rotate(-5deg); } }
+        @keyframes wc-petal-r { 0%,100% { transform: rotate(-4deg); } 50% { transform: rotate(5deg); } }
+        @keyframes wc-ripple {
+          0%   { transform: scale(0.6); opacity: 0.8; }
+          100% { transform: scale(2);   opacity: 0; }
+        }
+        @keyframes wc-leaf {
+          0%,100% { transform: translate(0, 0) rotate(0deg); }
+          50%     { transform: translate(-4px, 2px) rotate(-10deg); }
+        }
+
+        /* ───── Card 3 · Custom / Personalized → balanced cairn, each stone tuned individually ───── */
+        #why-choose-us .cairn-stone-1,
+        #why-choose-us .cairn-stone-2,
+        #why-choose-us .cairn-stone-3 {
+          transform-box: view-box;
+          transform-origin: 32px 47px;
+        }
+        #why-choose-us .cairn-stone-1 { animation: wc-stone 6s ease-in-out infinite; }
+        #why-choose-us .cairn-stone-2 { animation: wc-stone 6s ease-in-out -0.6s infinite; }
+        #why-choose-us .cairn-stone-3 { animation: wc-stone 6s ease-in-out -1.2s infinite; }
+        #why-choose-us .zen-aura {
+          transform-box: view-box;
+          transform-origin: 32px 34px;
+          animation: wc-aura 5s ease-in-out infinite;
+        }
+        #why-choose-us .firefly-orb-1 { animation: wc-fly-1 8s ease-in-out infinite; }
+        #why-choose-us .firefly-orb-2 { animation: wc-fly-2 10s ease-in-out -3s infinite; }
+        #why-choose-us .firefly-orb-3 { animation: wc-fly-3 9s ease-in-out -5s infinite; }
+        @keyframes wc-stone {
+          0%,100% { transform: rotate(-1.2deg) translateX(-0.4px); }
+          50%     { transform: rotate(1.2deg)  translateX(0.4px); }
+        }
+        @keyframes wc-aura { 0%,100% { transform: scale(0.92); opacity: 0.7; } 50% { transform: scale(1.08); opacity: 1; } }
+        @keyframes wc-fly-1 {
+          0%,100% { transform: translate(0, 0);      opacity: 0.5; }
+          30%     { transform: translate(5px, -6px); opacity: 1; }
+          65%     { transform: translate(-2px, 5px); opacity: 0.6; }
+        }
+        @keyframes wc-fly-2 {
+          0%,100% { transform: translate(0, 0);      opacity: 0.6; }
+          40%     { transform: translate(-6px, 5px); opacity: 1; }
+          75%     { transform: translate(3px, -5px); opacity: 0.5; }
+        }
+        @keyframes wc-fly-3 {
+          0%,100% { transform: translate(0, 0);      opacity: 0.5; }
+          35%     { transform: translate(6px, 4px);  opacity: 1; }
+          70%     { transform: translate(-4px, -3px); opacity: 0.6; }
+        }
+
+        /* ───── Card 4 · Hybrid Online & Offline → voice waves travelling outward, like tele-counseling ───── */
+        #why-choose-us .harmonic-wave-1 { animation: wc-wave 2.4s ease-out infinite; }
+        #why-choose-us .harmonic-wave-2 { animation: wc-wave 2.4s ease-out 0.35s infinite; }
+        #why-choose-us .harmonic-wave-3 { animation: wc-wave 2.4s ease-out 0.7s infinite; }
+        #why-choose-us .sunbeam-mote-1 { animation: wc-mote 6s ease-in-out infinite; }
+        #why-choose-us .sunbeam-mote-2 { animation: wc-mote 7s ease-in-out -2s infinite; }
+        #why-choose-us .sunbeam-mote-3 { animation: wc-mote 5.5s ease-in-out -4s infinite; }
+        @keyframes wc-wave {
+          0%   { transform: translateX(-3px); opacity: 0; }
+          35%  { opacity: 1; }
+          100% { transform: translateX(5px);  opacity: 0; }
+        }
+        @keyframes wc-mote {
+          0%,100% { transform: translateY(0);    opacity: 0.4; }
+          50%     { transform: translateY(-5px); opacity: 1; }
+        }
+
+        /* ───── Card 5 · Affordable / Community → steady 4-4 breathing + continuous flow ───── */
+        #why-choose-us .breath-beacon-ring-1,
+        #why-choose-us .breath-beacon-ring-2,
+        #why-choose-us .breath-beacon-core {
+          transform-box: view-box;
+          transform-origin: 32px 32px;
+        }
+        #why-choose-us .breath-beacon-ring-1 { animation: wc-breathe 8s ease-in-out infinite; }
+        #why-choose-us .breath-beacon-ring-2 { animation: wc-breathe 8s ease-in-out 0.4s infinite; }
+        #why-choose-us .breath-beacon-core   { animation: wc-core 8s ease-in-out infinite; }
+        #why-choose-us .infinity-path-flow {
+          stroke-dasharray: 26 10;
+          animation: wc-flow 5s linear infinite;
+        }
+        @keyframes wc-breathe { 0%,100% { transform: scale(0.85); } 50% { transform: scale(1.1); } }
+        @keyframes wc-core    { 0%,100% { transform: scale(0.8);  } 50% { transform: scale(1.15); } }
+        @keyframes wc-flow    { to { stroke-dashoffset: -36; } }
+
+        /* Respect users who prefer reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+          #why-choose-us svg *,
+          #why-choose-us [class*="butterfly-drift"],
+          #why-choose-us .meadow-sway { animation: none !important; }
+        }
+      `}</style>
+
       {/* Background ambient wellness glows */}
       <div className="pointer-events-none absolute -left-28 top-1/3 h-80 w-80 rounded-full bg-[#A3248F]/5 blur-3xl" />
       <div className="pointer-events-none absolute right-0 bottom-1/3 h-80 w-80 rounded-full bg-[#059669]/5 blur-3xl" />
@@ -633,7 +779,7 @@ export default function WhyChooseNature() {
                     <>
                       <MeadowGrass
                         color={card.color}
-                        className="absolute right-0 bottom-0 w-28 h-24 sm:w-32 sm:h-28 pointer-events-none select-none z-0"
+                        className="meadow-sway absolute right-0 bottom-0 w-28 h-24 sm:w-32 sm:h-28 pointer-events-none select-none z-0"
                       />
                       <div className="absolute right-2 top-2 sm:right-4 sm:top-3 pointer-events-none select-none z-0">
                         <AnimatedButterfly
