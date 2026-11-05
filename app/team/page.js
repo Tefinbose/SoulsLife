@@ -31,43 +31,43 @@ const fontCss = `
 
 const specialists = [
   {
-    name: "Dr. Shailaja M.",
-    role: "Clinical Psychologist (Lead)",
-    qualification: "M.Sc Clinical Psychology • RCI Licensed",
-    focus: ["CBT", "Panic attacks", "Depression", "OCD", "Trauma recovery"],
+    name: "Psychologist & Psychological Support Lead",
+    role: "Psychologist & Behavioral Therapist",
+    qualification: "MSc – Psychology",
+    focus: ["Anxiety & depression counseling", "Emotional regulation", "Trauma & grief support", "Behavioral therapy", "Self-esteem building"],
     languages: "Malayalam, English",
     image: "/images/dr-counselor-portrait.jpg",
-    badge: "Clinical Lead & RCI Certified",
+    badge: "MSc Psychology Specialist",
     accent: "#A3248F",
   },
   {
-    name: "Mr. Haris K.",
-    role: "Senior Psychiatric Social Worker",
-    qualification: "MSW (Medical & Psychiatry)",
-    focus: ["Couples mediation", "Marital reconciliation", "Conflict resolution", "Family therapy"],
+    name: "Senior Clinical Social Worker",
+    role: "Clinical Social Worker & Family Specialist",
+    qualification: "MSW – Medical Social Work",
+    focus: ["Family conflict resolution", "Pre-marital & marital counseling", "Couple therapy", "Relationship healing", "Divorce & separation support"],
     languages: "Malayalam, English",
     image: "/images/mr-counselor-portrait.jpg",
-    badge: "Family & Marital Lead",
+    badge: "Medical Social Work Specialist",
     accent: "#0D55AE",
   },
   {
-    name: "Mrs. Fathima R.",
-    role: "Child & Adolescent Psychologist",
-    qualification: "M.Sc Psychology • Child Guidance Certified",
-    focus: ["ADHD and learning screening", "Autism guidance", "Exam stress", "Positive parenting"],
+    name: "Child Development Expert",
+    role: "Child Development & Learning Specialist",
+    qualification: "MSW – Child Development",
+    focus: ["Learning disability assessment", "Scholastic backwardness support", "Child emotional counseling", "Parent training programs"],
     languages: "Malayalam, English",
     image: "/images/female-counselor-portrait.jpg",
     badge: "Child Development Specialist",
     accent: "#059669",
   },
   {
-    name: "Mr. Arun Das",
-    role: "Career & Psychometrics Lead",
-    qualification: "Certified Psychometric Assessor",
-    focus: ["IQ assessment", "Stream selection after 10th & 12th", "Aptitude testing", "Soft skills"],
+    name: "Career Counselor & Community Lead",
+    role: "Career Counselor & Communication Expert",
+    qualification: "MSW – Community Development",
+    focus: ["Career aptitude assessment", "Stream & course selection", "Soft skills & interview prep", "Life skills & leadership"],
     languages: "Malayalam, English",
     image: "/images/male-counselor-portrait.jpg",
-    badge: "Psychometrics & Youth Guidance",
+    badge: "Community & Career Specialist",
     accent: "#7C3AED",
   },
 ];
@@ -152,9 +152,7 @@ export default function TeamPage() {
 
               <FadeUp delay={0.2}>
                 <p className="mt-4 text-sm leading-relaxed text-[#4A5B73] sm:text-base">
-                  Our clinical team comprises RCI Registered Clinical Psychologists, Senior Psychiatric Social
-                  Workers, and Child Guidance specialists dedicated to your emotional well-being. Available
-                  for in-clinic visits in Wandoor and secure worldwide video consultations.
+                  Our team consists of qualified professionals with MSc in Psychology and MSW postgraduates with specializations in Medical Social Work, Child Development, and Community Development. All team members follow strict ethical and professional standards.
                 </p>
               </FadeUp>
 
@@ -163,7 +161,7 @@ export default function TeamPage() {
                 <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium text-[#4A5B73]">
                   <span className="inline-flex items-center gap-1.5">
                     <CheckCircle2 className="h-4 w-4 text-[#A3248F]" />
-                    RCI Licensed &amp; MSW Certified
+                    MSc Psychology &amp; MSW Postgraduates
                   </span>
                   <span className="inline-flex items-center gap-1.5">
                     <CheckCircle2 className="h-4 w-4 text-[#0D55AE]" />
@@ -171,7 +169,7 @@ export default function TeamPage() {
                   </span>
                   <span className="inline-flex items-center gap-1.5">
                     <CheckCircle2 className="h-4 w-4 text-[#059669]" />
-                    100% Confidential Sanctuary
+                    Strict Ethical &amp; Professional Standards
                   </span>
                 </div>
               </FadeUp>

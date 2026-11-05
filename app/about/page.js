@@ -21,32 +21,44 @@ export const metadata = {
 };
 
 const keyStrengths = [
-  { icon: ShieldCheck, title: "100% Confidential", desc: "Strict clinical privacy and compassionate, non-judgmental guidance." },
-  { icon: Users, title: "Multidisciplinary Care", desc: "Clinical Psychologists & Medical Social Workers collaborating together." },
-  { icon: Activity, title: "Dual Mode Accessibility", desc: "Peaceful clinic in Wandoor + encrypted worldwide tele-video sessions." },
-  { icon: Smile, title: "Community Impact", desc: "Grassroots outreach across schools, colleges, and families in Kerala." },
+  { icon: ShieldCheck, title: "Confidential & Ethical", desc: "Strict ethical practice and complete clinical privacy for individuals and families." },
+  { icon: Users, title: "Multidisciplinary Team", desc: "Qualified experts in Medical Social Work, Psychology, Child & Community Development." },
+  { icon: Activity, title: "Online & Offline Care", desc: "Tranquil clinic in Wandoor alongside accessible remote tele-counseling sessions." },
+  { icon: Smile, title: "Community-Oriented", desc: "Grassroots outreach, workshops, and awareness drives building resilient communities." },
+];
+
+const challengesAddressed = [
+  "Emotional stress and anxiety",
+  "Academic pressure",
+  "Relationship conflicts",
+  "Career confusion",
+  "Psychological distress",
+  "Behavioral issues",
+  "Social adjustment difficulties",
 ];
 
 const approachPillars = [
-  { number: "01", title: "Scientific Psychology", badge: "Clinical Rigor", desc: "Evidence-based therapeutic modalities including Cognitive Behavioral Therapy (CBT), standardized psychometric tests, and mindfulness techniques." },
-  { number: "02", title: "Medical Social Work", badge: "Holistic Context", desc: "A holistic, psychosocial perspective that evaluates family environments, marital dynamics, and social pressures affecting mental wellness." },
-  { number: "03", title: "Emotional Intelligence", badge: "Self-Awareness", desc: "Guiding clients to identify, acknowledge, and regulate challenging feelings, transforming overwhelm into self-awareness and inner peace." },
-  { number: "04", title: "Life Skills Training", badge: "Lifelong Resilience", desc: "Practical daily coping tools, healthy boundary setting, assertive communication, and proactive problem-solving strategies for all ages." },
+  { number: "01", title: "Scientific Psychology", badge: "Scientific Expertise", desc: "Evidence-based counseling, cognitive assessments, and emotional regulation techniques tailored to individual needs." },
+  { number: "02", title: "Social Work Practices", badge: "Holistic Context", desc: "Led by Medical Social Work specialists examining family dynamics, environment, and social adjustment." },
+  { number: "03", title: "Emotional Intelligence", badge: "Self-Awareness", desc: "Nurturing emotional literacy, stress management, and inner resilience to face life's challenges." },
+  { number: "04", title: "Life Skills Training", badge: "Lifelong Resilience", desc: "Structured developmental programs, assertive communication, and proactive personal development." },
 ];
 
 const missionPoints = [
-  "Provide accessible, ethical, and affordable psychological services to every section of society.",
-  "Promote emotional literacy and dismantle social stigmas surrounding counseling in Kerala.",
-  "Equip students, adolescents, and adults with healthy coping habits, self-worth, and resilience.",
-  "Strengthen marital harmony and familial understanding through empathetic, structured mediation.",
-  "Actively collaborate with schools, colleges, and grassroots organizations to build resilient communities.",
+  "Provide accessible and affordable mental health services.",
+  "Promote emotional literacy and awareness.",
+  "Reduce stigma around counseling and therapy.",
+  "Support lifelong psychological growth.",
+  "Build resilient families and communities.",
 ];
 
 const coreValues = [
-  { icon: Heart, title: "Unconditional Positive Regard", desc: "Every person entering our doors is treated with absolute dignity, deep empathy, and unbiased warmth." },
-  { icon: Lock, title: "Strict Ethical Privacy", desc: "Zero judgment and complete clinical confidentiality protected under healthcare ethics standards." },
-  { icon: Sparkles, title: "Client-Centered Empowerment", desc: "We do not dictate choices; we gently guide you to discover your own clarity, strength, and answers." },
-  { icon: Languages, title: "Culturally Grounded Care", desc: "Compassionate bilingual counseling in native Malayalam and English, deeply attuned to local family values." },
+  { icon: Heart, title: "Empathy", desc: "Compassionate, non-judgmental understanding for every individual and family." },
+  { icon: ShieldCheck, title: "Integrity", desc: "Honest, transparent, and principled psychological and counseling practices." },
+  { icon: Lock, title: "Confidentiality", desc: "Strict adherence to privacy and ethical standards in every consultation." },
+  { icon: GraduationCap, title: "Professional Excellence", desc: "Qualified experts delivering evidence-based clinical and developmental care." },
+  { icon: Users, title: "Inclusiveness", desc: "Welcoming care accessible to all individuals across all backgrounds and age groups." },
+  { icon: Sparkles, title: "Social Responsibility", desc: "Dedicated to building resilient communities and expanding mental wellness awareness." },
 ];
 
 const communityList = [
@@ -102,15 +114,15 @@ export default function AboutPage() {
                 </div>
 
                 <h1 className="about-display text-4xl leading-[1.08] text-[#162238] sm:text-5xl lg:text-[58px]">
-                  A Safe Sanctuary to <span className="animated-gradient-text">Heal, Grow</span> &amp; Reclaim Inner Harmony
+                  Healing Minds. <span className="animated-gradient-text">Empowering Lives.</span> Building Resilient Communities.
                 </h1>
 
                 <p className="text-base font-medium leading-relaxed text-[#243746] sm:text-lg">
-                  Souls Life Wellbeing Center is a professionally established mental health institution in Wandoor, Malappuram. We provide empathetic, scientific counseling and psychotherapy for individuals, couples, students, and families navigating life&apos;s complex emotional landscapes.
+                  Souls Life Wellbeing Center is a multidisciplinary mental health and personal development center focused on nurturing emotional resilience and psychological wellbeing.
                 </p>
 
                 <p className="text-sm leading-relaxed text-[#4A5B73] sm:text-base">
-                  Led by certified specialists across Medical Social Work, Clinical Psychology, Child Development, and Community Health, our mission is to make confidential, compassionate psychological support readily accessible to everyone — without judgment, stigma, or pressure.
+                  We believe that mental health is the foundation of a successful, balanced, and fulfilling life. Led by qualified experts in Medical Social Work, Psychology, Child Development, and Community Development, we provide evidence-based, ethical, and confidential support services for individuals and families.
                 </p>
 
                 <div className="flex flex-wrap items-center gap-3 pt-2">
@@ -200,11 +212,22 @@ export default function AboutPage() {
                 <span className="section-label-chip inline-flex">OUR STORY &amp; PHILOSOPHY</span>
                 <h2 className={h2Cls}>Where Healing Begins With <span className="animated-gradient-text">Being Truly Heard</span></h2>
                 <p className="text-sm leading-relaxed text-[#243746] sm:text-base">
-                  In today&apos;s fast-moving world, individuals, students, and families frequently carry silent, unspoken burdens — chronic exam anxiety, marital discord, career confusion, relationship breakdowns, or the overwhelming weight of loss.
+                  Souls Life Wellbeing Center is a multidisciplinary mental health and personal development center focused on nurturing emotional resilience and psychological wellbeing. We believe that mental health is the foundation of a successful, balanced, and fulfilling life.
                 </p>
                 <p className="text-sm leading-relaxed text-[#4A5B73] sm:text-base">
-                  Too often, these struggles are dismissed or met with stigma. Souls Life Wellbeing Center was founded to change this reality. We set out to create a sanctuary where mental healthcare is approached with scientific rigor, warmth, and unshakeable confidentiality.
+                  Our professional support services address challenges such as emotional stress and anxiety, academic pressure, relationship conflicts, career confusion, psychological distress, behavioral issues, and social adjustment difficulties.
                 </p>
+                <div className="pt-2">
+                  <p className="mb-2.5 text-xs font-bold uppercase tracking-wider text-[#A3248F]">Challenges We Address:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {challengesAddressed.map((item) => (
+                      <span key={item} className="inline-flex items-center gap-1.5 rounded-full border border-[#A3248F]/20 bg-[#FAF3FA] px-3 py-1 text-xs font-medium text-[#162238]">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-[#A3248F]" />
+                        <span>{item}</span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
                 <blockquote className="rounded-2xl border-l-4 border-[#A3248F] bg-gradient-to-r from-[#FDF2F9] to-[#F0F6FF] p-5 sm:p-6">
                   <p className="about-display text-lg leading-relaxed text-[#162238] sm:text-xl">
                     &ldquo;Healing is not about fixing something that is broken; it is about rediscovering your inner resilience, understanding your emotions, and stepping forward with clarity and courage.&rdquo;
@@ -230,7 +253,7 @@ export default function AboutPage() {
                   <span className="mb-1 block text-[11px] font-bold uppercase tracking-wider text-[#A3248F]">OUR ASPIRATION</span>
                   <h3 className="about-display mb-4 text-3xl text-[#162238]">Our Vision</h3>
                   <p className="text-sm leading-relaxed text-[#243746] sm:text-base">
-                    To evolve into a leading, trusted mental wellbeing institution in Kerala that inspires individuals, couples, and youth to lead emotionally balanced, courageous, and deeply purposeful lives — free from the shadows of mental health stigma.
+                    To become a leading wellbeing and counseling institution that empowers individuals and communities to lead healthy, confident, and meaningful lives.
                   </p>
                 </div>
                 <div className="relative mt-8 flex items-center gap-2 border-t border-neutral-100 pt-6 text-xs font-semibold text-[#A3248F]">
@@ -270,7 +293,7 @@ export default function AboutPage() {
               <SectionHead chip="INTEGRATED METHODOLOGY" title="Our 4 Pillars of Holistic Care" text="We combine scientific psychological methods with medical social work to ensure deep, lasting transformation." />
             </FadeUp>
 
-            <StaggerList className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <StaggerList className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {approachPillars.map((p) => (
                 <div key={p.number} className={`${card} group relative overflow-hidden p-6`}>
                   <span className="about-display pointer-events-none absolute -right-2 -top-3 select-none text-8xl text-[#A3248F]/[0.06] transition-transform duration-500 group-hover:scale-110">{p.number}</span>
@@ -296,7 +319,7 @@ export default function AboutPage() {
               <SectionHead chip="CLINICAL ETHICS" title="Our Core Values & Commitments" text="The ethical principles that guide every consultation and therapy session at Souls Life." />
             </FadeUp>
 
-            <StaggerList className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <StaggerList className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {coreValues.map(({ icon: Icon, title, desc }) => (
                 <div key={title} className="rounded-2xl border border-neutral-200/80 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#A3248F]/30 hover:shadow-lg">
                   <span className={`${iconBox} mb-3`}><Icon className="h-5 w-5" /></span>

@@ -14,34 +14,52 @@ export const metadata = {
 
 const steps = [
   {
-    title: "Initial consultation",
-    desc: "You talk, we listen. We learn what you are going through and what you hope to get from counseling.",
-    points: ["A private, confidential conversation", "We agree on your goals and concerns"],
+    title: "Step 1 – Initial Consultation",
+    desc: "Understanding the client's concerns and background.",
+    points: [
+      "Confidential discussion of challenges, expectations, and goals",
+      "Compassionate, non-judgmental active listening by qualified experts",
+    ],
   },
   {
-    title: "Assessment",
-    desc: "When it helps, we use standardized psychological tools and observation to understand what is behind the difficulty.",
-    points: ["Psychological and cognitive screening", "Feedback shared with you or your family"],
+    title: "Step 2 – Assessment",
+    desc: "Scientific evaluation and psychological assessment.",
+    points: [
+      "Evidence-based cognitive, emotional, and aptitude evaluation",
+      "Identification of core emotional patterns and situational factors",
+    ],
   },
   {
-    title: "Your therapy plan",
-    desc: "We build a plan around your needs, values and schedule rather than using a fixed template.",
-    points: ["Session frequency agreed together (weekly or bi-weekly)", "In-clinic in Wandoor or online by video"],
+    title: "Step 3 – Personalized Plan",
+    desc: "Customized therapy or counseling approach.",
+    points: [
+      "Tailored therapeutic approach matching client needs and goals",
+      "Clear milestones for in-person or remote tele-counseling",
+    ],
   },
   {
-    title: "Counseling sessions",
-    desc: "In private sessions of about 50 to 60 minutes, your counselor works with you on practical ways to cope, process grief and handle relationship conflict.",
-    points: ["CBT, ACT and mindfulness techniques", "Simple exercises to practise between sessions"],
+    title: "Step 4 – Counseling Sessions",
+    desc: "One-on-one or group sessions.",
+    points: [
+      "Structured counseling and life skills interventions",
+      "Practical exercises and emotional regulation techniques",
+    ],
   },
   {
-    title: "Progress review",
-    desc: "At agreed points we look at how things have changed, such as anxiety, sleep and relationships, and adjust the plan.",
-    points: ["Review of symptoms and behaviour", "Plan adjusted to your pace"],
+    title: "Step 5 – Progress Review",
+    desc: "Monitoring emotional and behavioral improvement.",
+    points: [
+      "Periodic review of emotional resilience and behavioral outcomes",
+      "Adaptive adjustment of counseling plans to the client's pace",
+    ],
   },
   {
-    title: "Follow-up",
-    desc: "Counseling doesn't have to end abruptly. We help you keep what you have gained and stay in touch if you need support later.",
-    points: ["Tools for managing stress on your own", "Check-in sessions whenever you need them"],
+    title: "Step 6 – Follow-Up Support",
+    desc: "Ensuring long-term emotional stability and growth.",
+    points: [
+      "Reinforcing sustainable coping mechanisms and self-reliance",
+      "Ongoing check-in sessions whenever support is needed",
+    ],
   },
 ];
 

@@ -11,32 +11,32 @@ const slides = [
   {
     id: 1,
     image: "/images/soulslife-sanctuary-hero.jpg",
-    alt: "Warm and peaceful therapy sanctuary with cozy armchair and ambient light at Souls Life Wellbeing Center",
-    chip: "WELCOME TO SOULS LIFE",
-    titleLine1: "A quiet space for the",
-    titleLine2: "mind to heal.",
+    alt: "Warm and peaceful therapy sanctuary at Souls Life Wellbeing Center",
+    chip: "SOULS LIFE WELLBEING CENTER",
+    titleLine1: "Listening. Understanding.",
+    titleLine2: "Supporting.",
     description:
-      "One-on-one mental health care in a supportive, empathetic, and confidential environment — by Kerala's dedicated psychology professionals.",
+      "Professional counseling and psychological support for students, families, working professionals, elderly individuals, and communities — delivered with compassion, confidentiality, and scientific expertise.",
   },
   {
     id: 2,
     image: "/images/hero-therapy-session.jpg",
     alt: "Confidential individual and family counseling in Wandoor Malappuram",
-    chip: "COMPASSIONATE PSYCHOLOGICAL CARE",
-    titleLine1: "Confidential guidance",
-    titleLine2: "when you need it most.",
+    chip: "HEALING MINDS • EMPOWERING LIVES",
+    titleLine1: "Souls Life",
+    titleLine2: "Wellbeing Center",
     description:
-      "Empathetic therapy for anxiety, student stress, marital harmony, and emotional resilience tailored to your unique life journey.",
+      "Comprehensive Counseling, Psychological Support & Life Skill Development Center — building resilient families and communities.",
   },
   {
     id: 3,
     image: "/images/clinic-sanctuary.jpg",
     alt: "Souls Life clinic sanctuary in Wandoor Kerala",
-    chip: "IN-CLINIC & TELE-HEALTH SESSIONS",
-    titleLine1: "Restoring balance & peace",
-    titleLine2: "to your daily life.",
+    chip: "BUILDING RESILIENT COMMUNITIES",
+    titleLine1: "Confidential guidance",
+    titleLine2: "when you need it most.",
     description:
-      "Visit our tranquil clinic in Wandoor, Malappuram or connect seamlessly with licensed clinical counselors worldwide via encrypted video call.",
+      "Led by qualified experts in Medical Social Work, Psychology, Child Development, and Community Development to ensure lasting transformation.",
   },
 ];
 
@@ -303,12 +303,12 @@ export default function HeroAttractive() {
             <div className="hero-anim-trust hero-trust text-xs text-white/85">
               <div className="hero-trust-badge backdrop-blur-sm">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#E27BD2]" />
-                <span>100% Confidential</span>
+                <span>100% Confidential &amp; Ethical</span>
               </div>
               <span className="text-white/30 hidden sm:inline">•</span>
-              <span>RCI &amp; MSW Certified Specialists</span>
+              <span>MSc Psychology &amp; MSW Experts</span>
               <span className="text-white/30 hidden sm:inline">•</span>
-              <span>In-Person &amp; Video</span>
+              <span>Online &amp; Offline Care</span>
             </div>
 
             {/* Call To Action Buttons Styled with Logo Brand Colors */}
@@ -318,7 +318,7 @@ export default function HeroAttractive() {
                 onClick={handleOpenBooking}
                 className="hero-shimmer-btn group inline-flex items-center gap-2.5 bg-[#A3248F] hover:bg-[#8A1C79] text-white font-bold text-xs sm:text-sm px-6 sm:px-7 py-3 sm:py-3.5 rounded-full shadow-lg shadow-[#A3248F]/25 hover:shadow-xl hover:shadow-[#A3248F]/30 transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#162238]"
               >
-                <span>Book a Consultation</span>
+                <span>Book Your Consultation Today</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
 

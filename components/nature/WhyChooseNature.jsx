@@ -506,10 +506,10 @@ function MindfulBreathBeaconGraphic({ color = "#A3248F", className = "" }) {
 
 const metricsCards = [
   {
-    id: "sessions",
-    number: "3000+",
-    label: "Sessions",
-    subtext: "Guided with patient clinical empathy",
+    id: "professionals",
+    number: "Qualified",
+    label: "Experienced Professionals",
+    subtext: "MSc Psychology & MSW postgraduates with clinical expertise",
     colSpan: "lg:col-span-3",
     bg: "bg-[#FDF4F8]",
     border: "border-[#A3248F]/15",
@@ -517,10 +517,10 @@ const metricsCards = [
     type: "butterfly",
   },
   {
-    id: "psychologists",
-    number: "15+",
-    label: "Highly qualified psychologists",
-    subtext: "RCI & MSW certified gentle guides",
+    id: "confidential",
+    number: "100%",
+    label: "Confidential & Ethical Practice",
+    subtext: "Strict ethical and professional standards in every session",
     colSpan: "lg:col-span-3",
     bg: "bg-[#F0FAF7]",
     border: "border-[#059669]/15",
@@ -528,10 +528,10 @@ const metricsCards = [
     type: "lotus",
   },
   {
-    id: "confidential",
-    number: "100%",
-    label: "Confidential sessions",
-    subtext: "Safe sanctuary with strict ethical privacy",
+    id: "personalized",
+    number: "Custom",
+    label: "Personalized Counseling Plans",
+    subtext: "Scientific assessment tools and customized approaches",
     colSpan: "lg:col-span-2",
     bg: "bg-[#F4F8FD]",
     border: "border-[#7C3AED]/15",
@@ -539,10 +539,10 @@ const metricsCards = [
     type: "zen-cairn",
   },
   {
-    id: "languages",
-    number: "4+",
-    label: "Languages",
-    subtext: "Malayalam, English, Hindi, Arabic",
+    id: "hybrid",
+    number: "Hybrid",
+    label: "Online & Offline Care",
+    subtext: "In-person clinic visits and remote tele-counseling",
     colSpan: "lg:col-span-2",
     bg: "bg-[#FFF9F2]",
     border: "border-[#D97706]/15",
@@ -550,10 +550,10 @@ const metricsCards = [
     type: "harmonic-waves",
   },
   {
-    id: "support",
-    number: "24x7",
-    label: "Online & clinic support",
-    subtext: "Continuous care whenever your mind needs peace",
+    id: "community",
+    number: "Affordable",
+    label: "Community-Oriented Care",
+    subtext: "Accessible care building resilient families and communities",
     colSpan: "lg:col-span-2",
     bg: "bg-[#FAF3FA]",
     border: "border-[#A3248F]/15",
@@ -605,10 +605,7 @@ export default function WhyChooseNature() {
             </h2>
 
             <p className="mt-4 text-sm sm:text-base leading-relaxed text-[#4A5B73]">
-              Souls Life provides a private and confidential space to discuss what you are experiencing
-              with qualified clinical psychologists and MSW specialists. Whether you are facing a specific
-              concern or simply feel that something is not right, you can explore the evidence-based support
-              tailored to your journey.
+              Souls Life Wellbeing Center is a professionally managed mental health and counseling institution dedicated to promoting emotional balance, psychological strength, and holistic wellbeing. Led by qualified experts in Medical Social Work, Psychology, Child Development, and Community Development, we provide evidence-based, ethical, and confidential support services for individuals and families.
             </p>
 
             <div className="mt-6 sm:mt-8">
