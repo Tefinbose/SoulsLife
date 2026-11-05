@@ -5,7 +5,7 @@ import Image from "next/image";
 import { ArrowRight, ChevronLeft, ChevronRight, ChevronDown, Phone, ShieldCheck } from "lucide-react";
 import { siteConfig } from "@/data/homeData";
 
-const SLIDE_DURATION = 5000;
+const SLIDE_DURATION = 6000;
 
 const slides = [
   {
@@ -165,52 +165,56 @@ const heroStyles = `
 
 export default function HeroAttractive() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const pauseTimeoutRef = useRef(null);
+  const timerRef = useRef(null);
   const touchStartX = useRef(null);
 
-  const temporarilyPause = useCallback(() => {
-    setIsPaused(true);
-    if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
-    pauseTimeoutRef.current = setTimeout(() => {
-      setIsPaused(false);
-    }, 6000);
+  // Reliable 6-second timer loop that advances infinitely: 1 -> 2 -> 3 -> 1
+  const resetTimer = useCallback(() => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1 >= slides.length ? 0 : prev + 1));
+    }, SLIDE_DURATION);
   }, []);
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1 >= slides.length ? 0 : prev + 1));
-  }, []);
+    resetTimer();
+  }, [resetTimer]);
 
   const prevSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev - 1 < 0 ? slides.length - 1 : prev - 1));
-  }, []);
+    resetTimer();
+  }, [resetTimer]);
 
-  // Continuous auto-play slideshow every 5 seconds: loops 1 -> 2 -> 3 -> 1 infinitely
-  useEffect(() => {
-    if (isPaused) return;
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1 >= slides.length ? 0 : prev + 1));
-    }, SLIDE_DURATION);
-    return () => clearInterval(timer);
-  }, [isPaused]);
+  const goToSlide = useCallback((index) => {
+    setCurrentSlide(index);
+    resetTimer();
+  }, [resetTimer]);
 
-  // Clean up any pause timeout on unmount
+  // Start continuous 6-second auto-slide on mount, sync with browser tab visibility
   useEffect(() => {
-    return () => {
-      if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
+    resetTimer();
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        if (timerRef.current) clearInterval(timerRef.current);
+      } else {
+        resetTimer();
+      }
     };
-  }, []);
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [resetTimer]);
 
   // Keyboard navigation (left / right arrows)
   const handleKeyDown = (e) => {
-    if (e.key === "ArrowRight") {
-      temporarilyPause();
-      nextSlide();
-    }
-    if (e.key === "ArrowLeft") {
-      temporarilyPause();
-      prevSlide();
-    }
+    if (e.key === "ArrowRight") nextSlide();
+    if (e.key === "ArrowLeft") prevSlide();
   };
 
   // Touch swipe support for mobile
@@ -221,7 +225,6 @@ export default function HeroAttractive() {
     if (touchStartX.current === null) return;
     const delta = e.changedTouches[0].clientX - touchStartX.current;
     if (Math.abs(delta) > 50) {
-      temporarilyPause();
       if (delta < 0) nextSlide();
       else prevSlide();
     }
@@ -256,14 +259,14 @@ export default function HeroAttractive() {
             <div
               key={slide.id}
               aria-hidden={!isCurrent}
-              className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${isCurrent ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+              className={`absolute inset-0 transition-opacity duration-800 ease-in-out ${isCurrent ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
                 }`}
             >
               <Image
                 src={slide.image}
                 alt={slide.alt}
                 fill
-                priority={index === 0}
+                priority={true}
                 className={`object-cover object-center will-change-transform ${isCurrent ? "hero-kenburns" : ""
                   }`}
                 sizes="100vw"
@@ -363,10 +366,7 @@ export default function HeroAttractive() {
         {/* Carousel Edge Arrow Controls — hidden on mobile (swipe to navigate) */}
         <button
           type="button"
-          onClick={() => {
-            temporarilyPause();
-            prevSlide();
-          }}
+          onClick={prevSlide}
           aria-label="Previous Slide"
           className="absolute left-5 top-1/2 -translate-y-1/2 z-30 hidden sm:flex w-11 h-11 rounded-full border border-white/25 bg-white/10 hover:bg-white/25 backdrop-blur-md text-white items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
         >
@@ -375,10 +375,7 @@ export default function HeroAttractive() {
 
         <button
           type="button"
-          onClick={() => {
-            temporarilyPause();
-            nextSlide();
-          }}
+          onClick={nextSlide}
           aria-label="Next Slide"
           className="absolute right-5 top-1/2 -translate-y-1/2 z-30 hidden sm:flex w-11 h-11 rounded-full border border-white/25 bg-white/10 hover:bg-white/25 backdrop-blur-md text-white items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
         >
@@ -393,10 +390,7 @@ export default function HeroAttractive() {
               <button
                 key={slide.id}
                 type="button"
-                onClick={() => {
-                  temporarilyPause();
-                  setCurrentSlide(index);
-                }}
+                onClick={() => goToSlide(index)}
                 aria-label={`Go to slide ${index + 1}`}
                 aria-current={isCurrent}
                 className={`relative overflow-hidden h-1.5 transition-all duration-500 rounded-full cursor-pointer ${isCurrent ? "w-10 sm:w-12 bg-white/30" : "w-4 sm:w-5 bg-white/35 hover:bg-white/70"
@@ -406,7 +400,6 @@ export default function HeroAttractive() {
                   <span
                     key={`progress-${currentSlide}`}
                     className="hero-progress-fill absolute inset-0 rounded-full bg-white"
-                    style={{ animationPlayState: isPaused ? "paused" : "running" }}
                   />
                 )}
               </button>
