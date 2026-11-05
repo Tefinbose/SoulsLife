@@ -264,7 +264,8 @@ export default function ServicesAttractive() {
           <div
             role="group"
             aria-label="Filter services by category"
-            className="no-scrollbar mb-4 flex gap-2 overflow-x-auto pb-1"
+            className="no-scrollbar mb-4 flex gap-2 overflow-x-auto pb-1 [&::-webkit-scrollbar]:hidden"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {categoryTabs.map((tab) => {
               const active = selectedCategory === tab.id;

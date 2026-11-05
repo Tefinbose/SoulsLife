@@ -83,7 +83,10 @@ export default function ProcessAttractive() {
 
         {/* Steps Grid */}
         <FadeUp delay={0.14} distance={20} className="w-full">
-          <ol className="no-scrollbar -mx-2 flex snap-x snap-mandatory gap-4 overflow-x-auto px-2 py-1 sm:mx-0 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-5 sm:overflow-visible sm:px-0 [&::-webkit-scrollbar]:hidden">
+          <ol
+            className="no-scrollbar -mx-2 flex snap-x snap-mandatory gap-4 overflow-x-auto px-2 py-1 sm:mx-0 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:gap-5 sm:overflow-visible sm:px-0 [&::-webkit-scrollbar]:hidden"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
             {steps.map((step, i) => (
               <li
                 key={step.title}
