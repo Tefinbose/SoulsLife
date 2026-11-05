@@ -5,7 +5,7 @@ import Image from "next/image";
 import { ArrowRight, ChevronLeft, ChevronRight, ChevronDown, Phone, ShieldCheck } from "lucide-react";
 import { siteConfig } from "@/data/homeData";
 
-const SLIDE_DURATION = 3000;
+const SLIDE_DURATION = 5000;
 
 const slides = [
   {
@@ -174,7 +174,7 @@ export default function HeroAttractive() {
     if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
     pauseTimeoutRef.current = setTimeout(() => {
       setIsPaused(false);
-    }, 4500);
+    }, 6000);
   }, []);
 
   const nextSlide = useCallback(() => {
@@ -185,7 +185,7 @@ export default function HeroAttractive() {
     setCurrentSlide((prev) => (prev - 1 < 0 ? slides.length - 1 : prev - 1));
   }, []);
 
-  // Continuous auto-play slideshow every 3 seconds: loops 1 -> 2 -> 3 -> 1 infinitely
+  // Continuous auto-play slideshow every 5 seconds: loops 1 -> 2 -> 3 -> 1 infinitely
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(() => {
