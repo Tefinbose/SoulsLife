@@ -166,29 +166,51 @@ const heroStyles = `
 export default function HeroAttractive() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const pauseTimeoutRef = useRef(null);
   const touchStartX = useRef(null);
 
+  const temporarilyPause = useCallback(() => {
+    setIsPaused(true);
+    if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
+    pauseTimeoutRef.current = setTimeout(() => {
+      setIsPaused(false);
+    }, 4500);
+  }, []);
+
   const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
+    setCurrentSlide((prev) => (prev + 1 >= slides.length ? 0 : prev + 1));
   }, []);
 
   const prevSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setCurrentSlide((prev) => (prev - 1 < 0 ? slides.length - 1 : prev - 1));
   }, []);
 
-  // Auto-play slideshow every 3 seconds when not hovered / focused
+  // Continuous auto-play slideshow every 3 seconds: loops 1 -> 2 -> 3 -> 1 infinitely
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(() => {
-      nextSlide();
+      setCurrentSlide((prev) => (prev + 1 >= slides.length ? 0 : prev + 1));
     }, SLIDE_DURATION);
     return () => clearInterval(timer);
-  }, [isPaused, nextSlide, currentSlide]);
+  }, [isPaused]);
+
+  // Clean up any pause timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
+    };
+  }, []);
 
   // Keyboard navigation (left / right arrows)
   const handleKeyDown = (e) => {
-    if (e.key === "ArrowRight") nextSlide();
-    if (e.key === "ArrowLeft") prevSlide();
+    if (e.key === "ArrowRight") {
+      temporarilyPause();
+      nextSlide();
+    }
+    if (e.key === "ArrowLeft") {
+      temporarilyPause();
+      prevSlide();
+    }
   };
 
   // Touch swipe support for mobile
@@ -199,6 +221,7 @@ export default function HeroAttractive() {
     if (touchStartX.current === null) return;
     const delta = e.changedTouches[0].clientX - touchStartX.current;
     if (Math.abs(delta) > 50) {
+      temporarilyPause();
       if (delta < 0) nextSlide();
       else prevSlide();
     }
@@ -217,10 +240,6 @@ export default function HeroAttractive() {
   return (
     <section
       className="hero-root relative w-full min-h-screen overflow-hidden bg-[#162238]"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      onFocus={() => setIsPaused(true)}
-      onBlur={() => setIsPaused(false)}
       onKeyDown={handleKeyDown}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
@@ -344,7 +363,10 @@ export default function HeroAttractive() {
         {/* Carousel Edge Arrow Controls — hidden on mobile (swipe to navigate) */}
         <button
           type="button"
-          onClick={prevSlide}
+          onClick={() => {
+            temporarilyPause();
+            prevSlide();
+          }}
           aria-label="Previous Slide"
           className="absolute left-5 top-1/2 -translate-y-1/2 z-30 hidden sm:flex w-11 h-11 rounded-full border border-white/25 bg-white/10 hover:bg-white/25 backdrop-blur-md text-white items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
         >
@@ -353,7 +375,10 @@ export default function HeroAttractive() {
 
         <button
           type="button"
-          onClick={nextSlide}
+          onClick={() => {
+            temporarilyPause();
+            nextSlide();
+          }}
           aria-label="Next Slide"
           className="absolute right-5 top-1/2 -translate-y-1/2 z-30 hidden sm:flex w-11 h-11 rounded-full border border-white/25 bg-white/10 hover:bg-white/25 backdrop-blur-md text-white items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
         >
@@ -368,7 +393,10 @@ export default function HeroAttractive() {
               <button
                 key={slide.id}
                 type="button"
-                onClick={() => setCurrentSlide(index)}
+                onClick={() => {
+                  temporarilyPause();
+                  setCurrentSlide(index);
+                }}
                 aria-label={`Go to slide ${index + 1}`}
                 aria-current={isCurrent}
                 className={`relative overflow-hidden h-1.5 transition-all duration-500 rounded-full cursor-pointer ${isCurrent ? "w-10 sm:w-12 bg-white/30" : "w-4 sm:w-5 bg-white/35 hover:bg-white/70"

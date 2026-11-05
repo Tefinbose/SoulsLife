@@ -21,7 +21,7 @@ import {
 import BookSessionButton from "@/components/buttons/BookSessionButton";
 import { FadeUp } from "@/components/ui/MotionSection";
 
-const AUTO_SCROLL_INTERVAL = 3800;
+const AUTO_SCROLL_INTERVAL = 3400;
 
 const services = [
   {
@@ -122,16 +122,25 @@ export default function ServicesAttractive() {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
+  const pauseTimeoutRef = useRef(null);
 
   const filtered =
     selectedCategory === "all" ? services : services.filter((s) => s.category === selectedCategory);
+
+  const temporarilyPause = useCallback((durationMs = 4500) => {
+    setIsPaused(true);
+    if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
+    pauseTimeoutRef.current = setTimeout(() => {
+      setIsPaused(false);
+    }, durationMs);
+  }, []);
 
   const updateScrollState = useCallback(() => {
     const el = trackRef.current;
     if (!el) return;
     const max = el.scrollWidth - el.clientWidth;
-    setCanScrollLeft(el.scrollLeft > 10);
-    setCanScrollRight(el.scrollLeft < max - 10);
+    setCanScrollLeft(el.scrollLeft > 15);
+    setCanScrollRight(el.scrollLeft < max - 15);
   }, []);
 
   useEffect(() => {
@@ -143,35 +152,58 @@ export default function ServicesAttractive() {
     return () => {
       el.removeEventListener("scroll", updateScrollState);
       window.removeEventListener("resize", updateScrollState);
+      if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
     };
   }, [updateScrollState, filtered]);
 
   const selectCategory = (id) => {
     setSelectedCategory(id);
+    temporarilyPause();
     trackRef.current?.scrollTo({ left: 0, behavior: "smooth" });
   };
 
   const scrollByCard = (direction) => {
+    temporarilyPause();
     const el = trackRef.current;
     if (!el) return;
-    const cardWidth = el.querySelector("article")?.offsetWidth || 320;
+    const card = el.querySelector("article");
+    const cardWidth = card?.offsetWidth || 320;
     const scrollAmount = cardWidth + 20; // card + gap
-    el.scrollBy({ left: direction === "left" ? -scrollAmount : scrollAmount, behavior: "smooth" });
+    const max = el.scrollWidth - el.clientWidth;
+
+    if (direction === "right") {
+      // Loop smoothly back to the start if at the end
+      if (el.scrollLeft >= max - 25) {
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    } else {
+      // Loop to end if at start
+      if (el.scrollLeft <= 25) {
+        el.scrollTo({ left: max, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      }
+    }
   };
 
-  // Subtle auto-advance in a single viewport view
+  // Robust, reliable auto-advance carousel loop
   useEffect(() => {
     if (isPaused) return;
+
     const timer = setInterval(() => {
       const el = trackRef.current;
       if (!el) return;
       const max = el.scrollWidth - el.clientWidth;
-      if (max <= 0) return;
+      if (max <= 10) return;
 
-      if (el.scrollLeft >= max - 15) {
+      // Reliable loop condition: if near or at end, scroll back smoothly to index 0
+      if (el.scrollLeft >= max - 35) {
         el.scrollTo({ left: 0, behavior: "smooth" });
       } else {
-        const cardWidth = el.querySelector("article")?.offsetWidth || 320;
+        const card = el.querySelector("article");
+        const cardWidth = card?.offsetWidth || 320;
         el.scrollBy({ left: cardWidth + 20, behavior: "smooth" });
       }
     }, AUTO_SCROLL_INTERVAL);
@@ -184,10 +216,6 @@ export default function ServicesAttractive() {
       id="services"
       aria-labelledby="services-heading"
       className="relative py-8 sm:py-12 lg:py-14 overflow-hidden bg-gradient-to-b from-[#FAF8FD] via-white to-[#FAF8FD]"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      onTouchStart={() => setIsPaused(true)}
-      onTouchEnd={() => setIsPaused(false)}
     >
       <div className="wellness-container w-full">
         {/* Header Row */}
@@ -214,26 +242,16 @@ export default function ServicesAttractive() {
               <button
                 type="button"
                 onClick={() => scrollByCard("left")}
-                disabled={!canScrollLeft}
                 aria-label="Previous services"
-                className={`flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A3248F]/50 ${
-                  canScrollLeft
-                    ? "border-[#A3248F]/30 bg-white text-[#A3248F] shadow-sm hover:bg-[#FDF2F9] active:scale-95"
-                    : "cursor-not-allowed border-neutral-200 bg-neutral-100 text-neutral-300"
-                }`}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#A3248F]/30 bg-white text-[#A3248F] shadow-sm hover:bg-[#FDF2F9] active:scale-95 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A3248F]/50 cursor-pointer"
               >
                 <ChevronLeft className="h-4 w-4" />
               </button>
               <button
                 type="button"
                 onClick={() => scrollByCard("right")}
-                disabled={!canScrollRight}
                 aria-label="Next services"
-                className={`flex h-10 w-10 items-center justify-center rounded-full border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A3248F]/50 ${
-                  canScrollRight
-                    ? "border-[#A3248F]/30 bg-white text-[#A3248F] shadow-sm hover:bg-[#FDF2F9] active:scale-95"
-                    : "cursor-not-allowed border-neutral-200 bg-neutral-100 text-neutral-300"
-                }`}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[#A3248F]/30 bg-white text-[#A3248F] shadow-sm hover:bg-[#FDF2F9] active:scale-95 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A3248F]/50 cursor-pointer"
               >
                 <ChevronRight className="h-4 w-4" />
               </button>
@@ -276,12 +294,16 @@ export default function ServicesAttractive() {
             role="region"
             aria-label="Services carousel track"
             tabIndex={0}
-            className="no-scrollbar flex snap-x snap-mandatory items-stretch gap-4 sm:gap-5 overflow-x-auto scroll-smooth py-1 focus-visible:outline-none [&::-webkit-scrollbar]:hidden"
+            onTouchStart={() => temporarilyPause(5000)}
+            onWheel={() => temporarilyPause(3500)}
+            className="no-scrollbar flex snap-x snap-proximity items-stretch gap-4 sm:gap-5 overflow-x-auto scroll-smooth py-1 focus-visible:outline-none [&::-webkit-scrollbar]:hidden"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {filtered.map(({ id, title, desc, tags, image }) => (
               <article
                 key={id}
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
                 className="group flex w-[82vw] sm:w-[310px] lg:w-[330px] shrink-0 snap-start flex-col overflow-hidden rounded-3xl border border-[#A3248F]/15 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
                 {/* Card Media Preview */}
