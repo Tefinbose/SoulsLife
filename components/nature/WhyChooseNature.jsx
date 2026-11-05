@@ -107,137 +107,8 @@ function AnimatedButterfly({
   );
 }
 
-// Meadow Grass for Card 1
-function MeadowGrass({ className = "", color = "#A3248F" }) {
-  return (
-    <svg
-      viewBox="0 0 110 90"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={`pointer-events-none select-none ${className}`}
-      aria-hidden="true"
-    >
-      <path
-        d="M10 90 C22 55 35 38 52 20 M28 90 C36 65 48 48 64 26 M55 90 C58 62 68 45 80 32 M82 90 C78 68 74 50 68 28 M98 90 C88 56 80 40 70 22 M40 90 C45 72 50 58 58 42 M70 90 C68 76 65 62 60 48"
-        stroke={color}
-        strokeWidth="1.2"
-        strokeLinecap="round"
-        strokeOpacity="0.22"
-      />
-    </svg>
-  );
-}
-
-// 2. Card 2 Graphic: Blooming Zen Lotus & Calming Water Ripple
-function ZenLotusGraphic({ color = "#059669", className = "" }) {
-  return (
-    <div className={`pointer-events-none select-none relative ${className}`} aria-hidden="true">
-      <svg
-        width="78"
-        height="78"
-        viewBox="0 0 64 64"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="overflow-visible"
-      >
-        <defs>
-          <radialGradient id="lotusCenterGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor={color} stopOpacity="0.38" />
-            <stop offset="100%" stopColor={color} stopOpacity="0" />
-          </radialGradient>
-        </defs>
-
-        {/* Ambient Calming Glow */}
-        <circle cx="32" cy="40" r="22" fill="url(#lotusCenterGlow)" />
-
-        {/* Water Ripple Ring */}
-        <circle
-          cx="32"
-          cy="44"
-          r="10"
-          stroke={color}
-          strokeWidth="1.2"
-          className="lotus-ripple"
-        />
-
-        {/* Outer Base Lily Pad Contour */}
-        <path
-          d="M10 46 C16 52 48 52 54 46 C48 48 16 48 10 46 Z"
-          fill={color}
-          fillOpacity="0.18"
-          stroke={color}
-          strokeWidth="1"
-          strokeOpacity="0.4"
-        />
-
-        {/* Lotus Bloom Group */}
-        <g className="lotus-bloom">
-          {/* Back Outspread Petals */}
-          <path
-            d="M32 40 C20 36 8 30 14 20 C22 18 28 28 32 40 Z"
-            fill={color}
-            fillOpacity="0.15"
-            stroke={color}
-            strokeWidth="1.1"
-            className="lotus-petal-left"
-          />
-          <path
-            d="M32 40 C44 36 56 30 50 20 C42 18 36 28 32 40 Z"
-            fill={color}
-            fillOpacity="0.15"
-            stroke={color}
-            strokeWidth="1.1"
-            className="lotus-petal-right"
-          />
-
-          {/* Mid Layer Petals */}
-          <path
-            d="M32 42 C24 34 16 26 22 16 C28 14 30 26 32 42 Z"
-            fill={color}
-            fillOpacity="0.24"
-            stroke={color}
-            strokeWidth="1.2"
-            className="lotus-petal-left"
-          />
-          <path
-            d="M32 42 C40 34 48 26 42 16 C36 14 34 26 32 42 Z"
-            fill={color}
-            fillOpacity="0.24"
-            stroke={color}
-            strokeWidth="1.2"
-            className="lotus-petal-right"
-          />
-
-          {/* Center Crown Petal */}
-          <path
-            d="M32 42 C28 30 26 22 32 12 C38 22 36 30 32 42 Z"
-            fill={color}
-            fillOpacity="0.32"
-            stroke={color}
-            strokeWidth="1.3"
-          />
-
-          {/* Inner Golden Stamen Glow */}
-          <circle cx="32" cy="36" r="3" fill="#10B981" fillOpacity="0.75" />
-        </g>
-
-        {/* Floating Dewdrop / Small Leaf drifting */}
-        <g className="lotus-leaf-drift">
-          <path
-            d="M48 44 C52 40 56 42 54 48 C50 50 46 48 48 44 Z"
-            fill={color}
-            fillOpacity="0.3"
-            stroke={color}
-            strokeWidth="0.9"
-          />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-// 3. Card 3 Graphic: Zen Cairn River Stones & Floating Fireflies
-function ZenCairnFirefliesGraphic({ color = "#7C3AED", className = "" }) {
+// 1. Card 1 Graphic: Qualified & Experienced Professionals (Graduation Cap, Degree Scroll & Credential Stars)
+function QualifiedProfessionalGraphic({ color = "#C443B0", className = "" }) {
   return (
     <div className={`pointer-events-none select-none relative ${className}`} aria-hidden="true">
       <svg
@@ -249,191 +120,174 @@ function ZenCairnFirefliesGraphic({ color = "#7C3AED", className = "" }) {
         className="overflow-visible"
       >
         <defs>
-          <filter id="fireflyGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
-          </filter>
-          <radialGradient id="zenAuraGrad" cx="50%" cy="50%" r="50%">
+          <radialGradient id="qualifiedAuraGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor={color} stopOpacity="0.32" />
+            <stop offset="100%" stopColor={color} stopOpacity="0" />
+          </radialGradient>
+        </defs>
+
+        {/* Ambient Scholarly Halo */}
+        <circle cx="32" cy="32" r="26" fill="url(#qualifiedAuraGrad)" className="qualified-aura" />
+
+        {/* Diploma / Degree Certificate Scroll */}
+        <g className="diploma-scroll">
+          <rect
+            x="20"
+            y="43"
+            width="24"
+            height="8"
+            rx="4"
+            fill={color}
+            fillOpacity="0.22"
+            stroke={color}
+            strokeWidth="1.2"
+          />
+          <path d="M30 43 L30 51 M34 43 L34 51" stroke={color} strokeWidth="1.1" strokeOpacity="0.6" />
+          {/* Ribbon Tie */}
+          <circle cx="32" cy="47" r="1.8" fill={color} />
+          <path d="M32 49 L30 54 M32 49 L34 54" stroke={color} strokeWidth="1" strokeLinecap="round" />
+        </g>
+
+        {/* Academic Graduation Cap (Mortarboard) */}
+        <g className="cap-floating-group">
+          {/* Cap Skull Cap Base */}
+          <path
+            d="M24 28 C24 33 40 33 40 28"
+            fill={color}
+            fillOpacity="0.35"
+            stroke={color}
+            strokeWidth="1.3"
+          />
+
+          {/* Diamond Mortarboard Top */}
+          <polygon
+            points="32,15 48,22 32,29 16,22"
+            fill={color}
+            fillOpacity="0.28"
+            stroke={color}
+            strokeWidth="1.4"
+            strokeLinejoin="round"
+          />
+
+          {/* Center Button */}
+          <circle cx="32" cy="22" r="1.6" fill={color} />
+
+          {/* Swinging Silk Tassel */}
+          <g className="cap-tassel">
+            <path
+              d="M32 22 C37 23 42 26 42 33"
+              stroke={color}
+              strokeWidth="1.2"
+              strokeLinecap="round"
+              fill="none"
+            />
+            {/* Tassel Fringe */}
+            <ellipse cx="42" cy="35" rx="1.8" ry="3" fill={color} fillOpacity="0.8" />
+          </g>
+        </g>
+
+        {/* Twinkling Academic Credential Stars */}
+        <g className="sparkle-star-1">
+          <path
+            d="M16 18 Q16 22 20 22 Q16 22 16 26 Q16 22 12 22 Q16 22 16 18 Z"
+            fill={color}
+            fillOpacity="0.75"
+          />
+        </g>
+        <g className="sparkle-star-2">
+          <path
+            d="M48 14 Q48 17 51 17 Q48 17 48 20 Q48 17 45 17 Q48 17 48 14 Z"
+            fill={color}
+            fillOpacity="0.7"
+          />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+// 2. Card 2 Graphic: 100% Confidential & Ethical Practice (Clinical Security Shield & Keyhole Privacy Lock)
+function ConfidentialShieldGraphic({ color = "#059669", className = "" }) {
+  return (
+    <div className={`pointer-events-none select-none relative ${className}`} aria-hidden="true">
+      <svg
+        width="80"
+        height="80"
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="overflow-visible"
+      >
+        <defs>
+          <radialGradient id="shieldAuraGrad" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor={color} stopOpacity="0.35" />
             <stop offset="100%" stopColor={color} stopOpacity="0" />
           </radialGradient>
         </defs>
 
-        {/* Calming Sanctuary Aura */}
-        <circle
-          cx="32"
-          cy="34"
-          r="26"
-          fill="url(#zenAuraGrad)"
-          className="zen-aura"
-        />
+        {/* Protective Sanctuary Aura */}
+        <circle cx="32" cy="32" r="26" fill="url(#shieldAuraGrad)" className="shield-aura" />
 
-        {/* Ambient Circular Halo */}
-        <circle
-          cx="32"
-          cy="34"
-          r="24"
+        {/* Expanding Privacy Ripple */}
+        <path
+          d="M32 10 C42 15 50 17 50 29 C50 42 38 49 32 54 C26 49 14 42 14 29 C14 17 22 15 32 10 Z"
           stroke={color}
           strokeWidth="0.8"
-          strokeOpacity="0.25"
+          strokeOpacity="0.3"
           strokeDasharray="3 3"
+          className="shield-ripple"
         />
 
-        {/* Base Grounding Shadow */}
-        <ellipse cx="32" cy="53" rx="20" ry="4" fill={color} fillOpacity="0.12" />
-
-        {/* Zen Stone Cairn (3 Balanced River Pebbles) */}
-        {/* Bottom Foundation Stone */}
-        <ellipse
-          className="cairn-stone-1"
-          cx="32"
-          cy="47"
-          rx="18"
-          ry="6.5"
-          fill={color}
-          fillOpacity="0.24"
-          stroke={color}
-          strokeWidth="1.2"
-          strokeOpacity="0.7"
-        />
-        <path
-          d="M20 46 C24 44 40 44 44 46"
-          stroke={color}
-          strokeWidth="0.8"
-          strokeOpacity="0.4"
-          strokeLinecap="round"
-        />
-
-        {/* Middle Balance Stone */}
-        <ellipse
-          className="cairn-stone-2"
-          cx="32"
-          cy="37"
-          rx="13.5"
-          ry="5.5"
-          fill={color}
-          fillOpacity="0.3"
-          stroke={color}
-          strokeWidth="1.2"
-          strokeOpacity="0.8"
-        />
-        <path
-          d="M23 36 C26 35 38 35 41 36"
-          stroke={color}
-          strokeWidth="0.8"
-          strokeOpacity="0.45"
-          strokeLinecap="round"
-        />
-
-        {/* Top Serenity Stone */}
-        <ellipse
-          className="cairn-stone-3"
-          cx="32"
-          cy="28"
-          rx="8.5"
-          ry="4.5"
-          fill={color}
-          fillOpacity="0.38"
-          stroke={color}
-          strokeWidth="1.2"
-          strokeOpacity="0.9"
-        />
-
-        {/* Floating Glowing Fireflies (3 Orbs with Glow) */}
-        <g className="firefly-orb-1">
-          <circle cx="18" cy="24" r="5" fill="#FDE047" fillOpacity="0.45" filter="url(#fireflyGlow)" />
-          <circle cx="18" cy="24" r="2" fill="#FEF08A" stroke="#CA8A04" strokeWidth="0.5" />
-        </g>
-
-        <g className="firefly-orb-2">
-          <circle cx="48" cy="30" r="4.5" fill="#C4B5FD" fillOpacity="0.45" filter="url(#fireflyGlow)" />
-          <circle cx="48" cy="30" r="1.8" fill="#EDE9FE" stroke={color} strokeWidth="0.5" />
-        </g>
-
-        <g className="firefly-orb-3">
-          <circle cx="28" cy="14" r="4" fill="#FDE047" fillOpacity="0.4" filter="url(#fireflyGlow)" />
-          <circle cx="28" cy="14" r="1.6" fill="#FEF08A" stroke="#CA8A04" strokeWidth="0.5" />
-        </g>
-      </svg>
-    </div>
-  );
-}
-
-// 4. Card 4 Graphic: Harmonic Calming Waves & Warm Sunbeams
-function HarmonicWavesGraphic({ color = "#D97706", className = "" }) {
-  return (
-    <div className={`pointer-events-none select-none relative ${className}`} aria-hidden="true">
-      <svg
-        width="80"
-        height="80"
-        viewBox="0 0 64 64"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="overflow-visible"
-      >
-        <defs>
-          <filter id="sunMoteGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" />
-          </filter>
-        </defs>
-
-        {/* Calming Harmonic Sound Waves (Expanding gentle voice resonance arcs) */}
-        <g className="harmonic-wave-3">
+        {/* Main Clinical Security Shield Body */}
+        <g className="shield-breathe">
           <path
-            d="M 52 14 C 40 22 40 42 52 50"
+            d="M32 14 C40 18 46 20 46 30 C46 40 37 46 32 50 C27 46 18 40 18 30 C18 20 24 18 32 14 Z"
+            fill={color}
+            fillOpacity="0.22"
+            stroke={color}
+            strokeWidth="1.4"
+            strokeLinejoin="round"
+          />
+
+          {/* Inner Safety Lock & Keyhole */}
+          <rect
+            x="26"
+            y="30"
+            width="12"
+            height="10"
+            rx="2.5"
+            fill={color}
+            fillOpacity="0.45"
             stroke={color}
             strokeWidth="1.2"
-            strokeLinecap="round"
-            strokeOpacity="0.32"
-            strokeDasharray="4 2"
           />
-        </g>
 
-        <g className="harmonic-wave-2">
+          {/* Shackle */}
           <path
-            d="M 44 20 C 34 26 34 38 44 44"
+            d="M28 30 V25 C28 22.8 29.8 21 32 21 C34.2 21 36 22.8 36 25 V30"
             stroke={color}
-            strokeWidth="1.5"
+            strokeWidth="1.3"
             strokeLinecap="round"
-            strokeOpacity="0.5"
+            className="lock-shackle"
           />
+
+          {/* Keyhole */}
+          <circle cx="32" cy="34" r="1.5" fill="#FFFFFF" />
+          <path d="M32 35.5 V38" stroke="#FFFFFF" strokeWidth="1.1" strokeLinecap="round" />
         </g>
 
-        <g className="harmonic-wave-1">
-          <path
-            d="M 36 25 C 30 28 30 36 36 39"
-            stroke={color}
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeOpacity="0.75"
-          />
-        </g>
-
-        {/* Central Source of Voice / Compassion (Warm Sound Origin) */}
-        <circle cx="28" cy="32" r="3.5" fill={color} fillOpacity="0.3" />
-        <circle cx="28" cy="32" r="2" fill={color} fillOpacity="0.85" />
-
-        {/* Floating Warm Golden Sunbeam Motes */}
-        <g className="sunbeam-mote-1">
-          <circle cx="22" cy="44" r="3" fill="#FDE68A" fillOpacity="0.5" filter="url(#sunMoteGlow)" />
-          <circle cx="22" cy="44" r="1.5" fill="#FEF3C7" stroke={color} strokeWidth="0.4" />
-        </g>
-
-        <g className="sunbeam-mote-2">
-          <circle cx="38" cy="18" r="3.5" fill="#FDE68A" fillOpacity="0.5" filter="url(#sunMoteGlow)" />
-          <circle cx="38" cy="18" r="1.8" fill="#FEF3C7" stroke={color} strokeWidth="0.4" />
-        </g>
-
-        <g className="sunbeam-mote-3">
-          <circle cx="48" cy="34" r="2.5" fill="#FDE68A" fillOpacity="0.4" filter="url(#sunMoteGlow)" />
-          <circle cx="48" cy="34" r="1.2" fill="#FEF3C7" stroke={color} strokeWidth="0.4" />
+        {/* Verified Privacy Check Spark */}
+        <g className="privacy-badge-check">
+          <circle cx="44" cy="20" r="4.5" fill={color} fillOpacity="0.85" />
+          <path d="M42 20 L43.5 21.5 L46.5 18.5" stroke="#FFFFFF" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round" />
         </g>
       </svg>
     </div>
   );
 }
 
-// 5. Card 5 Graphic: Mindful 4-4 Breathing Beacon & Infinity Flow
-function MindfulBreathBeaconGraphic({ color = "#A3248F", className = "" }) {
+// 3. Card 3 Graphic: Personalized Counseling Plans (Therapeutic Growth Roadmap & Calibration Sliders)
+function PersonalizedPlanGraphic({ color = "#7C3AED", className = "" }) {
   return (
     <div className={`pointer-events-none select-none relative ${className}`} aria-hidden="true">
       <svg
@@ -445,63 +299,213 @@ function MindfulBreathBeaconGraphic({ color = "#A3248F", className = "" }) {
         className="overflow-visible"
       >
         <defs>
-          <radialGradient id="beaconGlowGrad" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor={color} stopOpacity="0.4" />
+          <radialGradient id="planAuraGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor={color} stopOpacity="0.32" />
             <stop offset="100%" stopColor={color} stopOpacity="0" />
           </radialGradient>
         </defs>
 
-        {/* Outer Calming Breath Wave (Ring 2) */}
-        <circle
-          cx="32"
-          cy="32"
-          r="26"
+        {/* Ambient Roadmap Aura */}
+        <circle cx="32" cy="32" r="26" fill="url(#planAuraGrad)" className="plan-aura" />
+
+        {/* Assessment Sheet / Personalized Clipboard Outline */}
+        <rect
+          x="14"
+          y="12"
+          width="36"
+          height="44"
+          rx="5"
+          fill={color}
+          fillOpacity="0.18"
           stroke={color}
-          strokeWidth="0.9"
-          strokeOpacity="0.3"
-          className="breath-beacon-ring-2"
+          strokeWidth="1.3"
         />
 
-        {/* Mid Rhythm Wave (Ring 1) */}
-        <circle
-          cx="32"
-          cy="32"
-          r="19"
-          stroke={color}
-          strokeWidth="1.2"
-          strokeOpacity="0.5"
-          className="breath-beacon-ring-1"
-        />
+        {/* Clipboard Top Tab */}
+        <rect x="25" y="9" width="14" height="5" rx="2" fill={color} fillOpacity="0.6" stroke={color} strokeWidth="1" />
+        <circle cx="32" cy="11.5" r="1" fill="#FFFFFF" />
 
-        {/* Infinite Ribbon Flow (24/7 Continuity) */}
+        {/* Ascending Therapeutic Growth Pathway Line */}
         <path
-          d="M 22 32 C 22 25 28 25 32 32 C 36 39 42 39 42 32 C 42 25 36 25 32 32 C 28 39 22 39 22 32 Z"
+          d="M20 42 C 24 38, 28 32, 34 30 C 38 28, 42 22, 44 20"
           stroke={color}
           strokeWidth="1.4"
+          strokeDasharray="3 2"
           strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeOpacity="0.55"
-          fill="none"
-          className="infinity-path-flow"
+          className="plan-path-flow"
         />
 
-        {/* Center Mindful Pulse Core with Radiance */}
-        <circle
-          cx="32"
-          cy="32"
-          r="13"
-          fill="url(#beaconGlowGrad)"
-          className="breath-beacon-core"
+        {/* Milestone Node 1 (Assessment) */}
+        <g className="plan-node-1">
+          <circle cx="21" cy="41" r="3.5" fill={color} fillOpacity="0.3" />
+          <circle cx="21" cy="41" r="2" fill={color} />
+          <path d="M20 41 L20.8 41.8 L22.2 40.2" stroke="#FFFFFF" strokeWidth="0.8" strokeLinecap="round" />
+        </g>
+
+        {/* Milestone Node 2 (Custom Strategy) */}
+        <g className="plan-node-2">
+          <circle cx="33" cy="30" r="3.5" fill={color} fillOpacity="0.3" />
+          <circle cx="33" cy="30" r="2" fill={color} />
+          <path d="M32 30 L32.8 30.8 L34.2 29.2" stroke="#FFFFFF" strokeWidth="0.8" strokeLinecap="round" />
+        </g>
+
+        {/* Milestone Node 3 (Goal & Resilience) */}
+        <g className="plan-node-3">
+          <circle cx="43" cy="21" r="4.5" fill={color} fillOpacity="0.3" />
+          <circle cx="43" cy="21" r="2.5" fill={color} />
+          <path d="M41.8 21 L42.8 22 L44.4 20" stroke="#FFFFFF" strokeWidth="0.9" strokeLinecap="round" />
+        </g>
+
+        {/* Calibration Slider Track (Personalized Custom Tuning) */}
+        <line x1="20" y1="48" x2="44" y2="48" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.4" />
+        <g className="plan-slider-knob">
+          <circle cx="34" cy="48" r="2.8" fill={color} />
+          <circle cx="34" cy="48" r="1" fill="#FFFFFF" />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+// 4. Card 4 Graphic: Online & Offline Care (Physical Clinic Sanctuary + Digital Tele-Video Signal Arcs)
+function HybridCareGraphic({ color = "#D97706", className = "" }) {
+  return (
+    <div className={`pointer-events-none select-none relative ${className}`} aria-hidden="true">
+      <svg
+        width="80"
+        height="80"
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="overflow-visible"
+      >
+        <defs>
+          <radialGradient id="hybridAuraGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor={color} stopOpacity="0.32" />
+            <stop offset="100%" stopColor={color} stopOpacity="0" />
+          </radialGradient>
+        </defs>
+
+        {/* Warm Ambient Halo */}
+        <circle cx="32" cy="32" r="26" fill="url(#hybridAuraGrad)" className="hybrid-aura" />
+
+        {/* Physical Clinic Sanctuary Building (Left Side) */}
+        <g className="clinic-building">
+          {/* Clinic Roof Triangle */}
+          <path d="M14 30 L25 20 L36 30 Z" fill={color} fillOpacity="0.25" stroke={color} strokeWidth="1.2" strokeLinejoin="round" />
+          {/* Clinic Walls */}
+          <rect x="17" y="30" width="16" height="18" rx="1.5" fill={color} fillOpacity="0.18" stroke={color} strokeWidth="1.2" />
+          {/* Clinic Door */}
+          <rect x="22" y="38" width="6" height="10" rx="1" fill={color} fillOpacity="0.5" stroke={color} strokeWidth="1" />
+          {/* Clinical Cross */}
+          <path d="M25 24 V28 M23 26 H27" stroke={color} strokeWidth="1.2" strokeLinecap="round" />
+        </g>
+
+        {/* Digital Video / Remote Connectivity Broadcast Waves (Right Side) */}
+        <g className="hybrid-signal-3">
+          <path
+            d="M 40 20 C 47 24 47 38 40 42"
+            stroke={color}
+            strokeWidth="1.2"
+            strokeLinecap="round"
+            strokeOpacity="0.35"
+            strokeDasharray="3 2"
+          />
+        </g>
+        <g className="hybrid-signal-2">
+          <path
+            d="M 37 23 C 42 26 42 35 37 39"
+            stroke={color}
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            strokeOpacity="0.55"
+          />
+        </g>
+        <g className="hybrid-signal-1">
+          <path
+            d="M 34 26 C 37 28 37 33 34 35"
+            stroke={color}
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeOpacity="0.8"
+          />
+        </g>
+
+        {/* Live Video Camera / Tele-Broadcast Node */}
+        <g className="hybrid-camera-node">
+          <rect x="42" y="27" width="12" height="9" rx="2" fill={color} fillOpacity="0.6" stroke={color} strokeWidth="1" />
+          <polygon points="54,29 59,26 59,37 54,34" fill={color} fillOpacity="0.75" />
+          {/* Live Recording Dot */}
+          <circle cx="46" cy="31.5" r="1.3" fill="#FFFFFF" className="live-rec-dot" />
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+// 5. Card 5 Graphic: Community-Oriented Care (Interconnected Circle of Care & Radiant Central Heart)
+function CommunityCareGraphic({ color = "#A3248F", className = "" }) {
+  return (
+    <div className={`pointer-events-none select-none relative ${className}`} aria-hidden="true">
+      <svg
+        width="80"
+        height="80"
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="overflow-visible"
+      >
+        <defs>
+          <radialGradient id="communityAuraGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor={color} stopOpacity="0.35" />
+            <stop offset="100%" stopColor={color} stopOpacity="0" />
+          </radialGradient>
+        </defs>
+
+        {/* Ambient Community Circle Halo */}
+        <circle cx="32" cy="32" r="26" fill="url(#communityAuraGrad)" className="community-aura" />
+
+        {/* Expanding Solidarity Support Ripple */}
+        <circle cx="32" cy="32" r="22" stroke={color} strokeWidth="0.8" strokeOpacity="0.3" strokeDasharray="3 3" className="community-ripple" />
+
+        {/* Interconnected Community Figures (Circle of Support) */}
+        {/* Left Figure */}
+        <g className="community-person-left">
+          <circle cx="18" cy="25" r="3.2" fill={color} fillOpacity="0.75" />
+          <path d="M12 40 C12 33 24 33 24 40" stroke={color} strokeWidth="1.3" fill={color} fillOpacity="0.22" />
+        </g>
+
+        {/* Right Figure */}
+        <g className="community-person-right">
+          <circle cx="46" cy="25" r="3.2" fill={color} fillOpacity="0.75" />
+          <path d="M40 40 C40 33 52 33 52 40" stroke={color} strokeWidth="1.3" fill={color} fillOpacity="0.22" />
+        </g>
+
+        {/* Center Guide / Family Pillar */}
+        <g className="community-person-center">
+          <circle cx="32" cy="20" r="3.8" fill={color} fillOpacity="0.9" />
+          <path d="M24 37 C24 28 40 28 40 37" stroke={color} strokeWidth="1.4" fill={color} fillOpacity="0.3" />
+        </g>
+
+        {/* Connected Hands of Care (Connecting Arc) */}
+        <path
+          d="M 18 36 C 24 34, 40 34, 46 36"
+          stroke={color}
+          strokeWidth="1.2"
+          strokeLinecap="round"
+          strokeOpacity="0.65"
+          className="community-hands"
         />
-        <circle
-          cx="32"
-          cy="32"
-          r="4.5"
-          fill={color}
-          fillOpacity="0.85"
-          className="breath-beacon-core"
-        />
-        <circle cx="32" cy="32" r="2" fill="#FFFFFF" fillOpacity="0.95" />
+
+        {/* Beating Central Empathy Heart */}
+        <g className="community-heart">
+          <path
+            d="M32 40 C32 37 28 35 28 32 C28 29.5 30 28 32 30 C34 28 36 29.5 36 32 C36 35 32 37 32 40 Z"
+            fill={color}
+            stroke="#FFFFFF"
+            strokeWidth="0.8"
+          />
+        </g>
       </svg>
     </div>
   );
@@ -517,7 +521,7 @@ const metricsCards = [
     bg: "bg-[#FDF4F8]",
     border: "border-[#A3248F]/15",
     color: "#C443B0",
-    type: "butterfly",
+    type: "qualified",
   },
   {
     id: "confidential",
@@ -528,7 +532,7 @@ const metricsCards = [
     bg: "bg-[#F0FAF7]",
     border: "border-[#059669]/15",
     color: "#059669",
-    type: "lotus",
+    type: "confidential",
   },
   {
     id: "personalized",
@@ -539,7 +543,7 @@ const metricsCards = [
     bg: "bg-[#F4F8FD]",
     border: "border-[#7C3AED]/15",
     color: "#7C3AED",
-    type: "zen-cairn",
+    type: "personalized",
   },
   {
     id: "hybrid",
@@ -550,7 +554,7 @@ const metricsCards = [
     bg: "bg-[#FFF9F2]",
     border: "border-[#D97706]/15",
     color: "#D97706",
-    type: "harmonic-waves",
+    type: "hybrid",
   },
   {
     id: "community",
@@ -561,7 +565,7 @@ const metricsCards = [
     bg: "bg-[#FAF3FA]",
     border: "border-[#A3248F]/15",
     color: "#A3248F",
-    type: "breath-beacon",
+    type: "community",
   },
 ];
 
@@ -582,9 +586,146 @@ export default function WhyChooseNature() {
       aria-labelledby="why-choose-heading"
       className="relative py-8 sm:py-12 lg:py-16 overflow-hidden bg-white"
     >
-      {/* Content-matched card animations (scoped to this section) */}
+      {/* Content-matched card animations (scoped strictly to this section) */}
       <style>{`
-        /* ───── Card 1 · Qualified Professionals → butterfly: growth & expertise ───── */
+        /* ───── Card 1 · Qualified Professionals (Academic Cap, Degree Scroll & Credential Stars) ───── */
+        #why-choose-us .cap-tassel {
+          transform-box: fill-box;
+          transform-origin: top left;
+          animation: wc-tassel 2.6s ease-in-out infinite;
+        }
+        #why-choose-us .cap-floating-group {
+          animation: wc-float-cap 5s ease-in-out infinite;
+        }
+        #why-choose-us .sparkle-star-1 {
+          animation: wc-star-twinkle 3s ease-in-out infinite;
+        }
+        #why-choose-us .sparkle-star-2 {
+          animation: wc-star-twinkle 3s ease-in-out 1.5s infinite;
+        }
+        #why-choose-us .qualified-aura {
+          transform-box: fill-box;
+          transform-origin: center;
+          animation: wc-aura-breathe 6s ease-in-out infinite;
+        }
+        @keyframes wc-tassel {
+          0%, 100% { transform: rotate(-8deg); }
+          50%      { transform: rotate(14deg); }
+        }
+        @keyframes wc-float-cap {
+          0%, 100% { transform: translateY(0); }
+          50%      { transform: translateY(-3.5px); }
+        }
+        @keyframes wc-star-twinkle {
+          0%, 100% { transform: scale(0.85); opacity: 0.4; }
+          50%      { transform: scale(1.25); opacity: 1; }
+        }
+        @keyframes wc-aura-breathe {
+          0%, 100% { transform: scale(0.92); opacity: 0.7; }
+          50%      { transform: scale(1.08); opacity: 1; }
+        }
+
+        /* ───── Card 2 · 100% Confidential & Ethical (Clinical Security Shield & Keyhole Privacy Lock) ───── */
+        #why-choose-us .shield-breathe {
+          transform-box: fill-box;
+          transform-origin: center;
+          animation: wc-shield 4.8s ease-in-out infinite;
+        }
+        #why-choose-us .shield-ripple {
+          transform-box: fill-box;
+          transform-origin: center;
+          animation: wc-shield-pulse 3.6s ease-out infinite;
+        }
+        #why-choose-us .privacy-badge-check {
+          animation: wc-badge-bob 4s ease-in-out infinite;
+        }
+        @keyframes wc-shield {
+          0%, 100% { transform: scale(0.97); }
+          50%      { transform: scale(1.02); }
+        }
+        @keyframes wc-shield-pulse {
+          0%   { transform: scale(0.8); opacity: 0.75; }
+          100% { transform: scale(1.28); opacity: 0; }
+        }
+        @keyframes wc-badge-bob {
+          0%, 100% { transform: translateY(0); }
+          50%      { transform: translateY(-2.5px); }
+        }
+
+        /* ───── Card 3 · Personalized Plans (Therapy Growth Roadmap & Calibration Tuning) ───── */
+        #why-choose-us .plan-path-flow {
+          stroke-dasharray: 6 3;
+          animation: wc-path-flow 4s linear infinite;
+        }
+        #why-choose-us .plan-slider-knob {
+          animation: wc-slider-tune 4.2s ease-in-out infinite;
+        }
+        #why-choose-us .plan-node-1 { animation: wc-node-pulse 3s ease-in-out infinite; }
+        #why-choose-us .plan-node-2 { animation: wc-node-pulse 3s ease-in-out 1s infinite; }
+        #why-choose-us .plan-node-3 { animation: wc-node-pulse 3s ease-in-out 2s infinite; }
+        @keyframes wc-path-flow {
+          to { stroke-dashoffset: -18; }
+        }
+        @keyframes wc-slider-tune {
+          0%, 100% { transform: translateX(-4px); }
+          50%      { transform: translateX(5px); }
+        }
+        @keyframes wc-node-pulse {
+          0%, 100% { transform: scale(0.9); opacity: 0.7; }
+          50%      { transform: scale(1.18); opacity: 1; }
+        }
+
+        /* ───── Card 4 · Online & Offline Care (Clinic Sanctuary + Tele-Video Broadcast Signal) ───── */
+        #why-choose-us .hybrid-signal-1 { animation: wc-signal 2.2s ease-out infinite; }
+        #why-choose-us .hybrid-signal-2 { animation: wc-signal 2.2s ease-out 0.35s infinite; }
+        #why-choose-us .hybrid-signal-3 { animation: wc-signal 2.2s ease-out 0.7s infinite; }
+        #why-choose-us .live-rec-dot { animation: wc-rec-blink 1.4s ease-in-out infinite; }
+        @keyframes wc-signal {
+          0%   { transform: translateX(-2px); opacity: 0; }
+          40%  { opacity: 1; }
+          100% { transform: translateX(6px); opacity: 0; }
+        }
+        @keyframes wc-rec-blink {
+          0%, 100% { opacity: 1; }
+          50%      { opacity: 0.2; }
+        }
+
+        /* ───── Card 5 · Community-Oriented Care (Family Solidarity Circle & Radiating Empathy Heart) ───── */
+        #why-choose-us .community-heart {
+          transform-box: fill-box;
+          transform-origin: center;
+          animation: wc-heartbeat 1.8s ease-in-out infinite;
+        }
+        #why-choose-us .community-ripple {
+          transform-box: fill-box;
+          transform-origin: center;
+          animation: wc-comm-ripple 3.6s ease-out infinite;
+        }
+        #why-choose-us .community-person-left,
+        #why-choose-us .community-person-right {
+          transform-box: fill-box;
+          transform-origin: bottom center;
+        }
+        #why-choose-us .community-person-left  { animation: wc-sway-person 5s ease-in-out infinite; }
+        #why-choose-us .community-person-right { animation: wc-sway-person 5s ease-in-out 0.5s infinite; }
+        @keyframes wc-heartbeat {
+          0%, 100% { transform: scale(0.92); }
+          25%      { transform: scale(1.14); }
+          40%      { transform: scale(0.95); }
+          60%      { transform: scale(1.10); }
+        }
+        @keyframes wc-comm-ripple {
+          0%   { transform: scale(0.7); opacity: 0.75; }
+          100% { transform: scale(1.35); opacity: 0; }
+        }
+        @keyframes wc-sway-person {
+          0%, 100% { transform: rotate(-2deg); }
+          50%      { transform: rotate(2deg); }
+        }
+
+        /* Chip butterflies */
+        #why-choose-us .butterfly-drift-1 { animation: wc-drift-1 7s ease-in-out infinite; }
+        #why-choose-us .butterfly-drift-2 { animation: wc-drift-2 8s ease-in-out -2s infinite; }
         #why-choose-us .butterfly-wing-left,
         #why-choose-us .butterfly-wing-right {
           transform-box: view-box;
@@ -592,12 +733,6 @@ export default function WhyChooseNature() {
         }
         #why-choose-us .butterfly-wing-left  { animation: wc-flap-l 1.6s ease-in-out infinite; }
         #why-choose-us .butterfly-wing-right { animation: wc-flap-r 1.6s ease-in-out infinite; }
-        #why-choose-us .butterfly-drift-1 { animation: wc-drift-1 7s ease-in-out infinite; }
-        #why-choose-us .butterfly-drift-2 { animation: wc-drift-2 8s ease-in-out -2s infinite; }
-        #why-choose-us .meadow-sway {
-          transform-origin: 100% 100%;
-          animation: wc-sway 6s ease-in-out infinite;
-        }
         @keyframes wc-flap-l { 0%,100% { transform: scaleX(1); } 50% { transform: scaleX(0.55); } }
         @keyframes wc-flap-r { 0%,100% { transform: scaleX(1); } 50% { transform: scaleX(0.55); } }
         @keyframes wc-drift-1 {
@@ -610,118 +745,11 @@ export default function WhyChooseNature() {
           40% { translate: -4px -4px; }
           70% { translate: 3px -7px; }
         }
-        @keyframes wc-sway { 0%,100% { transform: rotate(-1.5deg); } 50% { transform: rotate(2deg); } }
-
-        /* ───── Card 2 · 100% Confidential & Ethical → lotus: calm, safe, unhurried ───── */
-        #why-choose-us .lotus-bloom {
-          transform-box: view-box;
-          transform-origin: 32px 42px;
-          animation: wc-bloom 7s ease-in-out infinite;
-        }
-        #why-choose-us .lotus-petal-left,
-        #why-choose-us .lotus-petal-right {
-          transform-box: view-box;
-          transform-origin: 32px 42px;
-        }
-        #why-choose-us .lotus-petal-left  { animation: wc-petal-l 7s ease-in-out infinite; }
-        #why-choose-us .lotus-petal-right { animation: wc-petal-r 7s ease-in-out infinite; }
-        #why-choose-us .lotus-ripple {
-          transform-box: view-box;
-          transform-origin: 32px 44px;
-          animation: wc-ripple 4s ease-out infinite;
-        }
-        #why-choose-us .lotus-leaf-drift { animation: wc-leaf 9s ease-in-out infinite; }
-        @keyframes wc-bloom   { 0%,100% { transform: scale(0.95); } 50% { transform: scale(1.04); } }
-        @keyframes wc-petal-l { 0%,100% { transform: rotate(4deg); }  50% { transform: rotate(-5deg); } }
-        @keyframes wc-petal-r { 0%,100% { transform: rotate(-4deg); } 50% { transform: rotate(5deg); } }
-        @keyframes wc-ripple {
-          0%   { transform: scale(0.6); opacity: 0.8; }
-          100% { transform: scale(2);   opacity: 0; }
-        }
-        @keyframes wc-leaf {
-          0%,100% { transform: translate(0, 0) rotate(0deg); }
-          50%     { transform: translate(-4px, 2px) rotate(-10deg); }
-        }
-
-        /* ───── Card 3 · Custom / Personalized → balanced cairn, each stone tuned individually ───── */
-        #why-choose-us .cairn-stone-1,
-        #why-choose-us .cairn-stone-2,
-        #why-choose-us .cairn-stone-3 {
-          transform-box: view-box;
-          transform-origin: 32px 47px;
-        }
-        #why-choose-us .cairn-stone-1 { animation: wc-stone 6s ease-in-out infinite; }
-        #why-choose-us .cairn-stone-2 { animation: wc-stone 6s ease-in-out -0.6s infinite; }
-        #why-choose-us .cairn-stone-3 { animation: wc-stone 6s ease-in-out -1.2s infinite; }
-        #why-choose-us .zen-aura {
-          transform-box: view-box;
-          transform-origin: 32px 34px;
-          animation: wc-aura 5s ease-in-out infinite;
-        }
-        #why-choose-us .firefly-orb-1 { animation: wc-fly-1 8s ease-in-out infinite; }
-        #why-choose-us .firefly-orb-2 { animation: wc-fly-2 10s ease-in-out -3s infinite; }
-        #why-choose-us .firefly-orb-3 { animation: wc-fly-3 9s ease-in-out -5s infinite; }
-        @keyframes wc-stone {
-          0%,100% { transform: rotate(-1.2deg) translateX(-0.4px); }
-          50%     { transform: rotate(1.2deg)  translateX(0.4px); }
-        }
-        @keyframes wc-aura { 0%,100% { transform: scale(0.92); opacity: 0.7; } 50% { transform: scale(1.08); opacity: 1; } }
-        @keyframes wc-fly-1 {
-          0%,100% { transform: translate(0, 0);      opacity: 0.5; }
-          30%     { transform: translate(5px, -6px); opacity: 1; }
-          65%     { transform: translate(-2px, 5px); opacity: 0.6; }
-        }
-        @keyframes wc-fly-2 {
-          0%,100% { transform: translate(0, 0);      opacity: 0.6; }
-          40%     { transform: translate(-6px, 5px); opacity: 1; }
-          75%     { transform: translate(3px, -5px); opacity: 0.5; }
-        }
-        @keyframes wc-fly-3 {
-          0%,100% { transform: translate(0, 0);      opacity: 0.5; }
-          35%     { transform: translate(6px, 4px);  opacity: 1; }
-          70%     { transform: translate(-4px, -3px); opacity: 0.6; }
-        }
-
-        /* ───── Card 4 · Hybrid Online & Offline → voice waves travelling outward, like tele-counseling ───── */
-        #why-choose-us .harmonic-wave-1 { animation: wc-wave 2.4s ease-out infinite; }
-        #why-choose-us .harmonic-wave-2 { animation: wc-wave 2.4s ease-out 0.35s infinite; }
-        #why-choose-us .harmonic-wave-3 { animation: wc-wave 2.4s ease-out 0.7s infinite; }
-        #why-choose-us .sunbeam-mote-1 { animation: wc-mote 6s ease-in-out infinite; }
-        #why-choose-us .sunbeam-mote-2 { animation: wc-mote 7s ease-in-out -2s infinite; }
-        #why-choose-us .sunbeam-mote-3 { animation: wc-mote 5.5s ease-in-out -4s infinite; }
-        @keyframes wc-wave {
-          0%   { transform: translateX(-3px); opacity: 0; }
-          35%  { opacity: 1; }
-          100% { transform: translateX(5px);  opacity: 0; }
-        }
-        @keyframes wc-mote {
-          0%,100% { transform: translateY(0);    opacity: 0.4; }
-          50%     { transform: translateY(-5px); opacity: 1; }
-        }
-
-        /* ───── Card 5 · Affordable / Community → steady 4-4 breathing + continuous flow ───── */
-        #why-choose-us .breath-beacon-ring-1,
-        #why-choose-us .breath-beacon-ring-2,
-        #why-choose-us .breath-beacon-core {
-          transform-box: view-box;
-          transform-origin: 32px 32px;
-        }
-        #why-choose-us .breath-beacon-ring-1 { animation: wc-breathe 8s ease-in-out infinite; }
-        #why-choose-us .breath-beacon-ring-2 { animation: wc-breathe 8s ease-in-out 0.4s infinite; }
-        #why-choose-us .breath-beacon-core   { animation: wc-core 8s ease-in-out infinite; }
-        #why-choose-us .infinity-path-flow {
-          stroke-dasharray: 26 10;
-          animation: wc-flow 5s linear infinite;
-        }
-        @keyframes wc-breathe { 0%,100% { transform: scale(0.85); } 50% { transform: scale(1.1); } }
-        @keyframes wc-core    { 0%,100% { transform: scale(0.8);  } 50% { transform: scale(1.15); } }
-        @keyframes wc-flow    { to { stroke-dashoffset: -36; } }
 
         /* Respect users who prefer reduced motion */
         @media (prefers-reduced-motion: reduce) {
           #why-choose-us svg *,
-          #why-choose-us [class*="butterfly-drift"],
-          #why-choose-us .meadow-sway { animation: none !important; }
+          #why-choose-us [class*="butterfly-drift"] { animation: none !important; }
         }
       `}</style>
 
@@ -774,47 +802,37 @@ export default function WhyChooseNature() {
                   key={card.id}
                   className={`group relative overflow-hidden rounded-[26px] sm:rounded-[30px] border ${card.border} ${card.bg} p-5 sm:p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${card.colSpan} flex flex-col justify-between min-h-[155px] sm:min-h-[170px]`}
                 >
-                  {/* Dedicated Calming Animation Graphic for Each Card */}
-                  {card.type === "butterfly" && (
-                    <>
-                      <MeadowGrass
-                        color={card.color}
-                        className="meadow-sway absolute right-0 bottom-0 w-28 h-24 sm:w-32 sm:h-28 pointer-events-none select-none z-0"
-                      />
-                      <div className="absolute right-2 top-2 sm:right-4 sm:top-3 pointer-events-none select-none z-0">
-                        <AnimatedButterfly
-                          color={card.color}
-                          size={54}
-                          driftClass="butterfly-drift-1"
-                          angle={12}
-                        />
-                      </div>
-                    </>
-                  )}
-
-                  {card.type === "lotus" && (
-                    <ZenLotusGraphic
+                  {/* Dedicated Content-Matched Animation Graphic for Each Card */}
+                  {card.type === "qualified" && (
+                    <QualifiedProfessionalGraphic
                       color={card.color}
                       className="absolute right-2 top-1 sm:right-3 sm:top-2 z-0"
                     />
                   )}
 
-                  {card.type === "zen-cairn" && (
-                    <ZenCairnFirefliesGraphic
+                  {card.type === "confidential" && (
+                    <ConfidentialShieldGraphic
                       color={card.color}
                       className="absolute right-2 top-1 sm:right-3 sm:top-2 z-0"
                     />
                   )}
 
-                  {card.type === "harmonic-waves" && (
-                    <HarmonicWavesGraphic
+                  {card.type === "personalized" && (
+                    <PersonalizedPlanGraphic
                       color={card.color}
                       className="absolute right-2 top-1 sm:right-3 sm:top-2 z-0"
                     />
                   )}
 
-                  {card.type === "breath-beacon" && (
-                    <MindfulBreathBeaconGraphic
+                  {card.type === "hybrid" && (
+                    <HybridCareGraphic
+                      color={card.color}
+                      className="absolute right-2 top-1 sm:right-3 sm:top-2 z-0"
+                    />
+                  )}
+
+                  {card.type === "community" && (
+                    <CommunityCareGraphic
                       color={card.color}
                       className="absolute right-2 top-1 sm:right-3 sm:top-2 z-0"
                     />
