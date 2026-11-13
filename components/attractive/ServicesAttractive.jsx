@@ -84,7 +84,7 @@ const services = [
     title: "Psychological Assessments & IQ Testing",
     desc: "Standardized IQ, aptitude and cognitive tests with a written clinical report.",
     tags: ["IQ tests", "Aptitude tests", "Written report"],
-    image: "/images/clinic-sanctuary.jpg",
+    image: "/images/iq-assessment.jpg",
     icon: BrainCircuit,
   },
   {
