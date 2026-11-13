@@ -322,7 +322,7 @@ export default function TeamPage() {
                   className="group flex flex-col overflow-hidden rounded-3xl border border-neutral-200/90 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#A3248F]/40 hover:shadow-xl"
                 >
                   {/* Portrait container */}
-                  <div className="relative aspect-[4/3] overflow-hidden bg-neutral-100">
+                  <div className="relative aspect-[5/6] overflow-hidden bg-neutral-100">
                     <Image
                       src={doc.image}
                       alt={`Portrait of ${doc.name}`}
@@ -330,7 +330,7 @@ export default function TeamPage() {
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#162238]/65 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#162238]/45 via-transparent to-transparent" />
                     {doc.isCoFounder && (
                       <div className="absolute right-3 top-3">
                         <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-[#A3248F] to-[#0D55AE] px-3 py-1 text-[11px] font-bold text-white shadow-md">
