@@ -322,22 +322,13 @@ export default function TeamPage() {
                   className="group flex flex-col overflow-hidden rounded-3xl border border-neutral-200/90 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#A3248F]/40 hover:shadow-xl"
                 >
                   {/* Portrait container */}
-                  <div className="relative h-64 overflow-hidden bg-gradient-to-br from-[#F7F1FA] via-[#FAF8FD] to-[#EEF4FC]">
-                    {/* Ambient blurred backdrop matching each portrait's palette */}
-                    <Image
-                      src={doc.image}
-                      alt=""
-                      aria-hidden="true"
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="scale-110 object-cover opacity-45 blur-xl"
-                    />
+                  <div className="relative aspect-[4/3] overflow-hidden bg-neutral-100">
                     <Image
                       src={doc.image}
                       alt={`Portrait of ${doc.name}`}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-contain object-center transition-transform duration-700 group-hover:scale-105"
+                      className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#162238]/30 via-transparent to-transparent" />
                     {doc.isCoFounder && (
