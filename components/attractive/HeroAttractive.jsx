@@ -30,8 +30,8 @@ const slides = [
   },
   {
     id: 3,
-    image: "/images/clinic-sanctuary.jpg",
-    alt: "Souls Life clinic sanctuary in Wandoor Kerala",
+    image: "/images/hero-souls-embrace.jpg",
+    alt: "Warm, supportive embrace at Souls Life Wellbeing Centre",
     chip: "BUILDING RESILIENT COMMUNITIES",
     titleLine1: "Confidential guidance",
     titleLine2: "when you need it most.",
