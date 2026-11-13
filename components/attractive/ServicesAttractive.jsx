@@ -102,7 +102,7 @@ const services = [
     title: "Workshops & Training Programs",
     desc: "Dynamic institutional and corporate training in stress mastery, emotional intelligence, and life skills.",
     tags: ["Schools & colleges", "Workplaces", "Life skills"],
-    image: "/images/community-support.jpg",
+    image: "/images/workshops-training.jpg",
     icon: Presentation,
   },
 ];
