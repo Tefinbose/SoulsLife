@@ -93,7 +93,7 @@ const services = [
     title: "Tele-Counseling & Remote Support",
     desc: "Confidential video and audio sessions for clients across Kerala and worldwide.",
     tags: ["Video or phone", "Malayalam & English", "Confidential"],
-    image: "/images/hero-therapy-session.jpg",
+    image: "/images/tele-counseling.jpg",
     icon: Video,
   },
   {
