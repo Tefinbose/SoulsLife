@@ -38,6 +38,16 @@ const slides = [
     description:
       "Led by qualified experts in Medical Social Work, Psychology, Child Development, and Community Development to ensure lasting transformation.",
   },
+  {
+    id: 4,
+    image: "/images/serene-clinic-hero.jpg",
+    alt: "Sunlit private counseling room with plants and comfortable armchair at Souls Life",
+    chip: "PERSONALIZED MENTAL WELLNESS",
+    titleLine1: "A safe space to",
+    titleLine2: "heal and grow.",
+    description:
+      "Thoughtfully designed in-clinic and tele-counseling sessions tailored to your emotional pace, family dynamics, and personal goals.",
+  },
 ];
 
 /*
@@ -383,28 +393,34 @@ export default function HeroAttractive() {
         </button>
 
         {/* Bottom Pagination Dashes with Live Autoplay Progress */}
-        <div className="absolute bottom-6 sm:bottom-9 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
-          {slides.map((slide, index) => {
-            const isCurrent = index === currentSlide;
-            return (
-              <button
-                key={slide.id}
-                type="button"
-                onClick={() => goToSlide(index)}
-                aria-label={`Go to slide ${index + 1}`}
-                aria-current={isCurrent}
-                className={`relative overflow-hidden h-1.5 transition-all duration-500 rounded-full cursor-pointer ${isCurrent ? "w-10 sm:w-12 bg-white/30" : "w-4 sm:w-5 bg-white/35 hover:bg-white/70"
-                  }`}
-              >
-                {isCurrent && (
-                  <span
-                    key={`progress-${currentSlide}`}
-                    className="hero-progress-fill absolute inset-0 rounded-full bg-white"
-                  />
-                )}
-              </button>
-            );
-          })}
+        <div className="absolute bottom-6 sm:bottom-9 left-1/2 -translate-x-1/2 z-30 flex items-center gap-3 rounded-full border border-white/15 bg-[#162238]/40 px-4 py-2 backdrop-blur-md">
+          <span className="text-[11px] font-medium tracking-widest text-white/75 tabular-nums">
+            {pad(currentSlide + 1)} / {pad(slides.length)}
+          </span>
+          <span className="h-3 w-px bg-white/20" aria-hidden="true" />
+          <div className="flex items-center gap-2">
+            {slides.map((slide, index) => {
+              const isCurrent = index === currentSlide;
+              return (
+                <button
+                  key={slide.id}
+                  type="button"
+                  onClick={() => goToSlide(index)}
+                  aria-label={`Go to slide ${index + 1}`}
+                  aria-current={isCurrent}
+                  className={`relative overflow-hidden h-1.5 transition-all duration-500 rounded-full cursor-pointer ${isCurrent ? "w-10 sm:w-12 bg-white/30" : "w-4 sm:w-5 bg-white/35 hover:bg-white/70"
+                    }`}
+                >
+                  {isCurrent && (
+                    <span
+                      key={`progress-${currentSlide}`}
+                      className="hero-progress-fill absolute inset-0 rounded-full bg-white"
+                    />
+                  )}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Organic Curved Wave Transition into Next Section */}
