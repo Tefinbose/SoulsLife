@@ -9,6 +9,8 @@ import {
   GraduationCap,
   Award,
   Languages,
+  Sparkles,
+  Video,
 } from "lucide-react";
 import Navbar from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
@@ -41,34 +43,50 @@ const specialists = [
     accent: "#A3248F",
   },
   {
-    name: "Senior Clinical Social Worker",
-    role: "Clinical Social Worker & Family Specialist",
-    qualification: "MSW – Medical Social Work",
-    focus: ["Family conflict resolution", "Pre-marital & marital counseling", "Couple therapy", "Relationship healing", "Divorce & separation support"],
+    name: "Nimisha A S",
+    role: "Counsellor & Co-Founder, Souls Life",
+    qualification: "MSW – Community Development",
+    focus: [
+      "Community & youth counseling",
+      "Career aptitude & guidance",
+      "Life skills & leadership",
+      "Soft skills & confidence building",
+    ],
     languages: "Malayalam, English",
-    image: "/images/mr-counselor-portrait.jpg",
-    badge: "Medical Social Work Specialist",
+    image: "/images/team-nimisha.jpg",
+    badge: "Community Development",
+    isCoFounder: true,
+    accent: "#A3248F",
+  },
+  {
+    name: "Anu Jose",
+    role: "Counsellor — Medical & Psychiatric Social Work",
+    qualification: "MSW – Medical & Psychiatric Social Work",
+    focus: [
+      "Anxiety & emotional distress",
+      "Psychiatric social work support",
+      "Stress & coping strategies",
+      "Individual & crisis counseling",
+    ],
+    languages: "Malayalam, English",
+    image: "/images/team-anu-jose.jpg",
+    badge: "Medical & Psychiatric Social Work",
     accent: "#0D55AE",
   },
   {
-    name: "Child Development Expert",
-    role: "Child Development & Learning Specialist",
-    qualification: "MSW – Child Development",
-    focus: ["Learning disability assessment", "Scholastic backwardness support", "Child emotional counseling", "Parent training programs"],
+    name: "Sherin C Jaleel",
+    role: "Counsellor — Family Social Work Practice",
+    qualification: "MSW – Family Social Work Practice",
+    focus: [
+      "Family conflict resolution",
+      "Pre-marital & marital counseling",
+      "Couple & relationship therapy",
+      "Parenting & child emotional care",
+    ],
     languages: "Malayalam, English",
-    image: "/images/female-counselor-portrait.jpg",
-    badge: "Child Development Specialist",
+    image: "/images/team-sherin.jpg",
+    badge: "Family Social Work Practice",
     accent: "#059669",
-  },
-  {
-    name: "Career Counselor & Community Lead",
-    role: "Career Counselor & Communication Expert",
-    qualification: "MSW – Community Development",
-    focus: ["Career aptitude assessment", "Stream & course selection", "Soft skills & interview prep", "Life skills & leadership"],
-    languages: "Malayalam, English",
-    image: "/images/male-counselor-portrait.jpg",
-    badge: "Community & Career Specialist",
-    accent: "#7C3AED",
   },
 ];
 
@@ -171,6 +189,24 @@ export default function TeamPage() {
                     <CheckCircle2 className="h-4 w-4 text-[#059669]" />
                     Strict Ethical &amp; Professional Standards
                   </span>
+                </div>
+
+                {/* Quick Team Highlights */}
+                <div className="mx-auto mt-8 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4">
+                  {[
+                    { value: "4", label: "Clinical Specialists" },
+                    { value: "MSc & MSW", label: "Postgraduate Faculty" },
+                    { value: "100%", label: "Confidential Care" },
+                    { value: "In-Clinic & Online", label: "Flexible Sessions" },
+                  ].map((stat) => (
+                    <div
+                      key={stat.label}
+                      className="rounded-2xl border border-[#A3248F]/15 bg-white/80 px-3 py-3 shadow-sm backdrop-blur-sm"
+                    >
+                      <p className="text-sm font-bold text-[#162238] sm:text-base">{stat.value}</p>
+                      <p className="mt-0.5 text-[11px] font-medium text-[#4A5B73]">{stat.label}</p>
+                    </div>
+                  ))}
                 </div>
               </FadeUp>
             </div>
@@ -292,11 +328,19 @@ export default function TeamPage() {
                       alt={`Portrait of ${doc.name}`}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#162238]/60 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 left-3">
-                      <span className="rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold text-[#162238] shadow backdrop-blur-sm">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#162238]/65 via-transparent to-transparent" />
+                    {doc.isCoFounder && (
+                      <div className="absolute right-3 top-3">
+                        <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-[#A3248F] to-[#0D55AE] px-3 py-1 text-[11px] font-bold text-white shadow-md">
+                          <Sparkles className="h-3 w-3" />
+                          Co-Founder
+                        </span>
+                      </div>
+                    )}
+                    <div className="absolute bottom-3 left-3 right-3">
+                      <span className="inline-block rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold text-[#162238] shadow backdrop-blur-sm">
                         {doc.badge}
                       </span>
                     </div>
@@ -308,7 +352,10 @@ export default function TeamPage() {
                       {doc.name}
                     </h3>
                     <p className="mt-1 text-sm font-semibold text-[#0D55AE]">{doc.role}</p>
-                    <p className="mt-0.5 text-xs text-[#4A5B73]">{doc.qualification}</p>
+                    <p className="mt-1 inline-flex items-center gap-1.5 text-xs font-medium text-[#4A5B73]">
+                      <GraduationCap className="h-3.5 w-3.5 text-[#A3248F]" />
+                      <span>{doc.qualification}</span>
+                    </p>
 
                     <div className="mt-5 border-t border-neutral-100 pt-4">
                       <p className="mb-2 text-[11px] font-bold uppercase tracking-wider text-[#162238]/70">
@@ -317,9 +364,15 @@ export default function TeamPage() {
                       <FocusTags items={doc.focus} accent={doc.accent} />
                     </div>
 
-                    <div className="mt-4 flex items-center gap-1.5 text-xs text-[#4A5B73]">
-                      <Languages className="h-3.5 w-3.5 text-[#A3248F]" />
-                      <span>{doc.languages}</span>
+                    <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-[#4A5B73]">
+                      <span className="inline-flex items-center gap-1.5">
+                        <Languages className="h-3.5 w-3.5 text-[#A3248F]" />
+                        <span>{doc.languages}</span>
+                      </span>
+                      <span className="inline-flex items-center gap-1.5">
+                        <Video className="h-3.5 w-3.5 text-[#0D55AE]" />
+                        <span>In-Clinic &amp; Online</span>
+                      </span>
                     </div>
 
                     {/* Animated accent divider */}
@@ -328,15 +381,26 @@ export default function TeamPage() {
                       style={{ background: `linear-gradient(90deg, ${doc.accent}, #0D55AE)` }}
                     />
 
-                    <div className="mt-auto pt-6">
+                    <div className="mt-auto flex items-center gap-2.5 pt-6">
                       <BookSessionButton
                         serviceTitle={doc.role}
                         doctorName={doc.name}
-                        className="btn-nature-primary w-full justify-center px-4 py-2.5 text-sm shadow-sm"
+                        className="btn-nature-primary flex-1 justify-center px-4 py-2.5 text-sm shadow-sm"
                       >
                         <Calendar className="h-4 w-4" />
                         <span>Book Session</span>
                       </BookSessionButton>
+                      <a
+                        href={`https://wa.me/91${siteConfig.phone}?text=${encodeURIComponent(
+                          `Hello Souls Life, I would like to book a session with ${doc.name}.`
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`WhatsApp inquiry for ${doc.name}`}
+                        className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#25D366]/35 bg-[#25D366]/10 text-[#128C7E] transition hover:bg-[#25D366] hover:text-white"
+                      >
+                        <MessageCircle className="h-4 w-4" />
+                      </a>
                     </div>
                   </div>
                 </article>
