@@ -9,7 +9,6 @@ import {
   GraduationCap,
   Award,
   Languages,
-  Sparkles,
   Video,
 } from "lucide-react";
 import Navbar from "@/components/layout/NavBar";
@@ -333,8 +332,7 @@ export default function TeamPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-[#162238]/30 via-transparent to-transparent" />
                     {doc.isCoFounder && (
                       <div className="absolute right-3 top-3">
-                        <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-[#A3248F] to-[#0D55AE] px-3 py-1 text-[11px] font-bold text-white shadow-md">
-                          <Sparkles className="h-3 w-3" />
+                        <span className="inline-flex items-center rounded-full bg-gradient-to-r from-[#A3248F] to-[#0D55AE] px-3 py-1 text-[11px] font-bold text-white shadow-md">
                           Co-Founder
                         </span>
                       </div>
