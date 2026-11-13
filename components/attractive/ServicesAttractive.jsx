@@ -75,7 +75,7 @@ const services = [
     title: "Elderly Emotional Support",
     desc: "Counseling for senior citizens dealing with loneliness, health worries, loss and life changes.",
     tags: ["Loneliness", "Ageing & health", "Grief"],
-    image: "/images/counselling-interior.jpg",
+    image: "/images/elderly-support.jpg",
     icon: HandHeart,
   },
   {
